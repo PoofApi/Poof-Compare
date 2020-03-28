@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import Modal from './Modal.js';
 import Modal2 from './Modal2.js';
-import piggy from '../images/piggy.jpg';
+import piggy3 from '../images/piggy3.jpg';
 
 class Header extends Component {
 
@@ -17,7 +17,7 @@ class Header extends Component {
     render(){
         return (
             <div className="jumbo">
-                <img src={piggy} />
+                <img src={piggy3} />
                 <nav className="transparent">
                     <div className="nav-wrapper" style={{borderBottom: "1px solid"}}>
                         <a href="/" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
