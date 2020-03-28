@@ -1,0 +1,31 @@
+input::placeholder{
+    color: rgb(218, 95, 95)
+}
+
+.jumbo{
+    position: relative;
+    overflow: hidden;
+    min-height: 800px;
+    background-color: black;
+}
+
+.jumbo img{
+    position: absolute;
+    background-position: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.4;
+}
+
+.nav-wrapper{
+    background-color: transparent !important;
+}
+
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+}
+

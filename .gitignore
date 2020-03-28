@@ -23,5 +23,3 @@ yarn-error.log*
 # Environment
 .env
 
-# Styles
-src/**/*.css
