@@ -20,7 +20,7 @@ class Header extends Component {
                     <div className="nav-wrapper">
                         <a href="/" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                         <div style={{paddingLeft: '15px'}}>
-                            <Link to={'/'} className="brand-logo">Poof!</Link>
+                            <Link style={{paddingRight: "20px", borderRight: "1px solid"}} to={'/'} className="brand-logo">Poof!</Link>
                         </div>
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
                                 <li><Link to={'/'}>About</Link></li>
@@ -39,12 +39,10 @@ class Header extends Component {
                     <div className="col-12">
                         <h2 style={{textAlign: "center", fontSize: "32px", textDecoration: "underline"}} className="mb-3 flow-text white-text"><b>Welcome to Poof! Auto-Compare!</b></h2>
                         </div>
-                    <div className="col-12 col-md-8 offset-md-2" style={{display: "flex", justifyContent: "center"}}>
+                    <div className="col-12 col-md-12" style={{display: "flex", justifyContent: "center"}}>
                         <form>
-                            <div className="input-field" style={{display: "flex"}}>
-                            <input style={{paddingLeft: "50px"}} id="search" type="search" required></input>
-                            <label style={{marginLeft: 0, paddingRight: "20px"}} className="label-icon" for="search"><i className="material-icons prefix">search</i></label>
-                            <i style={{paddingLeft: "23px", marginRight: 0}} className="material-icons prefix">close</i>
+                            <div style={{display: "flex", justifyContent: "center"}}>
+                            <input className="browser-default search-field" style={{display: "flex", width: "40vw", height: "6vh", marginTop: "20px"}} id="search" type="search" required></input>
                             </div>
                         </form>
                     </div>
