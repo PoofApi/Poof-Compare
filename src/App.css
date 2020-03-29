@@ -5,16 +5,24 @@ input::placeholder{
 .jumbo{
     position: relative;
     overflow: hidden;
-    min-height: 800px;
+    min-height: 1000px;
     background-color: black;
 }
 
 .jumbo img{
     position: absolute;
+    height: 100%;
     width: 100%;
-    height: auto;
-    opacity: 0.4;
+    opacity: 0.38;
 }
+
+@media screen and (max-width: 999px) {
+    .poofLogo {
+        display: none;
+    }
+}
+
+
 
 .nav-wrapper{
     background-color: transparent !important;

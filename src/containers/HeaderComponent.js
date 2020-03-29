@@ -21,7 +21,7 @@ class Header extends Component {
                 <nav className="transparent">
                     <div className="nav-wrapper" style={{borderBottom: "1px solid"}}>
                         <a href="/" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-                        <div style={{paddingLeft: '15px'}}>
+                        <div className="poofLogo" style={{paddingLeft: '15px'}}>
                             <Link style={{paddingRight: "20px", borderRight: "1px solid"}} to={'/'} className="brand-logo">Poof!</Link>
                         </div>
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
@@ -39,7 +39,7 @@ class Header extends Component {
                 </ul>
                 <div className="row" style={{paddingTop: "180px"}}>
                     <div className="col-12">
-                        <h2 style={{textAlign: "center", fontSize: "50px"}} className="mb-3 flow-text white-text"><b>Welcome to Poof! Auto-Compare!</b></h2>
+                        <h2 style={{textAlign: "center", fontSize: "60px", fontFamily: "Roboto"}} className="mb-3 flow-text white-text"><b>Welcome to Poof! Auto-Compare!</b></h2>
                         </div>
                     <div className="col-12 col-md-12" style={{display: "flex", justifyContent: "center"}}>
                         <form>
@@ -48,13 +48,13 @@ class Header extends Component {
                             </div>
                         </form>
                     </div>
-                    <div className="col-12 col-md-12 categories" style={{marginTop: "15px", display: "flex", justifyContent: "center"}}>
-                        <ul style={{display: "flex", flexWrap: "wrap"}}>
-                            <li style={{margin: "10px", padding: "20px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                    <div className="col-12 col-md-12 categories" style={{marginTop: "15px", display: "flex", justifyContent: "center", fontFamily: "Roboto"}}>
+                        <ul style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
+                            <li style={{margin: "10px", padding: "20px", paddingLeft: "37px", paddingRight: "37px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">laptop_mac</i>
                                 <div>Electronics</div>
                             </li>
-                            <li style={{margin: "10px", padding: "30px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                            <li style={{margin: "10px", padding: "20px", paddingLeft: "44px", paddingRight: "44px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">book</i>
                                 <div>Books</div>
                             </li>
@@ -62,7 +62,7 @@ class Header extends Component {
                             <i className="medium material-icons">store</i>
                                 <div>Clothes/Apparel</div>
                             </li>
-                            <li style={{margin: "10px", padding: "20px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                            <li style={{margin: "10px", padding: "20px", paddingLeft: "30px", paddingRight: "30px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">toys</i>
                                 <div>Games/Toys</div>
                             </li>
