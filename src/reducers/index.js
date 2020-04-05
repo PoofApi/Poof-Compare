@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import product from './productReducer'
+import item from './productReducer'
 
 const compareApp = combineReducers({
-  product
+  item
 });
 
 export default compareApp

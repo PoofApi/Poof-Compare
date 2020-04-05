@@ -5,23 +5,52 @@ import * as productActions from '../../actions/product'
 import {connect} from 'react-redux';
 import Header from '../HeaderComponent.js';
 
+const axios = require('axios');
+
+
+async function getItems(){
+  console.log("Now fetching items.........")
+
+  await axios({
+    method: 'post',
+    url: "https://us-central1-poofapibackend.cloudfunctions.net/search-bestprice",
+    headers: {
+      "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+      "Accept" : "application/json",
+      "Content-Type" : "application/json",
+    },
+    data: {"keywords" : "gamecube controller"},
+  }).then(function(response){
+    if(response.data){
+      console.log(response.data)
+    }
+  }).catch(function(error){
+      console.log(error)
+  })
+}
+
 
 class Home extends Component {
   componentWillMount() {
-    this.props.actions.getProducts()
+      this.props.actions.getProducts();
+      console.log(this.state)
   }
 
+
   render() {
-    const {products, actions} = this.props;
-    const compareProducts = products.filter(product => product.compare);
+
+    getItems();
+    
+    const {items, actions} = this.props;
+    const compareProducts = items.filter(item => item.compare);
 
     return (
       <div>
         <Header />
         <div className="home mt-5">
-          <ProductList products={products} compare={actions.compare}/>
+          <ProductList items={items} compare={actions.compare}/>
           {compareProducts.length >= 2 &&
-            <Compare products={compareProducts}/>
+            <Compare items={compareProducts}/>
           }
         </div>
       </div>
@@ -32,7 +61,7 @@ class Home extends Component {
 
 export default connect(
   state => ({
-    products: state.product.products
+    items: state.item.items
   }),
   dispatch => ({
     actions: bindActionCreators(productActions, dispatch)
