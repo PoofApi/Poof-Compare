@@ -2,7 +2,7 @@ import * as types from '../constants/types'
 
 const axios = require('axios');
 
-export function getProducts(){
+export const getProducts = () =>
 
   dispatch =>
     axios({
@@ -22,7 +22,7 @@ export function getProducts(){
         payload: response.items
       })
     })
-}
+
   
 
 export const compare = item => ({

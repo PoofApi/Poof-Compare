@@ -22,16 +22,6 @@ const Compare = ({items}) =>
               <td key={item.id} className="text-center">{item.price}</td>
             )}
           </tr>
-          <tr className="colors">
-            <th scope="row">Colors</th>
-            {items.map(item =>
-              <td key={item.id}>
-                {item.colors.map((color, index) =>
-                  <span key={index} className={"bg-" + color} />
-                )}
-              </td>
-            )}
-          </tr>
           <tr className="condition">
             <th scope="row">Condition</th>
             {items.map(item =>
