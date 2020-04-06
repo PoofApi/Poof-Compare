@@ -11,26 +11,31 @@ const axios = require('axios');
 async function getItems(){
   console.log("Now fetching items.........")
 
-  await axios({
-    method: 'post',
-    url: "https://us-central1-poofapibackend.cloudfunctions.net/search-bestprice",
-    headers: {
-      "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
-      "Accept" : "application/json",
-      "Content-Type" : "application/json",
-    },
-    data: {"keywords" : "gamecube controller"},
-  }).then(function(response){
-    if(response.data){
-      console.log(response.data)
-    }
-  }).catch(function(error){
-      console.log(error)
-  })
+  try{
+    let response = await axios({
+      method: 'post',
+      url: "https://us-central1-poofapibackend.cloudfunctions.net/search-bestprice",
+      headers: {
+        "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+        "Accept" : "application/json",
+        "Content-Type" : "application/json",
+      },
+      data: {"keywords" : "gamecube controller"},
+    })
+  
+    let items = await response.data;
+    console.log(items);
+  }
+
+  catch(err){
+    alert(err);
+    console.log("An error occurred!!!!!: ", err);
+  }
 }
 
 
 class Home extends Component {
+  
   componentWillMount() {
       this.props.actions.getProducts();
       console.log(this.state)
