@@ -2,10 +2,17 @@ input::placeholder{
     color: rgb(218, 95, 95)
 }
 
-.jumbo{
+.jumbo {
     position: relative;
     overflow: hidden;
     min-height: 1000px;
+    background-color: black;
+}
+
+.jumbo2 {
+    position: relative;
+    overflow: hidden;
+    min-height: 0px;
     background-color: black;
 }
 
