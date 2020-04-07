@@ -25,9 +25,19 @@ const Compare = ({items}) =>
           <tr className="condition">
             <th scope="row">Condition</th>
             {items.map(item =>
-              
-                {item.condition}
-              
+              <td key={item.id} className="text-center">{item.condition}</td>  
+            )}
+          </tr>
+          <tr className="source">
+            <th scope="row">Source</th>
+            {items.map(item =>
+              <td key={item.id} className="text-center">{item.source}</td>  
+            )}
+          </tr>
+          <tr className="link">
+            <th scope="row">Item Link</th>
+            {items.map(item =>
+              <td key={item.id} className="text-center">{item.link}</td>  
             )}
           </tr>
         </tbody>
