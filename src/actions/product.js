@@ -13,7 +13,7 @@ export const getProducts = () =>
         "Accept" : "application/json",
         "Content-Type" : "application/json",
       },
-      data: {"keywords" : "gamecube controller"},
+      data: {"keywords" : "mario party"},
     })
     .then(response => response.data)
     .then(response => {

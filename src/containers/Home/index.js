@@ -4,6 +4,7 @@ import {Compare, ProductList} from '../../components'
 import * as productActions from '../../actions/product'
 import {connect} from 'react-redux';
 import Header from '../HeaderComponent.js';
+import Header2 from '../HeaderComponent2.js';
 
 const axios = require('axios');
 
@@ -33,14 +34,15 @@ async function getItems(){
   }
 }
 
-
 class Home extends Component {
-  
+
   componentWillMount() {
       this.props.actions.getProducts();
-      console.log(this.state)
   }
 
+  componentDidUpdate() {
+    console.log(this.props.items);
+  }
 
   render() {
 
@@ -48,10 +50,11 @@ class Home extends Component {
     
     const {items, actions} = this.props;
     const compareProducts = items.filter(item => item.compare);
+    console.log(this.props.items);
 
     return (
       <div>
-        <Header />
+        {this.props.items.length > 0 ? <Header2 /> : <Header />}
         <div className="home mt-5">
           <ProductList items={items} compare={actions.compare}/>
           {compareProducts.length >= 2 &&

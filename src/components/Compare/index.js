@@ -35,7 +35,7 @@ const Compare = ({items}) =>
             )}
           </tr>
           <tr className="link">
-            <th scope="row">Item Link</th>
+            <th scope="row">Link</th>
             {items.map(item =>
               <td key={item.id} className="text-center">{item.link}</td>  
             )}
