@@ -8,10 +8,6 @@ import Modal2 from './Modal2.js';
 import piggy3 from '../images/piggy3.jpg';
 import {resetSearch} from '../actions/product';
 
-const showState = () => {
-    console.log("showState function was called!")
-    alert(this.state);
-}
 
 class Header2 extends Component {
 
@@ -29,12 +25,8 @@ class Header2 extends Component {
                         <div className="poofLogo" style={{paddingLeft: '15px'}}>
                             <Link style={{paddingRight: "20px", borderRight: "1px solid"}} to={'/'} className="brand-logo">Poof!</Link>
                         </div>
-                            <ul id="nav-mobile" className="left hide-on-med-and-down" style={{paddingLeft: "120px"}} onClick={() => resetSearch()}>
-                                <li><Link to={'/'}>Reset Search</Link></li>
-                            </ul>
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
-                                <li><Link to={'/'}>About (Items are loaded)</Link></li>
-                                <li><Link onClick={showState()} to={'/'}>About (Items are loaded)</Link></li>
+                                <li><Link to={'/'}>About</Link></li>
                                 <li><Link to={'/'}>Login</Link></li>
                                 <li><Link to={'/'}>Register</Link></li>
                             </ul>
