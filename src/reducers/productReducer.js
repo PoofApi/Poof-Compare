@@ -12,6 +12,10 @@ export default function (state = INITIAL_STATE, action) {
           ({...item, compare: false})
         )
       };
+    case types.RESET_PRODUCTS:
+      return {
+        ...state, items: []
+      };
     case types.COMPARE_PRODUCT:
       return {
         ...state, items: state.items.map(item =>

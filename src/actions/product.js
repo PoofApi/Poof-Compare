@@ -29,3 +29,7 @@ export const compare = item => ({
     type: types.COMPARE_PRODUCT,
     item
   })
+
+export const resetSearch = () => ({
+    type: types.RESET_PRODUCTS
+})
