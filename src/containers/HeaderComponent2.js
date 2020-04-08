@@ -8,6 +8,10 @@ import Modal2 from './Modal2.js';
 import piggy3 from '../images/piggy3.jpg';
 import {resetSearch} from '../actions/product';
 
+const showState = () => {
+    console.log("showState function was called!")
+    alert(this.state);
+}
 
 class Header2 extends Component {
 
@@ -30,6 +34,7 @@ class Header2 extends Component {
                             </ul>
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
                                 <li><Link to={'/'}>About (Items are loaded)</Link></li>
+                                <li><Link onClick={showState()} to={'/'}>About (Items are loaded)</Link></li>
                                 <li><Link to={'/'}>Login</Link></li>
                                 <li><Link to={'/'}>Register</Link></li>
                             </ul>
