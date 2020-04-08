@@ -1,4 +1,5 @@
 import * as types from '../constants/types'
+import { store } from '../index.js';
 
 const axios = require('axios');
 
@@ -31,5 +32,5 @@ export const compare = item => ({
   })
 
 export const resetSearch = () => ({
-    type: types.RESET_PRODUCTS
+  type: types.RESET_PRODUCTS
 })

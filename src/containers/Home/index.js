@@ -43,6 +43,7 @@ class Home extends Component {
 
   componentDidUpdate() {
     console.log(this.props.items);
+    console.log(this.state);
   }
 
   render() {
@@ -58,7 +59,7 @@ class Home extends Component {
       <div>
         {this.props.items.length > 0 ? <Header2 /> : <Header />}
         {this.props.items.length > 0 && 
-          <div className="resetButton" style={{borderColor: "black", zIndex: "99", border: "2px solid", position: "fixed", top: "11%", right: "2%", marginLeft: "10px", marginTop: "10px", backgroundColor: "pink", padding: "5px", fontWeight: "770"}}>
+          <div className="resetButton" onClick={() => this.props.actions.resetSearch()} style={{cursor: "pointer", borderColor: "black", zIndex: "99", border: "2px solid", position: "fixed", top: "11%", right: "2%", marginLeft: "10px", marginTop: "10px", backgroundColor: "pink", padding: "5px", fontWeight: "770"}}>
             <div style={{float:"right"}}>
               Click to Reset Search
             </div>
@@ -67,7 +68,7 @@ class Home extends Component {
         
         <div className="home mt-5">
           <ProductList items={items} compare={actions.compare}/>
-          {compareProducts.length >= 2 &&
+          {compareProducts.length >= 1 &&
             <Compare items={compareProducts}/>
           }
         </div>

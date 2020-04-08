@@ -1,3 +1,7 @@
 .resetButton{
-    font-weight: 500
+    font-weight: 500;
+}
+
+div .resetButton:hover{
+    background-color: green;
 }
