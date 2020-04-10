@@ -2,6 +2,6 @@
     font-weight: 500;
 }
 
-div .resetButton:hover{
-    background-color: green;
+.resetButton:hover {
+    background-color: red !important;
 }
