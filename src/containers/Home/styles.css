@@ -1,0 +1,7 @@
+.resetButton{
+    font-weight: 500;
+}
+
+.resetButton:hover {
+    background-color: red !important;
+}

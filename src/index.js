@@ -14,7 +14,7 @@ import './styles.css'
 
 const loggerMiddleware = createLogger();
 
-const store = createStore(
+export const store = createStore(
   reducer,
   applyMiddleware(
     thunkMiddleware,
