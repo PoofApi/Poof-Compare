@@ -6,7 +6,8 @@
   overflow: hidden;
   transition: all 500ms ease-out;
   margin-bottom: 30px;
-  border: 1px solid #ddd; }
+  border: 1px solid #ddd; 
+  height: 500px;}
   .product:hover {
     box-shadow: 0 13px 21px -5px rgba(0, 0, 0, 0.2); }
     .product:hover .image_overlay {
