@@ -6,8 +6,68 @@ import '../App.css';
 import Modal from './Modal.js';
 import Modal2 from './Modal2.js';
 import piggy3 from '../images/piggy3.jpg';
+import {getProducts} from '../actions/product.js';
+import {store} from '../index.js';
+import * as types from '../constants/types';
+import Loading from './LoadingComponent.js';
+
+
+const axios = require('axios');
+
+const getItems2 = (payload) => ({
+    type: types.FETCH_PRODUCTS2,
+    payload: payload
+  })
+
+async function getProductsForHome(keywords){
+  console.log("Now fetching items.........")
+
+  try{
+    let response = await axios({
+      method: 'post',
+      url: "https://us-central1-poofapibackend.cloudfunctions.net/search-bestprice",
+      headers: {
+        "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+        "Accept" : "application/json",
+        "Content-Type" : "application/json",
+      },
+      data: {"keywords" : keywords},
+    })
+  
+    let items = await response.data;
+    console.log(items);
+    store.dispatch(getItems2(items.items));
+  }
+
+  catch(err){
+    alert(err);
+    console.log("An error occurred!!!!!: ", err);
+  }
+}
 
 class Header extends Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            value: '',
+            loading: false
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    
+
+    handleSubmit(event){
+        getProductsForHome(this.state.value);
+        this.setState({loading:true})
+        event.preventDefault();
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
 
     componentDidMount(){
         let sidenav = document.querySelector('#slide-out');
@@ -15,6 +75,8 @@ class Header extends Component {
     }
 
     render(){
+
+
         return (
             <div className="jumbo">
                 <img src={piggy3} />
@@ -37,17 +99,33 @@ class Header extends Component {
                     <li style={{textAlign: "center"}}><Link to={'/'}>Login</Link></li>
                     <li style={{textAlign: "center"}}><Link to={'/'}>Register</Link></li>               
                 </ul>
-                <div className="row" style={{paddingTop: "180px"}}>
+                <div className="row" style={{paddingTop: "180px", display: "flex", justifyContent: "center"}}>
                     <div className="col-12">
                         <h2 style={{textAlign: "center", fontSize: "60px", fontFamily: "Roboto"}} className="mb-3 flow-text white-text"><b>Welcome to Poof! Auto-Compare!</b></h2>
+                    </div>
+                    
+                    {
+                    this.state.loading ? 
+                    
+                    <div className="col-md-2">
+                        <div className="progress">
+                            <div className="indeterminate"></div>
                         </div>
+                    </div>
+                    
+                    :
+                
                     <div className="col-12 col-md-12" style={{display: "flex", justifyContent: "center"}}>
-                        <form>
-                            <div style={{display: "flex", justifyContent: "center"}}>
-                            <input className="browser-default search-field" style={{display: "flex", width: "40vw", height: "6vh", marginTop: "20px"}} id="search" type="search" required></input>
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="input-field" style={{display: "flex", justifyContent: "center"}}>
+                                <input className="browser-default search-field" style={{display: "flex", paddingLeft: "25px", width: "40vw", height: "6vh", marginTop: "20px"}} id="search" type="search" onChange={this.handleChange} value={this.state.value} required></input>
+                                <label type="submit" value="Submit" style={{top:"45%", left:"95%"}} className="label-icon" for="search"><i style={{position:"absolute"}} className="material-icons">search</i></label>
                             </div>
                         </form>
                     </div>
+                
+                    }
+
                     <div className="col-12 col-md-12 categories" style={{marginTop: "15px", display: "flex", justifyContent: "center", fontFamily: "Roboto"}}>
                         <ul style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
                             <li style={{margin: "10px", padding: "20px", paddingLeft: "37px", paddingRight: "37px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>

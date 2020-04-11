@@ -26,7 +26,7 @@
     text-align: left;
     padding-left: 45px; }
   .compare table tr.condition {
-    color: #393c45;
+    color: #fff;
     font-size: 20px; }
   .compare table tr.colors span {
     height: 20px;
@@ -40,4 +40,4 @@
     font-weight: normal; }
 
 .compare .thead-default th {
-  background-color: pink; }
+  background-color: #fff; }

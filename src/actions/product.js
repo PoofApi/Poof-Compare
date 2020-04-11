@@ -3,7 +3,7 @@ import { store } from '../index.js';
 
 const axios = require('axios');
 
-export const getProducts = () =>
+export const getProducts = (keywords) =>
 
   dispatch =>
     axios({
@@ -14,7 +14,7 @@ export const getProducts = () =>
         "Accept" : "application/json",
         "Content-Type" : "application/json",
       },
-      data: {"keywords" : "mario party"},
+      data: {"keywords" : keywords},
     })
     .then(response => response.data)
     .then(response => {
@@ -22,9 +22,9 @@ export const getProducts = () =>
         type: types.FETCH_PRODUCTS,
         payload: response.items
       })
+      alert("Get Products was called");
     })
 
-  
 
 export const compare = item => ({
     type: types.COMPARE_PRODUCT,

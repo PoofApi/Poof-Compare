@@ -13,6 +13,12 @@ export default function (state = INITIAL_STATE, action) {
           ({...item, compare: false})
         )
       };
+    case types.FETCH_PRODUCTS2:
+      return {
+        ...state, isLoading: false, items: action.payload.map(item =>
+          ({...item, compare: false})
+        )
+      };
     case types.RESET_PRODUCTS:
       return {
         ...state, items: [], isLoading: false
