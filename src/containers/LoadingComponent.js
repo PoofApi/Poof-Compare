@@ -1,11 +1,11 @@
 import React from 'react';
+import Loader from 'react-loader-spinner';
 
 const Loading = () => {
     return(
-        <div className="progress">
-            <div>Now loading your search items.......</div>
-            <div className="indeterminate"></div>
-        </div>
+
+        <Loader type="ThreeDots" color="#2BAD60" height="100%" width="100%" />
+
     );
 };
 

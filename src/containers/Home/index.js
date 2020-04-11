@@ -7,6 +7,7 @@ import Header from '../HeaderComponent.js';
 import Header2 from '../HeaderComponent2.js';
 import Loading from '../LoadingComponent.js';
 import './styles.css';
+import {store} from '../../index.js';
 
 const axios = require('axios');
 
@@ -38,13 +39,10 @@ async function getItems(){
 
 class Home extends Component {
 
-  componentWillMount() {
-      this.props.actions.getProducts();
-  }
-
   componentDidUpdate() {
-    console.log(this.props.items);
+    console.log(this.props);
     console.log(this.state);
+    console.log(store.getState().item.isLoading);
   }
 
   render() {
@@ -59,7 +57,7 @@ class Home extends Component {
     return (
       
       <div>
-        
+
         {this.props.items.length > 0 ? <Header2 /> : <Header />}
         {this.props.items.length > 0 && 
           <div className="resetButton" onClick={() => this.props.actions.resetSearch()} style={{cursor: "pointer", borderColor: "black", zIndex: "99", border: "2px solid", position: "fixed", top: "11%", right: "2%", marginLeft: "10px", marginTop: "10px", backgroundColor: "pink", padding: "5px", fontWeight: "770"}}>
@@ -69,13 +67,15 @@ class Home extends Component {
           </div>
         }
         
-
-        <div className="home mt-5">
-          <ProductList items={items} compare={actions.compare}/>
-          {compareProducts.length >= 1 &&
-            <Compare items={compareProducts}/>
-          }
-        </div>
+        {this.props.items.length > 0 && 
+          <div className="home mt-5">
+            <ProductList items={items} compare={actions.compare}/>
+            {compareProducts.length >= 1 &&
+              <Compare items={compareProducts}/>
+            }
+          </div>
+        }
+        
       </div>
      
     )
