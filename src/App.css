@@ -47,3 +47,18 @@ input::placeholder{
     margin: 0 !important;
 }
 
+.laptopIcon:hover {
+    background-color: darkgoldenrod;
+}
+
+.bookIcon:hover {
+    background-color: darkgoldenrod;
+}
+
+.toyIcon:hover {
+    background-color: darkgoldenrod;
+}
+
+.houseIcon:hover {
+    background-color: darkgoldenrod;
+}
