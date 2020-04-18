@@ -40,6 +40,15 @@ const axios = require('axios');
 // }
 
 class Home extends Component {
+  state = {
+    compareTableOpen: true
+  };
+
+  toggleCompare = () => {
+    this.setState((prevState) => {
+      return {compareTableOpen: !prevState.compareTableOpen};
+    })
+  };
 
   componentDidUpdate() {
     console.log(this.props);
@@ -78,8 +87,14 @@ class Home extends Component {
           <div className="home mt-5">
             <ProductList items={items} compare={actions.compare}/>
             <div className="compareTable">
-              {compareProducts.length >= 1 &&
-                <Compare items={compareProducts}/>
+              {compareProducts.length >= 1 && (this.state.compareTableOpen) ? 
+                <Compare items={compareProducts} toggleClick={this.toggleCompare} 
+              />
+
+              :
+
+              <div></div> }
+
               }
            </div>
             

@@ -1,16 +1,16 @@
 import React from 'react'
 import './styles.css'
 
-const Compare = ({items}) =>
+const Compare = ({items, toggleClick}) =>
   <div className="row compare" style={{marginBottom: "0"}}>
     
       
         <table className="table">
           <thead className="thead-default">
             <tr>
-              <th />
+              <th><i className="medium material-icons toggleButton" onClick={() => toggleClick()} >expand_more</i></th>
               {items.map(item =>
-                <th key={item.id}>
+                <th className="tableTitle" key={item.id}>
                   {item.title}
                 </th>
               )}

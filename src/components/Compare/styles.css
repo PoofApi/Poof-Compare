@@ -42,3 +42,18 @@
 
 .compare .thead-default th {
   background-color: pink; }
+
+.toggleButton{
+  margin-right: 870px;
+  font-size: 3rem !important
+}
+
+.toggleButton:hover {
+  cursor: pointer
+}
+
+.tableTitle{
+  padding-top: 0;
+  vertical-align: middle !important;
+}
+
