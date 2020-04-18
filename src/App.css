@@ -49,16 +49,20 @@ input::placeholder{
 
 .laptopIcon:hover {
     background-color: darkgoldenrod;
+    cursor: pointer
 }
 
 .bookIcon:hover {
     background-color: darkgoldenrod;
+    cursor: pointer
 }
 
 .toyIcon:hover {
     background-color: darkgoldenrod;
+    cursor: pointer
 }
 
 .houseIcon:hover {
     background-color: darkgoldenrod;
+    cursor: pointer
 }

@@ -47,7 +47,7 @@ const getItems2 = (payload) => ({
 //   }
 // }
 
-const getProducts = () =>
+const getProducts3 = () =>
 
   alert("Get Products function called");
   
@@ -73,13 +73,17 @@ class Header extends Component {
     
 
     handleSubmit(event){
-        getProducts();
+        getProducts3();
         this.setState({loading:true})
         event.preventDefault();
     }
 
     handleChange(event) {
         this.setState({value: event.target.value});
+    }
+
+    reload(){
+        window.location.reload();
     }
 
     componentDidMount(){
@@ -144,19 +148,19 @@ class Header extends Component {
 
                     <div className="col-12 col-md-12 categories" style={{marginTop: "15px", display: "flex", justifyContent: "center", fontFamily: "Roboto"}}>
                         <ul style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
-                            <li className="laptopIcon" style={{margin: "10px", padding: "20px", paddingLeft: "37px", paddingRight: "37px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                            <li className="laptopIcon" onClick={this.reload} style={{margin: "10px", padding: "20px", paddingLeft: "37px", paddingRight: "37px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">laptop_mac</i>
                                 <div>Electronics</div>
                             </li>
-                            <li className="bookIcon" style={{margin: "10px", padding: "20px", paddingLeft: "44px", paddingRight: "44px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                            <li className="bookIcon" onClick={this.reload} style={{margin: "10px", padding: "20px", paddingLeft: "44px", paddingRight: "44px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">book</i>
                                 <div>Books</div>
                             </li>
-                            <li className="houseIcon" style={{margin: "10px", padding: "20px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                            <li className="houseIcon" onClick={this.reload} style={{margin: "10px", padding: "20px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">store</i>
                                 <div>Clothes/Apparel</div>
                             </li>
-                            <li className="toyIcon" style={{margin: "10px", padding: "20px", paddingLeft: "30px", paddingRight: "30px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                            <li className="toyIcon" onClick={this.reload} style={{margin: "10px", padding: "20px", paddingLeft: "30px", paddingRight: "30px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">toys</i>
                                 <div>Games/Toys</div>
                             </li>
