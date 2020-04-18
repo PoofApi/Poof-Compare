@@ -1,11 +1,12 @@
 .compare table {
   background-color: #fff;
   border-radius: 5px;
-  overflow: hidden;
+  overflow: scroll;
   box-shadow: 0 13px 21px -5px rgba(0, 0, 0, 0.05);
   border: 1px solid #eee;
   font-size: 18px;
-  table-layout: fixed; }
+  table-layout: fixed;
+  margin-bottom: 0 }
   .compare table .bg-red {
     background-color: #ff715b; }
   .compare table .bg-green {

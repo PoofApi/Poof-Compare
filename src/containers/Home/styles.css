@@ -15,3 +15,19 @@
     bottom: 0;
     left: 0;
 }
+
+.compareTable{
+    display: block;
+    overflow: scroll;
+    height: 300px;
+    position: fixed;
+    bottom: 0;
+}
+
+.compareTable::-webkit-scrollbar {
+    display: none;
+  }
+
+.compareTable {
+    -ms-overflow-style: none;
+  }

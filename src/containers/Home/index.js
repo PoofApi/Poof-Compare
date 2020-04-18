@@ -77,7 +77,7 @@ class Home extends Component {
         {this.props.items.length > 0 && 
           <div className="home mt-5">
             <ProductList items={items} compare={actions.compare}/>
-            <div>
+            <div className="compareTable">
               {compareProducts.length >= 1 &&
                 <Compare items={compareProducts}/>
               }
