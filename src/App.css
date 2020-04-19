@@ -66,3 +66,12 @@ input::placeholder{
     background-color: darkgoldenrod;
     cursor: pointer
 }
+
+.compareToolbar {
+    height: 40px;
+    background: pink;
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    width: 100%
+}

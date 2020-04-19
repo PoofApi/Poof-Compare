@@ -45,7 +45,8 @@
 
 .toggleButton{
   margin-right: 870px;
-  font-size: 3rem !important
+  font-size: 3rem !important;
+  vertical-align: top
 }
 
 .toggleButton:hover {

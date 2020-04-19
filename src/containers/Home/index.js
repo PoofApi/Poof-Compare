@@ -5,6 +5,7 @@ import * as productActions from '../../actions/product'
 import {connect} from 'react-redux';
 import Header from '../HeaderComponent.js';
 import Header2 from '../HeaderComponent2.js';
+import CompareToolbar from '../compareToolbar.js'
 import Loading from '../LoadingComponent.js';
 import './styles.css';
 import {store} from '../../index.js';
@@ -41,12 +42,21 @@ const axios = require('axios');
 
 class Home extends Component {
   state = {
-    compareTableOpen: true
+    compareTableOpen: true,
+    compareToolbarOpen: false
   };
 
   toggleCompare = () => {
+    this.toggleCompareToolbar();
     this.setState((prevState) => {
       return {compareTableOpen: !prevState.compareTableOpen};
+    })
+  };
+
+  toggleCompareToolbar = () => {
+    this.setState({compareTableOpen: true});
+    this.setState((prevState) => {
+      return {compareToolbarOpen: !prevState.compareToolbarOpen};
     })
   };
 
@@ -72,7 +82,6 @@ class Home extends Component {
         {this.props.items.length > 0 ? <Header2 /> : 
         <div>
           <Header />
-          
         </div>
         }
         {this.props.items.length > 0 && 
@@ -97,7 +106,8 @@ class Home extends Component {
 
               }
            </div>
-            
+
+           {this.state.compareToolbarOpen ? <CompareToolbar toggleToolbar={this.toggleCompareToolbar} /> : <div></div> }
           </div>
           
         }
