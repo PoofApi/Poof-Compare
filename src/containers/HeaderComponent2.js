@@ -22,21 +22,21 @@ class Header2 extends Component {
                 <nav className="transparent">
                     <div className="nav-wrapper" style={{borderBottom: "1px solid"}}>
                         <a href="/" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-                        <div className="poofLogo" style={{paddingLeft: '15px'}}>
-                            <Link style={{paddingRight: "20px", borderRight: "1px solid"}} to={'/'} className="brand-logo">Poof!</Link>
+                        <div className="poofLogo">
+                            <Link style={{paddingRight: "20px", paddingLeft: "15px", borderRight: "1px solid"}} to={'/'} className="brand-logo">Poof!</Link>
                         </div>
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
-                                <li><Link to={'/'}>About</Link></li>
-                                <li><Link to={'/'}>Login</Link></li>
-                                <li><Link to={'/'}>Register</Link></li>
+                                <li className="navLinks"><Link to={'/'}>About</Link></li>
+                                <li className="navLinks"><Link to={'/'}>Login</Link></li>
+                                <li className="navLinks"><Link to={'/'}>Register</Link></li>
                             </ul>
                     </div>
                 </nav>
 
                 <ul id="slide-out" className="sidenav">
-                    <li style={{textAlign: "center"}}><Link to={'/'}>About</Link></li>
-                    <li style={{textAlign: "center"}}><Link to={'/'}>Login</Link></li>
-                    <li style={{textAlign: "center"}}><Link to={'/'}>Register</Link></li>               
+                    <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>About</Link></li>
+                    <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Login</Link></li>
+                    <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Register</Link></li>               
                 </ul>
             </div>
             

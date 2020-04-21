@@ -85,7 +85,7 @@ class Home extends Component {
         </div>
         }
         {this.props.items.length > 0 && 
-          <div className="resetButton" onClick={() => this.props.actions.resetSearch()} style={{cursor: "pointer", borderColor: "black", zIndex: "99", border: "2px solid", position: "fixed", top: "11%", right: "2%", marginLeft: "10px", marginTop: "10px", backgroundColor: "pink", padding: "5px", fontWeight: "770"}}>
+          <div className="resetButton" onClick={() => this.props.actions.resetSearch()} style={{cursor: "pointer", borderColor: "black", zIndex: "99", border: "3px solid white", position: "fixed", top: "11%", right: "2%", marginLeft: "10px", marginTop: "10px", backgroundColor: "black", padding: "5px", fontWeight: "770", color: "white", borderRadius: "10px"}}>
             <div style={{float:"right"}}>
               Click to Reset Search
             </div>

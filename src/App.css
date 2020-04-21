@@ -75,3 +75,16 @@ input::placeholder{
     bottom: 0;
     width: 100%
 }
+
+.navLinks:hover {
+    background-color: darkgoldenrod;
+}
+
+.brand-logo:hover {
+    background-color: darkgoldenrod;
+}
+
+a:hover{
+    color: white !important;
+    text-decoration: none !important;
+}

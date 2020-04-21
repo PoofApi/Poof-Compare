@@ -5,8 +5,7 @@
   box-shadow: 0 13px 21px -5px rgba(0, 0, 0, 0.05);
   border: 1px solid #eee;
   font-size: 18px;
-  table-layout: fixed; 
-  margin-bottom: 0}
+  table-layout: fixed; }
   .compare table .bg-red {
     background-color: #ff715b; }
   .compare table .bg-green {
@@ -43,18 +42,6 @@
 .compare .thead-default th {
   background-color: pink; }
 
-.toggleButton{
-  margin-right: 870px;
-  font-size: 3rem !important;
-  vertical-align: top
-}
-
 .toggleButton:hover {
-  cursor: pointer
+  cursor: pointer;
 }
-
-.tableTitle{
-  padding-top: 0;
-  vertical-align: middle !important;
-}
-
