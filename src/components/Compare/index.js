@@ -1,50 +1,38 @@
-import React from 'react'
-import './styles.css'
+import React from 'react';
+import './highlightCSS.css';
 
 const Compare = ({items, toggleClick}) =>
-  <div className="row compare" style={{marginBottom: "0"}}>
-    
-      
-        <table className="table">
-          <thead className="thead-default">
-            <tr>
-              <th><i className="medium material-icons toggleButton" onClick={() => toggleClick()} >expand_more</i></th>
-              {items.map(item =>
-                <th className="tableTitle" key={item.id}>
-                  {item.title}
-                </th>
-              )}
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="price">
-              <th scope="row">Price</th>
-              {items.map(item =>
-                <td key={item.id} className="text-center">{item.price}</td>
-              )}
-            </tr>
-            <tr className="condition">
-              <th scope="row">Condition</th>
-              {items.map(item =>
-                <td key={item.id} className="text-center">{item.condition}</td>  
-              )}
-            </tr>
-            <tr className="source">
-              <th scope="row">Source</th>
-              {items.map(item =>
-                <td key={item.id} className="text-center">{item.source}</td>  
-              )}
-            </tr>
-            <tr className="link">
-              <th scope="row">Link</th>
-              {items.map(item =>
-                <td key={item.id} className="text-center">{item.link}</td>  
-              )}
-            </tr>
-          </tbody>
-        </table>
-      
-    
+  <div className="highlightContainer">
+    <div className="hToolbar">
+        <i className="material-icons toggleButton" onClick={() => toggleClick()} >expand_more</i>
+    </div>
+    {items.map(item =>
+      <img className="compareImage" src={item.image} alt={item.title} key={item.id}/>
+    )}
+    <div className="info">
+      <h3 className='username'>Item Crap</h3>
+        <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+        ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+        purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
+        <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+        ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+        purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
+        <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+        ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+        purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
+        <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+        ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+        purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
+        <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+        ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+        purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
+        <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+        ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+        purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
+        <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+        ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+        purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
+    </div>
   </div>;
 
 export default Compare

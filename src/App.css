@@ -69,7 +69,7 @@ input::placeholder{
 
 .compareToolbar {
     height: 40px;
-    background: pink;
+    background: darkgoldenrod;
     position: fixed;
     display: flex;
     bottom: 0;
@@ -87,4 +87,12 @@ input::placeholder{
 a:hover{
     color: white !important;
     text-decoration: none !important;
+}
+
+.toggleButton{
+    margin-left: 5px;
+}
+
+.toggleButton:hover{
+    cursor: pointer;
 }

@@ -103,15 +103,11 @@ class Home extends Component {
               :
 
               <div></div> }
-
-              }
            </div>
 
            {this.state.compareToolbarOpen ? <CompareToolbar toggleToolbar={this.toggleCompareToolbar} /> : <div></div> }
           </div>
-          
         }
-        
       </div>
      
     )

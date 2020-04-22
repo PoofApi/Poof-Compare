@@ -1,0 +1,30 @@
+.highlightContainer{
+    height: 120vh;
+    background-color: white;
+}
+
+.hToolbar {
+    height: 35px;
+    background-color: darkgoldenrod;
+}
+
+.toggleButton{
+    font-size: 35px;
+}
+
+.toggleButton:hover{
+    cursor: pointer;
+}
+
+.compareImage{
+    height: 250px;
+    width: 250px;
+    float: left;
+    margin-left: 100px;
+    padding-right: 30px;
+}
+
+.info{
+    margin-top: 30px;
+    overflow: hidden;
+}

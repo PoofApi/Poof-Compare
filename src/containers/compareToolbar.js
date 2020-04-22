@@ -9,7 +9,7 @@ class CompareToolbar extends Component {
 
     render(){
         return(
-            <div className="compareToolbar"><i className="medium material-icons toggleButton" onClick={() => this.props.toggleToolbar()} >expand_less</i></div>
+            <div className="compareToolbar"><i className="material-icons toggleButton" onClick={() => this.props.toggleToolbar()} >expand_less</i></div>
         );
     }
 }
