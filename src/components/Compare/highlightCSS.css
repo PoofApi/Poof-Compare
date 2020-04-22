@@ -29,3 +29,9 @@
     margin-top: 30px;
     overflow: hidden;
 }
+
+.imageContainer{
+    display: flex;
+    flex-direction: column;
+    float: left;
+}
