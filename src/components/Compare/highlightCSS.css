@@ -1,6 +1,6 @@
 .highlightContainer{
     height: 120vh;
-    background-color: white;
+    background-color: blanchedalmond;
 }
 
 .hToolbar {
@@ -20,8 +20,9 @@
     height: 250px;
     width: 250px;
     float: left;
+    margin-top: 10px;
     margin-left: 100px;
-    padding-right: 30px;
+    padding-right: 20px;
 }
 
 .info{
