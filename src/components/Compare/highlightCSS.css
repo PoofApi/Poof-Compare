@@ -1,5 +1,5 @@
 .highlightContainer{
-    height: 120vh;
+    height: auto;
     background-color: blanchedalmond;
 }
 
@@ -22,7 +22,7 @@
     float: left;
     margin-top: 10px;
     margin-left: 100px;
-    padding-right: 20px;
+
 }
 
 .info{
@@ -31,7 +31,15 @@
 }
 
 .imageContainer{
-    display: flex;
     flex-direction: column;
     float: left;
+}
+
+.itemName{
+    display: flex;
+    justify-content: center;
+}
+
+.fillerContent{
+    margin-left: 40px;
 }

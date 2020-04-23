@@ -139,7 +139,7 @@ class Header extends Component {
                         <form onSubmit={() => this.handleSubmit}>
                             <div className="input-field" style={{display: "flex", justifyContent: "center"}}>
                                 <input className="browser-default search-field" style={{display: "flex", paddingLeft: "25px", width: "40vw", height: "6vh", marginTop: "20px"}} id="search" type="search" onChange={this.handleChange} value={this.state.value} required></input>
-                                <label type="submit" value="Submit" style={{top:"45%", left:"95%"}} className="label-icon" for="search"><i style={{position:"absolute"}} className="material-icons">search</i></label>
+                                <label onClick={this.reload} type="submit" value="Submit" style={{top:"45%", left:"95%"}} className="label-icon" for="search"><i style={{position:"absolute"}} className="material-icons">search</i></label>
                             </div>
                         </form>
                     </div>

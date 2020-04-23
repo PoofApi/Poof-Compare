@@ -10,7 +10,10 @@ input::placeholder{
 }
 
 .jumbo2 {
-    position: relative;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100vw;
     overflow: hidden;
     min-height: 0px;
     background-color: black;
@@ -94,5 +97,9 @@ a:hover{
 }
 
 .toggleButton:hover{
+    cursor: pointer;
+}
+
+.label-icon:hover {
     cursor: pointer;
 }
