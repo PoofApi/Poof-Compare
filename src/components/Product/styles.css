@@ -71,3 +71,20 @@
       cursor: pointer; }
   .product .watchButton:hover {
     color: darkgoldenrod; }
+  .product .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; }
+  .product .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #070707;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1; }
+  .product .tooltip:hover .tooltiptext {
+    visibility: visible; }

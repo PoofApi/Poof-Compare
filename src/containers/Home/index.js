@@ -7,6 +7,7 @@ import Header from '../HeaderComponent.js';
 import Header2 from '../HeaderComponent2.js';
 import CompareToolbar from '../compareToolbar.js';
 import WatchList from '../WatchListComponent.js';
+import WatchToolbar from '../WatchToolbarComponent.js';
 import Loading from '../LoadingComponent.js';
 import './styles.css';
 import {store} from '../../index.js';
@@ -45,7 +46,8 @@ class Home extends Component {
   state = {
     compareTableOpen: true,
     compareToolbarOpen: false,
-    watchListOpen: true
+    watchListOpen: true,
+    watchToolbarOpen: false
   };
 
   toggleCompare = () => {
@@ -70,7 +72,13 @@ class Home extends Component {
 
   closeWatchList = () => {
     this.setState({watchListOpen: false});
+    this.setState({watchToolbarOpen: true});
   };
+
+  toggleWatchToolbar = () => {
+    this.setState({watchListOpen: true});
+    this.setState({watchToolbarOpen: false});
+  }
 
   render() {
 
@@ -86,7 +94,7 @@ class Home extends Component {
       
       <div>
 
-    {this.props.items.length > 0 ? <div><Header2 /> {watchProducts.length >= 1 && (this.state.watchListOpen) ? <WatchList items={watchProducts} toggleClick={this.closeWatchList} /> : <div></div>} </div>: 
+    {this.props.items.length > 0 ? <div><Header2 /> {watchProducts.length >= 1 && (this.state.watchListOpen) ? <WatchList items={watchProducts} toggleClick={this.closeWatchList} /> : <div></div>} {watchProducts.length >= 1 && (!this.state.watchListOpen) ? <WatchToolbar toggleClick={this.toggleWatchToolbar} /> : <div></div> } </div>: 
         <div>
           <Header />
         </div>

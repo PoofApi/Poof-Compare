@@ -1,5 +1,7 @@
-import React from 'react'
-import './styles.css'
+import React from 'react';
+import './styles.css';
+import ReactTooltip from 'react-tooltip';
+
 
 const Product = ({item, compare, watch}) =>
     <div className="col-sm-6 col-md-3">
@@ -12,8 +14,11 @@ const Product = ({item, compare, watch}) =>
             <div className="stats">
                 <div className="stats-container">
                     <span className="product_price">{item.price}</span>
-                    <div className="buttonContainer" style={{display: "flex", justifyContent: "center", marginLeft: "50px"}}><i className="material-icons watchButton" onClick={() => watch(item)}>remove_red_eye</i></div>
-                    <span className="product_name" style={{position: "relative", bottom: "25px"}}>{item.title}</span>
+                    <div className="buttonContainer" style={{display: "flex", justifyContent: "center", marginLeft: "50px"}}>
+                        <p data-tip="Add to watchlist"><i className="material-icons watchButton" onClick={() => watch(item)}>remove_red_eye</i></p>
+                        <ReactTooltip />
+                    </div>
+                    <span className="product_name" style={{position: "relative", bottom: "34px"}}>{item.title}</span>
                     <p>{item.short}</p>
                 </div>
             </div>
