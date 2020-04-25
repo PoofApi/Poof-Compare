@@ -31,6 +31,11 @@ export const compare = item => ({
     item
   })
 
+export const watch = item => ({
+    type: types.WATCH_PRODUCT,
+    item
+  })
+
 export const resetSearch = () => ({
   type: types.RESET_PRODUCTS
 })

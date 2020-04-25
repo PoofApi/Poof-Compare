@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 
-const Product = ({item, compare}) =>
+const Product = ({item, compare, watch}) =>
     <div className="col-sm-6 col-md-3">
         <div className={"product " + (item.compare ? "compare" : "")} >
             <img src={item.image} alt={item.title} />
@@ -12,7 +12,8 @@ const Product = ({item, compare}) =>
             <div className="stats">
                 <div className="stats-container">
                     <span className="product_price">{item.price}</span>
-                    <span className="product_name">{item.title}</span>
+                    <div className="buttonContainer" style={{display: "flex", justifyContent: "center", marginLeft: "50px"}}><i className="material-icons watchButton" onClick={() => watch(item)}>remove_red_eye</i></div>
+                    <span className="product_name" style={{position: "relative", bottom: "25px"}}>{item.title}</span>
                     <p>{item.short}</p>
                 </div>
             </div>

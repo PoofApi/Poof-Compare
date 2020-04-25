@@ -69,3 +69,5 @@
       background: #fff;
       color: #48cfad;
       cursor: pointer; }
+  .product .watchButton:hover {
+    color: darkgoldenrod; }

@@ -5,7 +5,8 @@ import * as productActions from '../../actions/product'
 import {connect} from 'react-redux';
 import Header from '../HeaderComponent.js';
 import Header2 from '../HeaderComponent2.js';
-import CompareToolbar from '../compareToolbar.js'
+import CompareToolbar from '../compareToolbar.js';
+import WatchList from '../WatchListComponent.js';
 import Loading from '../LoadingComponent.js';
 import './styles.css';
 import {store} from '../../index.js';
@@ -43,7 +44,8 @@ const axios = require('axios');
 class Home extends Component {
   state = {
     compareTableOpen: true,
-    compareToolbarOpen: false
+    compareToolbarOpen: false,
+    watchListOpen: true
   };
 
   toggleCompare = () => {
@@ -66,12 +68,17 @@ class Home extends Component {
     console.log(store.getState().item.isLoading);
   }
 
+  closeWatchList = () => {
+    this.setState({watchListOpen: false});
+  };
+
   render() {
 
     // getItems();
     
     const {items, actions, isLoading} = this.props;
     const compareProducts = items.filter(item => item.compare);
+    const watchProducts = items.filter(item => item.watch);
     console.log(this.props.items);
     console.log(this.props.isLoading);
 
@@ -79,7 +86,7 @@ class Home extends Component {
       
       <div>
 
-        {this.props.items.length > 0 ? <Header2 /> : 
+    {this.props.items.length > 0 ? <div><Header2 /> {watchProducts.length >= 1 && (this.state.watchListOpen) ? <WatchList items={watchProducts} toggleClick={this.closeWatchList} /> : <div></div>} </div>: 
         <div>
           <Header />
         </div>
@@ -97,7 +104,7 @@ class Home extends Component {
         {this.props.items.length > 0 && 
         <div className="productHome">
           <div className="home mt-5">
-            <ProductList items={items} compare={actions.compare}/>
+            <ProductList items={items} compare={actions.compare} watch={actions.watch}/>
             <div className="compareTable">
               {compareProducts.length >= 1 && (this.state.compareTableOpen) ? 
                 <Compare items={compareProducts} toggleClick={this.toggleCompare} 

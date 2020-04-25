@@ -103,3 +103,27 @@ a:hover{
 .label-icon:hover {
     cursor: pointer;
 }
+
+.watchlist-container {
+    height: 100vh;
+    background-color: bisque;
+    position: fixed;
+    right: 0;
+    width: 280px;
+    z-index: 101;
+    top: 0;
+}
+
+.toggle-watchlist {
+    font-weight: normal;
+    font-size: 30px;
+}
+
+.toggle-watchlist:hover {
+    cursor: pointer;
+}
+
+.watchImage{
+    height: 150px;
+    width: 150px;
+}
