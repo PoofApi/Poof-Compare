@@ -10,6 +10,7 @@ class WatchList extends Component {
         }
     }
 
+
     render(){
         return(
             <div className="watchlist-container">
@@ -20,6 +21,10 @@ class WatchList extends Component {
                             <img className="watchImage" src={item.image} alt={item.title} key={item.id}/>
                     </div>
                 )}
+
+                <div className="save-container">
+                    <a className="btn saveWatch" onClick={() => this.props.saveClick()}>Save List</a>
+                </div>
             </div>
         )
     }

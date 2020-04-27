@@ -25,12 +25,16 @@ class Header2 extends Component {
                         <div className="poofLogo">
                             <Link style={{paddingRight: "20px", paddingLeft: "15px", borderRight: "1px solid"}} to={'/'} className="brand-logo">Poof!</Link>
                         </div>
-                        <input className="browser-default search-field" style={{paddingLeft: "25px", width: "600px", height: "3.5vh", marginLeft: "600px"}} id="search" type="search"></input>
+                        <div className="searchContainer">
+                        <input className="browser-default search-field" style={{paddingLeft: "25px", width: "600px", height: "3.5vh"}} id="search" type="search"></input>
+                        <div className="linksContainer">
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
                                 <li className="navLinks"><Link to={'/'}>Home</Link></li>
                                 <li className="navLinks"><Link to={'/'}>Login</Link></li>
                                 <li className="navLinks"><Link to={'/'}>Register</Link></li>
                             </ul>
+                        </div>
+                        </div>
                     </div>
                 </nav>
 

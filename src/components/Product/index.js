@@ -15,7 +15,7 @@ const Product = ({item, compare, watch}) =>
                 <div className="stats-container">
                     <span className="product_price">{item.price}</span>
                     <div className="buttonContainer" style={{display: "flex", justifyContent: "center", marginLeft: "50px"}}>
-                        <p data-tip="Add to watchlist"><i className="material-icons watchButton" onClick={() => watch(item)}>remove_red_eye</i></p>
+                        <p data-tip={(item.watch? "Remove from watchlist" : "Add to watchlist")} ><i className="material-icons watchButton" style={{color: (item.watch ? "darkgoldenrod" : "black")}} onClick={() => watch(item)}>remove_red_eye</i></p>
                         <ReactTooltip />
                     </div>
                     <span className="product_name" style={{position: "relative", bottom: "34px"}}>{item.title}</span>

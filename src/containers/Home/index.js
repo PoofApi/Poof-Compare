@@ -65,9 +65,7 @@ class Home extends Component {
   };
 
   componentDidUpdate() {
-    console.log(this.props);
-    console.log(this.state);
-    console.log(store.getState().item.isLoading);
+    console.log(store.getState());
   }
 
   closeWatchList = () => {
@@ -80,6 +78,12 @@ class Home extends Component {
     this.setState({watchToolbarOpen: false});
   }
 
+  saveList = () => {
+    const watchItems = this.props.items.filter(item => item.watch);
+    console.log("User's current watchlist: ", watchItems);
+  }
+
+  
   render() {
 
     // getItems();
@@ -89,12 +93,13 @@ class Home extends Component {
     const watchProducts = items.filter(item => item.watch);
     console.log(this.props.items);
     console.log(this.props.isLoading);
+     
 
     return (
       
       <div>
 
-    {this.props.items.length > 0 ? <div><Header2 /> {watchProducts.length >= 1 && (this.state.watchListOpen) ? <WatchList items={watchProducts} toggleClick={this.closeWatchList} /> : <div></div>} {watchProducts.length >= 1 && (!this.state.watchListOpen) ? <WatchToolbar toggleClick={this.toggleWatchToolbar} /> : <div></div> } </div>: 
+    {this.props.items.length > 0 ? <div><Header2 /> {watchProducts.length >= 1 && (this.state.watchListOpen) ? <WatchList items={watchProducts} toggleClick={this.closeWatchList} saveClick={this.saveList} /> : <div></div>} {watchProducts.length >= 1 && (!this.state.watchListOpen) ? <WatchToolbar toggleClick={this.toggleWatchToolbar} /> : <div></div> } </div>: 
         <div>
           <Header />
         </div>
