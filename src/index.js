@@ -49,7 +49,7 @@ export const store = createStore(
   )
 );
 
-store.subscribe(() => saveToLocalStorage(store.getState()))
+
 
 ReactDOM.render(
   <Provider store={store}>
