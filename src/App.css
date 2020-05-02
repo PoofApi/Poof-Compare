@@ -123,11 +123,12 @@ a:hover{
 .toggle-watchlist {
     font-weight: normal;
     font-size: 30px;
+    color: darkgoldenrod;
 }
 
 .toggle-watchlist:hover {
     cursor: pointer;
-    color: red;
+    color: white;
 }
 
 .watchImage{
@@ -178,6 +179,10 @@ a:hover{
 }
 
 .saveWatch {
-    margin-top: 20px
+    margin-top: 20px;
+}
+
+.watchContainer2 {
+    margin-top: 40px;
 }
 

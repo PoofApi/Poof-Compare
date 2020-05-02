@@ -14,13 +14,17 @@ class WatchList extends Component {
     render(){
         return(
             <div className="watchlist-container">
-                <i className="material-icons toggle-watchlist" onClick={() => this.props.toggleClick()} >chevron_right</i>
+                <div className="watchlist-navbar" style={{height: "30px", backgroundColor: "black", position: "fixed", width: "100%"}}>
+                    <i className="material-icons toggle-watchlist" onClick={() => this.props.toggleClick()} >chevron_right</i>
+                </div>
 
-                {this.props.items.map(item =>
-                    <div>
-                            <img className="watchImage" src={item.image} alt={item.title} key={item.id}/>
-                    </div>
-                )}
+                <div className="watchContainer2">
+                    {this.props.items.map(item =>
+                        <div>
+                                <img className="watchImage" src={item.image} alt={item.title} key={item.id}/>
+                        </div>
+                    )}
+                </div>
 
                 <div className="save-container">
                     <a className="btn saveWatch" onClick={() => this.props.saveClick()}>Save List</a>

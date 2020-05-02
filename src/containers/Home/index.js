@@ -43,11 +43,13 @@ const axios = require('axios');
 // }
 
 class Home extends Component {
+  
   state = {
     compareTableOpen: true,
     compareToolbarOpen: false,
     watchListOpen: true,
-    watchToolbarOpen: false
+    watchToolbarOpen: false,
+    watchItemsState: this.props.items.filter(item => item.watch)
   };
 
   toggleCompare = () => {
@@ -65,7 +67,9 @@ class Home extends Component {
   };
 
   componentDidUpdate() {
+    const watchItems = this.props.items.filter(item => item.watch);
     console.log(store.getState());
+    console.log("HERE", watchItems);
   }
 
   closeWatchList = () => {
@@ -91,7 +95,7 @@ class Home extends Component {
     const {items, actions, isLoading} = this.props;
     const compareProducts = items.filter(item => item.compare);
     const watchProducts = items.filter(item => item.watch);
-    console.log(this.props.items);
+    console.log("HERE is the state", this.state);
     console.log(this.props.isLoading);
      
 

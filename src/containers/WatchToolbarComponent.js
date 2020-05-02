@@ -6,7 +6,6 @@ class WatchToolbar extends Component {
         super(props);
     }
 
-
     render(){
         return(
             <div className="watchtool-container">
