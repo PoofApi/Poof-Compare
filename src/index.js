@@ -14,13 +14,42 @@ import './styles.css'
 
 const loggerMiddleware = createLogger();
 
+function saveToLocalStorage(state) {
+  try{
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem('state', serializedState);
+  }
+  catch (e) {
+    console.log(e);
+  }
+}
+
+function loadfromLocalStorage() {
+  try{
+    const serializedState = localStorage.getItem('state');
+    if (serializedState === null) return undefined;
+    return JSON.parse(serializedState);
+  }
+  catch (e) {
+    console.log(e);
+    return undefined;
+  }
+}
+
+
+
+const persistedState = loadfromLocalStorage();
+
 export const store = createStore(
   reducer,
+  persistedState,
   applyMiddleware(
     thunkMiddleware,
     loggerMiddleware
   )
 );
+
+store.subscribe(() => saveToLocalStorage(store.getState()))
 
 ReactDOM.render(
   <Provider store={store}>
