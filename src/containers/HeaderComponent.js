@@ -21,31 +21,31 @@ const getItems2 = (payload) => ({
 
 //Previous code to fetch Eric's backend
 
-// async function getProductsForHome(keywords){
-//   console.log("Now fetching items.........")
+async function getProductsForHome(keywords){
+  console.log("Now fetching items.........")
 
-//   try{
-//     let response = await axios({
-//       method: 'post',
-//       url: "https://us-central1-poofapibackend.cloudfunctions.net/search-bestprice",
-//       headers: {
-//         "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
-//         "Accept" : "application/json",
-//         "Content-Type" : "application/json",
-//       },
-//       data: {"keywords" : keywords},
-//     })
+  try{
+    let response = await axios({
+      method: 'post',
+      url: "https://us-central1-poofapibackend.cloudfunctions.net/search-bestprice",
+      headers: {
+        "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+        "Accept" : "application/json",
+        "Content-Type" : "application/json",
+      },
+      data: {"keywords" : keywords},
+    })
   
-//     let items = await response.data;
-//     console.log(items);
-//     store.dispatch(getItems2(items.items));
-//   }
+    let items = await response.data;
+    console.log(items);
+    store.dispatch(getItems2(items.items));
+  }
 
-//   catch(err){
-//     alert(err);
-//     console.log("An error occurred!!!!!: ", err);
-//   }
-// }
+  catch(err){
+    alert(err);
+    console.log("An error occurred!!!!!: ", err);
+  }
+}
 
 // const getProducts3 = () =>
 
@@ -73,18 +73,20 @@ class Header extends Component {
     
 
     handleSubmit(event){
-        getProducts3();
+        getProductsForHome(this.state.value);
         this.setState({loading:true})
         event.preventDefault();
+    }
+
+    handleSubmit2(searchWord){
+        getProductsForHome(searchWord);
+        this.setState({loading:true});
     }
 
     handleChange(event) {
         this.setState({value: event.target.value});
     }
 
-    reload(){
-        window.location.reload();
-    }
 
     componentDidMount(){
         let sidenav = document.querySelector('#slide-out');
@@ -136,10 +138,10 @@ class Header extends Component {
                     :
                 
                     <div className="col-12 col-md-12" style={{display: "flex", justifyContent: "center"}}>
-                        <form onSubmit={() => this.handleSubmit}>
+                        <form onSubmit={this.handleSubmit}>
                             <div className="input-field" style={{display: "flex", justifyContent: "center"}}>
                                 <input className="browser-default search-field" style={{display: "flex", paddingLeft: "25px", width: "40vw", height: "6vh", marginTop: "20px"}} id="search" type="search" onChange={this.handleChange} value={this.state.value} required></input>
-                                <label onClick={this.reload} type="submit" value="Submit" style={{top:"45%", left:"95%"}} className="label-icon" for="search"><i style={{position:"absolute"}} className="material-icons">search</i></label>
+                                <label onClick={this.handleSubmit} type="submit" value="Submit" style={{top:"45%", left:"95%"}} className="label-icon" for="search"><i style={{position:"absolute"}} className="material-icons">search</i></label>
                             </div>
                         </form>
                     </div>
@@ -148,19 +150,19 @@ class Header extends Component {
 
                     <div className="col-12 col-md-12 categories" style={{marginTop: "15px", display: "flex", justifyContent: "center", fontFamily: "Roboto"}}>
                         <ul style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
-                            <li className="laptopIcon" onClick={this.reload} style={{margin: "10px", padding: "20px", paddingLeft: "37px", paddingRight: "37px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                            <li onClick={() => this.handleSubmit2("electronics")} className="laptopIcon" style={{margin: "10px", padding: "20px", paddingLeft: "37px", paddingRight: "37px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">laptop_mac</i>
                                 <div>Electronics</div>
                             </li>
-                            <li className="bookIcon" onClick={this.reload} style={{margin: "10px", padding: "20px", paddingLeft: "44px", paddingRight: "44px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                            <li onClick={() => this.handleSubmit2("books")} className="bookIcon" style={{margin: "10px", padding: "20px", paddingLeft: "44px", paddingRight: "44px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">book</i>
                                 <div>Books</div>
                             </li>
-                            <li className="houseIcon" onClick={this.reload} style={{margin: "10px", padding: "20px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                            <li onClick={() => this.handleSubmit2("clothes")} className="houseIcon" style={{margin: "10px", padding: "20px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">store</i>
                                 <div>Clothes/Apparel</div>
                             </li>
-                            <li className="toyIcon" onClick={this.reload} style={{margin: "10px", padding: "20px", paddingLeft: "30px", paddingRight: "30px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                            <li onClick={() => this.handleSubmit2("games")} className="toyIcon" style={{margin: "10px", padding: "20px", paddingLeft: "30px", paddingRight: "30px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">toys</i>
                                 <div>Games/Toys</div>
                             </li>
