@@ -10,7 +10,10 @@ input::placeholder{
 }
 
 .jumbo2 {
-    position: relative;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100vw;
     overflow: hidden;
     min-height: 0px;
     background-color: black;
@@ -45,5 +48,141 @@ input::placeholder{
     padding-left: 0 !important;
     padding-right: 0 !important;
     margin: 0 !important;
+}
+
+.laptopIcon:hover {
+    background-color: darkgoldenrod;
+    cursor: pointer
+}
+
+.bookIcon:hover {
+    background-color: darkgoldenrod;
+    cursor: pointer
+}
+
+.toyIcon:hover {
+    background-color: darkgoldenrod;
+    cursor: pointer
+}
+
+.houseIcon:hover {
+    background-color: darkgoldenrod;
+    cursor: pointer
+}
+
+.compareToolbar {
+    height: 40px;
+    background: darkgoldenrod;
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    width: 100%
+}
+
+.navLinks:hover {
+    background-color: darkgoldenrod;
+}
+
+.brand-logo:hover {
+    background-color: darkgoldenrod;
+}
+
+a:hover{
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.toggleButton{
+    margin-left: 5px;
+}
+
+.toggleButton:hover{
+    cursor: pointer;
+}
+
+.label-icon:hover {
+    cursor: pointer;
+}
+
+.watchlist-container {
+    height: 100vh;
+    background-color: bisque;
+    position: fixed;
+    right: 0;
+    width: 280px;
+    z-index: 101;
+    top: 0;
+    margin-top: 63px;
+    overflow: auto;
+}
+
+.watchlist-container::-webkit-scrollbar {
+    display: none;
+  }
+
+.toggle-watchlist {
+    font-weight: normal;
+    font-size: 30px;
+    color: darkgoldenrod;
+}
+
+.toggle-watchlist:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.watchImage{
+    height: 150px;
+    width: 150px;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.watchtool-container {
+    height: 400px;
+    background-color: black;
+    position: fixed;
+    right: 0;
+    width: 40px;
+    z-index: 101;
+    margin-top: 120px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-watchtoolbar{
+    font-size: 40px;
+    color: darkgoldenrod;
+}
+
+.toggle-watchtoolbar:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.linksContainer {
+    position: relative;
+    left: 360px;
+}
+
+.save-container {
+    display: flex;
+    justify-content: center;
+}
+
+.saveWatch {
+    margin-top: 20px;
+}
+
+.watchContainer2 {
+    margin-top: 40px;
 }
 

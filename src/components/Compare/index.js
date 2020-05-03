@@ -1,48 +1,44 @@
-import React from 'react'
-import './styles.css'
+import React from 'react';
+import './highlightCSS.css';
 
-const Compare = ({items}) =>
-  <div className="row compare">
-    <div className="col-12 mt-5 text-center">
-      <table className="table">
-        <thead className="thead-default">
-          <tr>
-            <th />
-            {items.map(item =>
-              <th key={item.id}>
-                {item.title}
-              </th>
-            )}
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="price">
-            <th scope="row">Price</th>
-            {items.map(item =>
-              <td key={item.id} className="text-center">{item.price}</td>
-            )}
-          </tr>
-          <tr className="condition">
-            <th scope="row">Condition</th>
-            {items.map(item =>
-              <td key={item.id} className="text-center">{item.condition}</td>  
-            )}
-          </tr>
-          <tr className="source">
-            <th scope="row">Source</th>
-            {items.map(item =>
-              <td key={item.id} className="text-center">{item.source}</td>  
-            )}
-          </tr>
-          <tr className="link">
-            <th scope="row">Link</th>
-            {items.map(item =>
-              <td key={item.id} className="text-center">{item.link}</td>  
-            )}
-          </tr>
-        </tbody>
-      </table>
+const Compare = ({items, toggleClick}) =>
+  <div className="highlightContainer">
+    <div className="hToolbar">
+        <i className="material-icons toggleButton" onClick={() => toggleClick()} >expand_more</i>
     </div>
+        {items.map(item =>
+          <div>
+                <img className="compareImage" src={item.image} alt={item.title} key={item.id}/>
+                <div className="info">
+                  <div className="itemName">
+                    <h3 className='username'>Item Crap</h3>
+                  </div>
+                  <div className="fillerContent">
+                    <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+                    ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+                    purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
+                    <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+                    ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+                    purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
+                    <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+                    ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+                    purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
+                    <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+                    ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+                    purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
+                    <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+                    ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+                    purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
+                    <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+                    ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+                    purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
+                    <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
+                    ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
+                    purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
+                  </div>
+                </div>
+          </div>
+        )}
   </div>;
 
 export default Compare

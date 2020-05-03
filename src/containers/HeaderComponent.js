@@ -6,7 +6,6 @@ import '../App.css';
 import Modal from './Modal.js';
 import Modal2 from './Modal2.js';
 import piggy3 from '../images/piggy3.jpg';
-import {getProducts} from '../actions/product.js';
 import {store} from '../index.js';
 import * as types from '../constants/types';
 import Loading from './LoadingComponent.js';
@@ -14,36 +13,50 @@ import Loading from './LoadingComponent.js';
 
 const axios = require('axios');
 
+//Part of getProductsForHome function
 const getItems2 = (payload) => ({
     type: types.FETCH_PRODUCTS2,
     payload: payload
   })
 
-async function getProductsForHome(keywords){
-  console.log("Now fetching items.........")
+//Previous code to fetch Eric's backend
 
-  try{
-    let response = await axios({
-      method: 'post',
-      url: "https://us-central1-poofapibackend.cloudfunctions.net/search-bestprice",
-      headers: {
-        "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
-        "Accept" : "application/json",
-        "Content-Type" : "application/json",
-      },
-      data: {"keywords" : keywords},
-    })
+// async function getProductsForHome(keywords){
+//   console.log("Now fetching items.........")
+
+//   try{
+//     let response = await axios({
+//       method: 'post',
+//       url: "https://us-central1-poofapibackend.cloudfunctions.net/search-bestprice",
+//       headers: {
+//         "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+//         "Accept" : "application/json",
+//         "Content-Type" : "application/json",
+//       },
+//       data: {"keywords" : keywords},
+//     })
   
-    let items = await response.data;
-    console.log(items);
-    store.dispatch(getItems2(items.items));
-  }
+//     let items = await response.data;
+//     console.log(items);
+//     store.dispatch(getItems2(items.items));
+//   }
 
-  catch(err){
-    alert(err);
-    console.log("An error occurred!!!!!: ", err);
-  }
-}
+//   catch(err){
+//     alert(err);
+//     console.log("An error occurred!!!!!: ", err);
+//   }
+// }
+
+// const getProducts3 = () =>
+
+//   alert("Get Products function called");
+  
+//     fetch(`products.json`)
+//       .then(response => response.json())
+//       .then(response => {
+//         console.log(response.items);
+//         store.dispatch(getItems2(response.items))
+//       })
 
 class Header extends Component {
     constructor(props){
@@ -60,13 +73,17 @@ class Header extends Component {
     
 
     handleSubmit(event){
-        getProductsForHome(this.state.value);
+        getProducts3();
         this.setState({loading:true})
         event.preventDefault();
     }
 
     handleChange(event) {
         this.setState({value: event.target.value});
+    }
+
+    reload(){
+        window.location.reload();
     }
 
     componentDidMount(){
@@ -83,21 +100,21 @@ class Header extends Component {
                 <nav className="transparent">
                     <div className="nav-wrapper" style={{borderBottom: "1px solid"}}>
                         <a href="/" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-                        <div className="poofLogo" style={{paddingLeft: '15px'}}>
-                            <Link style={{paddingRight: "20px", borderRight: "1px solid"}} to={'/'} className="brand-logo">Poof!</Link>
+                        <div className="poofLogo">
+                            <Link style={{paddingRight: "20px", borderRight: "1px solid", paddingLeft: "15px"}} to={'/'} className="brand-logo">Poof!</Link>
                         </div>
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
-                                <li><Link to={'/'}>About</Link></li>
-                                <li><Link to={'/'}>Login</Link></li>
-                                <li><Link to={'/'}>Register</Link></li>
+                                <li className="navLinks"><Link to={'/'}>About</Link></li>
+                                <li className="navLinks"><Link to={'/'}>Login</Link></li>
+                                <li className="navLinks"><Link to={'/'}>Register</Link></li>
                             </ul>
                     </div>
                 </nav>
 
                 <ul id="slide-out" className="sidenav">
-                    <li style={{textAlign: "center"}}><Link to={'/'}>About</Link></li>
-                    <li style={{textAlign: "center"}}><Link to={'/'}>Login</Link></li>
-                    <li style={{textAlign: "center"}}><Link to={'/'}>Register</Link></li>               
+                    <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>About</Link></li>
+                    <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Login</Link></li>
+                    <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Register</Link></li>               
                 </ul>
                 <div className="row" style={{paddingTop: "180px", display: "flex", justifyContent: "center"}}>
                     <div className="col-12">
@@ -119,10 +136,10 @@ class Header extends Component {
                     :
                 
                     <div className="col-12 col-md-12" style={{display: "flex", justifyContent: "center"}}>
-                        <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={() => this.handleSubmit}>
                             <div className="input-field" style={{display: "flex", justifyContent: "center"}}>
                                 <input className="browser-default search-field" style={{display: "flex", paddingLeft: "25px", width: "40vw", height: "6vh", marginTop: "20px"}} id="search" type="search" onChange={this.handleChange} value={this.state.value} required></input>
-                                <label type="submit" value="Submit" style={{top:"45%", left:"95%"}} className="label-icon" for="search"><i style={{position:"absolute"}} className="material-icons">search</i></label>
+                                <label onClick={this.reload} type="submit" value="Submit" style={{top:"45%", left:"95%"}} className="label-icon" for="search"><i style={{position:"absolute"}} className="material-icons">search</i></label>
                             </div>
                         </form>
                     </div>
@@ -131,19 +148,19 @@ class Header extends Component {
 
                     <div className="col-12 col-md-12 categories" style={{marginTop: "15px", display: "flex", justifyContent: "center", fontFamily: "Roboto"}}>
                         <ul style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
-                            <li style={{margin: "10px", padding: "20px", paddingLeft: "37px", paddingRight: "37px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                            <li className="laptopIcon" onClick={this.reload} style={{margin: "10px", padding: "20px", paddingLeft: "37px", paddingRight: "37px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">laptop_mac</i>
                                 <div>Electronics</div>
                             </li>
-                            <li style={{margin: "10px", padding: "20px", paddingLeft: "44px", paddingRight: "44px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                            <li className="bookIcon" onClick={this.reload} style={{margin: "10px", padding: "20px", paddingLeft: "44px", paddingRight: "44px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">book</i>
                                 <div>Books</div>
                             </li>
-                            <li style={{margin: "10px", padding: "20px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                            <li className="houseIcon" onClick={this.reload} style={{margin: "10px", padding: "20px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">store</i>
                                 <div>Clothes/Apparel</div>
                             </li>
-                            <li style={{margin: "10px", padding: "20px", paddingLeft: "30px", paddingRight: "30px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
+                            <li className="toyIcon" onClick={this.reload} style={{margin: "10px", padding: "20px", paddingLeft: "30px", paddingRight: "30px", textAlign: "center", borderRadius: "5px", border: "3px solid", color: "white"}}>
                             <i className="medium material-icons">toys</i>
                                 <div>Games/Toys</div>
                             </li>

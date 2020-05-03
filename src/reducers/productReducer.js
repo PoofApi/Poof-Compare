@@ -10,13 +10,13 @@ export default function (state = INITIAL_STATE, action) {
     case types.FETCH_PRODUCTS:
       return {
         ...state, isLoading: false, items: action.payload.map(item =>
-          ({...item, compare: false})
+          ({...item, compare: false, watch: false})
         )
       };
     case types.FETCH_PRODUCTS2:
       return {
         ...state, isLoading: false, items: action.payload.map(item =>
-          ({...item, compare: false})
+          ({...item, compare: false, watch: false})
         )
       };
     case types.RESET_PRODUCTS:
@@ -31,6 +31,15 @@ export default function (state = INITIAL_STATE, action) {
             item
         )
       };
+    case types.WATCH_PRODUCT:
+      return {
+        ...state, isLoading: false, items: state.items.map(item =>
+          item.id === action.item.id ?
+            ({...item, watch: !item.watch}) :
+            item
+        )
+      };
+    
     default:
       return state
   }

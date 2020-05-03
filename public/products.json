@@ -1,7 +1,9 @@
 {
-  "products": [{
+  "items": [
+    
+    {
       "id": "1",
-      "name": "Cherry",
+      "title": "Cherry",
       "image": "images/Cherry.png",
       "price": "$1.99",
       "colors": ["red", "green", "blue"],
@@ -10,7 +12,7 @@
     },
     {
       "id": "2",
-      "name": "Orange",
+      "title": "Orange",
       "image": "images/Orange.png",
       "price": "$2.99",
       "colors": ["green", "blue"],
@@ -19,7 +21,7 @@
     },
     {
       "id": "3",
-      "name": "Nuts",
+      "title": "Nuts",
       "image": "images/Nuts.png",
       "price": "$1.00",
       "colors": ["red"],
@@ -28,7 +30,151 @@
     },
     {
       "id": "4",
-      "name": "Strawberry",
+      "title": "Strawberry",
+      "image": "images/Strawberry.png",
+      "price": "$1.49",
+      "colors": ["blue"],
+      "condition": "Fresh",
+      "description": "Just Strawberry"
+    },
+    {
+      "id": "5",
+      "title": "Cherry",
+      "image": "images/Cherry.png",
+      "price": "$1.99",
+      "colors": ["red", "green", "blue"],
+      "condition": "Fresh",
+      "description": "Two Cherries"
+    },
+    {
+      "id": "6",
+      "title": "Orange",
+      "image": "images/Orange.png",
+      "price": "$2.99",
+      "colors": ["green", "blue"],
+      "condition": "Frozen",
+      "description": "Giant Orange"
+    },
+    {
+      "id": "7",
+      "title": "Nuts",
+      "image": "images/Nuts.png",
+      "price": "$1.00",
+      "colors": ["red"],
+      "condition": "Frozen",
+      "description": "Mixed Nuts"
+    },
+    {
+      "id": "8",
+      "title": "Strawberry",
+      "image": "images/Strawberry.png",
+      "price": "$1.49",
+      "colors": ["blue"],
+      "condition": "Fresh",
+      "description": "Just Strawberry"
+    },
+    {
+      "id": "9",
+      "title": "Cherry",
+      "image": "images/Cherry.png",
+      "price": "$1.99",
+      "colors": ["red", "green", "blue"],
+      "condition": "Fresh",
+      "description": "Two Cherries"
+    },
+    {
+      "id": "10",
+      "title": "Orange",
+      "image": "images/Orange.png",
+      "price": "$2.99",
+      "colors": ["green", "blue"],
+      "condition": "Frozen",
+      "description": "Giant Orange"
+    },
+    {
+      "id": "11",
+      "title": "Nuts",
+      "image": "images/Nuts.png",
+      "price": "$1.00",
+      "colors": ["red"],
+      "condition": "Frozen",
+      "description": "Mixed Nuts"
+    },
+    {
+      "id": "12",
+      "title": "Strawberry",
+      "image": "images/Strawberry.png",
+      "price": "$1.49",
+      "colors": ["blue"],
+      "condition": "Fresh",
+      "description": "Just Strawberry"
+    },
+    {
+      "id": "13",
+      "title": "Cherry",
+      "image": "images/Cherry.png",
+      "price": "$1.99",
+      "colors": ["red", "green", "blue"],
+      "condition": "Fresh",
+      "description": "Two Cherries"
+    },
+    {
+      "id": "14",
+      "title": "Orange",
+      "image": "images/Orange.png",
+      "price": "$2.99",
+      "colors": ["green", "blue"],
+      "condition": "Frozen",
+      "description": "Giant Orange"
+    },
+    {
+      "id": "15",
+      "title": "Nuts",
+      "image": "images/Nuts.png",
+      "price": "$1.00",
+      "colors": ["red"],
+      "condition": "Frozen",
+      "description": "Mixed Nuts"
+    },
+    {
+      "id": "16",
+      "title": "Strawberry",
+      "image": "images/Strawberry.png",
+      "price": "$1.49",
+      "colors": ["blue"],
+      "condition": "Fresh",
+      "description": "Just Strawberry"
+    },
+    {
+      "id": "17",
+      "title": "Cherry",
+      "image": "images/Cherry.png",
+      "price": "$1.99",
+      "colors": ["red", "green", "blue"],
+      "condition": "Fresh",
+      "description": "Two Cherries"
+    },
+    {
+      "id": "18",
+      "title": "Orange",
+      "image": "images/Orange.png",
+      "price": "$2.99",
+      "colors": ["green", "blue"],
+      "condition": "Frozen",
+      "description": "Giant Orange"
+    },
+    {
+      "id": "19",
+      "title": "Nuts",
+      "image": "images/Nuts.png",
+      "price": "$1.00",
+      "colors": ["red"],
+      "condition": "Frozen",
+      "description": "Mixed Nuts"
+    },
+    {
+      "id": "20",
+      "title": "Strawberry",
       "image": "images/Strawberry.png",
       "price": "$1.49",
       "colors": ["blue"],
