@@ -11,7 +11,7 @@ $product-main-color: $green;
   transition: all 500ms ease-out;
   margin-bottom: 30px;
   border: 1px solid #ddd;
-  height: 500px;
+  height: 600px;
   &:hover {
     box-shadow: 0 13px 21px -5px rgba(0, 0, 0, 0.2);
     .image_overlay {
@@ -43,6 +43,7 @@ $product-main-color: $green;
     position: absolute;
     width: 100%;
     padding: 5px;
+    height: 100%;
 
     .product_name {
       font-size: 22px;

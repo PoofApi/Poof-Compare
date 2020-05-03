@@ -7,9 +7,19 @@ import Modal from './Modal.js';
 import Modal2 from './Modal2.js';
 import piggy3 from '../images/piggy3.jpg';
 import {resetSearch} from '../actions/product';
+import {store} from '../index.js';
 
 
 class Header2 extends Component {
+    constructor(props){
+        super(props);
+
+
+    } 
+
+    returnHome(){
+        store.dispatch(resetSearch());
+    }
 
     componentDidMount(){
         let sidenav = document.querySelector('#slide-out');
@@ -29,7 +39,7 @@ class Header2 extends Component {
                         <input className="browser-default search-field" style={{paddingLeft: "25px", width: "600px", height: "3.5vh"}} id="search" type="search"></input>
                         <div className="linksContainer">
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
-                                <li className="navLinks"><Link to={'/'}>Home</Link></li>
+                                <li onClick={() => this.returnHome()} className="homeLink" >Home</li>
                                 <li className="navLinks"><Link to={'/'}>Login</Link></li>
                                 <li className="navLinks"><Link to={'/'}>Register</Link></li>
                             </ul>

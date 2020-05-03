@@ -42,7 +42,7 @@ async function getProductsForHome(keywords){
   }
 
   catch(err){
-    alert(err);
+    alert(err, "Please reload your browser");
     console.log("An error occurred!!!!!: ", err);
   }
 }

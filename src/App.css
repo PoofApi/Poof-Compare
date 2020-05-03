@@ -83,6 +83,15 @@ input::placeholder{
     background-color: darkgoldenrod;
 }
 
+.homeLink {
+    padding: 0px 15px;
+}
+
+.homeLink:hover {
+    background-color: darkgoldenrod;
+    cursor: pointer;
+}
+
 .brand-logo:hover {
     background-color: darkgoldenrod;
 }
