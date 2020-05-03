@@ -47,16 +47,16 @@ const getItems2 = (payload) => ({
 //   }
 // }
 
-const getProducts3 = () =>
+// const getProducts3 = () =>
 
-  alert("Get Products function called");
+//   alert("Get Products function called");
   
-    fetch(`products.json`)
-      .then(response => response.json())
-      .then(response => {
-        console.log(response.items);
-        store.dispatch(getItems2(response.items))
-      })
+//     fetch(`products.json`)
+//       .then(response => response.json())
+//       .then(response => {
+//         console.log(response.items);
+//         store.dispatch(getItems2(response.items))
+//       })
 
 class Header extends Component {
     constructor(props){
