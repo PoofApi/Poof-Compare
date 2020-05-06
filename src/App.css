@@ -107,6 +107,7 @@ a:hover{
 
 .toggleButton:hover{
     cursor: pointer;
+    color: white;
 }
 
 .label-icon:hover {
@@ -193,5 +194,17 @@ a:hover{
 
 .watchContainer2 {
     margin-top: 40px;
+}
+
+.watchlist-navbar{
+    display: flex;
+}
+
+.watchlist-title {
+    color: white;
+    display: inline;
+    position: relative;
+    left: 40px;
+    top: 5px;
 }
 

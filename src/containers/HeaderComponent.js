@@ -59,6 +59,8 @@ async function getProductsForHome(keywords){
 //       })
 
 class Header extends Component {
+
+    searchInput;
     constructor(props){
         super(props);
 
@@ -89,6 +91,9 @@ class Header extends Component {
 
 
     componentDidMount(){
+        if ( this.searchInput ) {
+            this.searchInput.focus();
+        }
         let sidenav = document.querySelector('#slide-out');
         M.Sidenav.init(sidenav, {});
     }
@@ -139,8 +144,8 @@ class Header extends Component {
                 
                     <div className="col-12 col-md-12" style={{display: "flex", justifyContent: "center"}}>
                         <form onSubmit={this.handleSubmit}>
-                            <div className="input-field" style={{display: "flex", justifyContent: "center"}}>
-                                <input className="browser-default search-field" style={{display: "flex", paddingLeft: "25px", width: "40vw", height: "6vh", marginTop: "20px"}} id="search" type="search" onChange={this.handleChange} value={this.state.value} required></input>
+                            <div className="input-field searchBox" style={{display: "flex", justifyContent: "center"}}>
+                                <input className="browser-default search-field" style={{display: "flex", paddingLeft: "25px", width: "40vw", height: "6vh", marginTop: "20px"}} id="search" ref={(input) => {this.searchInput = input; }} type="search" onChange={this.handleChange} value={this.state.value} required></input>
                                 <label onClick={this.handleSubmit} type="submit" value="Submit" style={{top:"45%", left:"95%"}} className="label-icon" for="search"><i style={{position:"absolute"}} className="material-icons">search</i></label>
                             </div>
                         </form>

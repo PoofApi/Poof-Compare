@@ -15,7 +15,7 @@ import {store} from '../../index.js';
 
 const axios = require('axios');
 
-//Part of previous code that used Eric's backend
+// Part of previous code that used Eric's backend
 
 // async function getItems(){
 //   console.log("Now fetching items.........")
@@ -132,7 +132,7 @@ class Home extends Component {
               <div></div> }
            </div>
 
-           {this.state.compareToolbarOpen ? <CompareToolbar toggleToolbar={this.toggleCompareToolbar} /> : <div></div> }
+           {this.state.compareToolbarOpen && compareProducts.length >= 1 ? <CompareToolbar toggleToolbar={this.toggleCompareToolbar} /> : <div></div> }
           </div>
         </div>
         }
