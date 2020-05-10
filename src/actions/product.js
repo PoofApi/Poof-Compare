@@ -39,3 +39,8 @@ export const watch = item => ({
 export const resetSearch = () => ({
   type: types.RESET_PRODUCTS
 })
+
+export const saveUser = (payload) => ({
+  type: types.ADD_USER,
+  payload: payload
+})

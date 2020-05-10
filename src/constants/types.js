@@ -3,3 +3,4 @@ export const FETCH_PRODUCTS2 = 'FETCH_PRODUCTS2';
 export const COMPARE_PRODUCT = 'COMPARE_PRODUCT';
 export const RESET_PRODUCTS = 'RESET_PRODUCTS';
 export const WATCH_PRODUCT = 'WATCH_PRODUCT';
+export const ADD_USER = "ADD_USER";

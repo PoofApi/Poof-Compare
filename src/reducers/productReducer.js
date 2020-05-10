@@ -2,7 +2,8 @@ import * as types from '../constants/types'
 
 const INITIAL_STATE = {
   items: [],
-  isLoading: true
+  isLoading: true,
+  storeUserId: ""
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -39,6 +40,11 @@ export default function (state = INITIAL_STATE, action) {
             item
         )
       };
+
+    case types.ADD_USER:
+      return {
+        ...state, storeUserId: action.payload
+      }
     
     default:
       return state

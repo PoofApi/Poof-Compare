@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import '../App.css';
+import Modal3 from './Modal3.js';
+import {store} from '../index.js';
 
 const axios = require('axios');
 
-async function setWatchList(item, userId){
+async function setWatchList(item){
 
     try{
       let response = await axios({
@@ -15,7 +17,7 @@ async function setWatchList(item, userId){
           "Content-Type" : "application/json",
         },
         data: {
-            "userId" : userId,
+            "userId" : store.getState().item.storeUserId,
             "title" : item.title,
             "itemUrl" : item.link,
             "price" : item.price,            
@@ -23,7 +25,7 @@ async function setWatchList(item, userId){
       })
     
       let confirmation = await response.data;
-      console.log("Successfully set watchlist!", confirmation);
+      console.log("Successfully added item to firebase watchlist!: ", confirmation, item.title);
     }
   
     catch(err){
@@ -38,10 +40,12 @@ class WatchList extends Component {
         this.state= {
             watchItems: []
         }
+
+        this.submitWatchList = this.submitWatchList.bind(this);
     }
 
     submitWatchList(userId){
-        {this.props.items.map(item => setWatchList(item, userId))};
+        {this.props.items.map(item => setWatchList(item))};
     };
 
     render(){
@@ -63,7 +67,8 @@ class WatchList extends Component {
                 </div>
 
                 <div className="save-container">
-                    <a className="btn saveWatch" onClick={() => this.props.saveClick()}>Save List</a>
+                    <Modal3 />
+                    <a className="btn test2" onClick={() => console.log(store.getState().item.storeUserId)}>Test Store</a>
                     <a className="btn testButton" onClick={() => this.submitWatchList("test2@gmail.com")}>Test Watch List</a>
                 </div>
             </div>
