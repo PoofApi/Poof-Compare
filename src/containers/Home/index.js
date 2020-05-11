@@ -94,16 +94,6 @@ class Home extends Component {
     })
   };
 
-  componentDidUpdate() {
-    console.log("componentDidUpdate!!!!!!")
-    const watchItems = this.props.items.filter(item => item.watch);
-    if (store.getState().item.storeUserId !== ""){
-
-      watchItems.map(item => setWatchList(item));
-
-    };
-  }
-
   closeWatchList = () => {
     this.setState({watchListOpen: false});
     this.setState({watchToolbarOpen: true});
