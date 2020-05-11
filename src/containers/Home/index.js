@@ -123,7 +123,7 @@ class Home extends Component {
       
       <div>
 
-    {this.props.items.length > 0 ? <div><Header2 /> {watchProducts.length >= 1 && (this.state.watchListOpen) ? <WatchList items={watchProducts} toggleClick={this.closeWatchList} saveClick={this.saveList} /> : <div></div>} {watchProducts.length >= 1 && (!this.state.watchListOpen) ? <WatchToolbar toggleClick={this.toggleWatchToolbar} /> : <div></div> } </div>: 
+    {this.props.items.length > 0 ? <div><Header2 /> {watchProducts.length >= 1 && (this.state.watchListOpen) ? <WatchList items={watchProducts} toggleClick={this.closeWatchList} saveClick={this.saveList} watch={actions.watch} /> : <div></div>} {watchProducts.length >= 1 && (!this.state.watchListOpen) ? <WatchToolbar toggleClick={this.toggleWatchToolbar} /> : <div></div> } </div>: 
         <div>
           <Header />
         </div>

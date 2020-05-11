@@ -186,6 +186,7 @@ a:hover{
 .save-container {
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .saveWatch {
@@ -235,5 +236,17 @@ a:hover{
     background-color: black !important;
     color: white !important;
 }
+
+.removeBtn{
+    margin-left: 20px;
+    color: black;
+}
+
+.removeBtn:hover{
+    cursor: pointer;
+    color: darkgoldenrod;
+}
+
+
 
 

@@ -38,6 +38,8 @@ async function setWatchList(item){
 class Product extends Component{
     constructor(props){
         super(props);
+
+        this.handleWatch = this.handleWatch.bind(this);
     }
 
     handleWatch(watchFxn, product) {

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import '../App.css';
 import Modal3 from './Modal3.js';
 import {store} from '../index.js';
+import ReactTooltip from 'react-tooltip';
+
 
 const axios = require('axios');
 
@@ -33,6 +35,34 @@ async function setWatchList(item){
     }
   }
 
+
+async function getWatchList(){
+
+    try{
+      let response = await axios({
+        method: 'post',
+        url: "https://us-central1-poofapibackend.cloudfunctions.net/watchList-getWatchListItems",
+        headers: {
+          "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+          "Accept" : "application/json",
+          "Content-Type" : "application/json",
+        },
+        data: {
+            "userId" : store.getState().item.storeUserId       
+        },
+      })
+    
+      let confirmation = await response.data;
+      console.log("Successfully retrieved watchlist!: ", confirmation);
+    }
+  
+    catch(err){
+      console.log(err, "Unable to retrieve watchlist");
+    }
+  }
+
+
+
 class WatchList extends Component {
     constructor(props){
         super(props);
@@ -62,14 +92,15 @@ class WatchList extends Component {
                     {this.props.items.map(item =>
                         <div>
                                 <img className="watchImage" src={item.image} alt={item.title} key={item.id}/>
+                                <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.props.watch(item)}>cancel</i>
+                                <ReactTooltip />
                         </div>
                     )}
                 </div>
 
                 <div className="save-container">
                     <Modal3 />
-                    <a className="btn test2" onClick={() => console.log(store.getState().item.storeUserId)}>Test Store</a>
-                    <a className="btn testButton" onClick={() => this.submitWatchList("test2@gmail.com")}>Test Watch List</a>
+                    <a className="btn test2" onClick={getWatchList}>Test</a>
                 </div>
             </div>
         )
