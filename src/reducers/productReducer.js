@@ -44,9 +44,9 @@ export default function (state = INITIAL_STATE, action) {
     case types.ADD_USER:
       return {
         ...state, storeUserId: action.payload
-      }
+      };
     
     default:
       return state
-  }
+  };
 }
