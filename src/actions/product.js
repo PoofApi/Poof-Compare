@@ -44,3 +44,26 @@ export const saveUser = (payload) => ({
   type: types.ADD_USER,
   payload: payload
 })
+
+export const addToWatch = (payload) => ({
+  type: types.ADD_WATCH,
+  payload: payload
+})
+
+export const addItemToWatch = (payload) => ({
+  type: types.ADD_WATCH_ITEM,
+  payload: payload
+})
+
+export const removeFromWatch = (payload) => ({
+  type: types.REMOVE_WATCH,
+  payload: payload
+})
+
+export const resetWatchList = () => ({
+  type: types.RESET_WATCH
+})
+
+export const includeToWatch = (item) => ({
+  
+})

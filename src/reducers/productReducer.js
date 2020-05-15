@@ -3,7 +3,8 @@ import * as types from '../constants/types'
 const INITIAL_STATE = {
   items: [],
   isLoading: true,
-  storeUserId: ""
+  storeUserId: "",
+  watchedItems: []
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -24,6 +25,12 @@ export default function (state = INITIAL_STATE, action) {
       return {
         ...state, items: [], isLoading: false
       };
+    
+    case types.RESET_WATCH:
+      return {
+        ...state, watchedItems: []
+      }
+
     case types.COMPARE_PRODUCT:
       return {
         ...state, isLoading: false, items: state.items.map(item =>
@@ -44,6 +51,33 @@ export default function (state = INITIAL_STATE, action) {
     case types.ADD_USER:
       return {
         ...state, storeUserId: action.payload
+      };
+
+    case types.ADD_WATCH:
+      return {
+        ...state, watchedItems: state.watchedItems.concat(action.payload.map(item => 
+            ({...item, compare: false, watch: true})
+          )
+        )
+      };
+
+    case types.ADD_WATCH_ITEM:
+      return {
+        ...state, watchedItems: state.watchedItems.concat(action.payload)
+      };
+    
+    case types.INCLUDE_WATCH:
+      return {
+        ...state, watchedItems: state.watchedItems.map(item => 
+          item.id === action.item.id?
+            ({...item, watch: !item.watch}) :
+            item
+          )
+      };
+
+    case types.REMOVE_WATCH:
+      return {
+        ...state, watchedItems: state.watchedItems.filter(item => item !== action.payload)
       };
     
     default:

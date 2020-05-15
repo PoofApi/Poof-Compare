@@ -3,6 +3,7 @@ import '../App.css';
 import Modal3 from './Modal3.js';
 import {store} from '../index.js';
 import ReactTooltip from 'react-tooltip';
+import { addToWatch, removeFromWatch } from '../actions/product';
 
 
 const axios = require('axios');
@@ -75,8 +76,22 @@ class WatchList extends Component {
     }
 
     submitWatchList(userId){
-        {this.props.items.map(item => setWatchList(item))};
+      {this.props.items.map(item => setWatchList(item))};
     };
+
+    saveWatchList(items){
+      store.dispatch(addToWatch(items));
+      console.log(store.getState().item.watchedItems);
+    };
+
+    showState(){
+      console.log(store.getState());
+    };
+
+    removeItem(watchFxn, item){
+      watchFxn(item);
+      store.dispatch(removeFromWatch(item));
+    }
 
     render(){
         return(
@@ -92,7 +107,7 @@ class WatchList extends Component {
                     {this.props.items.map(item =>
                         <div>
                                 <img className="watchImage" src={item.image} alt={item.title} key={item.id}/>
-                                <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.props.watch(item)}>cancel</i>
+                                <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.removeItem(this.props.watch, item)}>cancel</i>
                                 <ReactTooltip />
                         </div>
                     )}
@@ -101,6 +116,8 @@ class WatchList extends Component {
                 <div className="save-container">
                     <Modal3 />
                     <a className="btn test2" onClick={getWatchList}>Test</a>
+                    <a className="btn saveWatchBtn" onClick={() => this.saveWatchList(this.props.items)}>Save</a>
+                    <a className="btn showBtn" onClick={this.showState}>State</a>
                 </div>
             </div>
         )

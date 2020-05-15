@@ -108,22 +108,21 @@ class Home extends Component {
     const watchItems = this.props.items.filter(item => item.watch);
     console.log("User's current watchlist: ", watchItems);
   }
-
   
   render() {
 
     // getItems();
     
-    const {items, actions, isLoading} = this.props;
+    const {items, actions, isLoading, watchedItems} = this.props;
     const compareProducts = items.filter(item => item.compare);
     const watchProducts = items.filter(item => item.watch);
-     
+    const storeWatchProducts = watchedItems;
 
     return (
       
       <div>
 
-    {this.props.items.length > 0 ? <div><Header2 /> {watchProducts.length >= 1 && (this.state.watchListOpen) ? <WatchList items={watchProducts} toggleClick={this.closeWatchList} saveClick={this.saveList} watch={actions.watch} /> : <div></div>} {watchProducts.length >= 1 && (!this.state.watchListOpen) ? <WatchToolbar toggleClick={this.toggleWatchToolbar} /> : <div></div> } </div>: 
+    {this.props.items.length > 0 ? <div><Header2 /> {storeWatchProducts.length > 0 && (this.state.watchListOpen) ? <WatchList items={storeWatchProducts} toggleClick={this.closeWatchList} saveClick={this.saveList} watch={actions.watch} /> : <div></div>} {storeWatchProducts.length > 0 && (!this.state.watchListOpen) ? <WatchToolbar toggleClick={this.toggleWatchToolbar} /> : <div></div> } </div>: 
         <div>
           <Header />
         </div>
@@ -164,7 +163,8 @@ class Home extends Component {
 
 export default connect(
   state => ({
-    items: state.item.items
+    items: state.item.items,
+    watchedItems: state.item.watchedItems
   }),
   dispatch => ({
     actions: bindActionCreators(productActions, dispatch)

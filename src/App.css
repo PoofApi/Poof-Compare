@@ -87,7 +87,16 @@ input::placeholder{
     padding: 0px 15px;
 }
 
+.resetLink {
+    padding: 0px 15px;
+}
+
 .homeLink:hover {
+    background-color: darkgoldenrod;
+    cursor: pointer;
+}
+
+.resetLink:hover {
     background-color: darkgoldenrod;
     cursor: pointer;
 }

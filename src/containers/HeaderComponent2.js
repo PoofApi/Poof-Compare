@@ -3,7 +3,7 @@ import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import { Link } from 'react-router-dom';
 import '../App.css';
-import {resetSearch} from '../actions/product';
+import {resetSearch, resetWatchList} from '../actions/product';
 import {store} from '../index.js';
 import * as types from '../constants/types';
 
@@ -61,6 +61,10 @@ class Header2 extends Component {
         store.dispatch(resetSearch());
     }
 
+    resetWatch(){
+        store.dispatch(resetWatchList());
+    }
+
     async handleSubmit(event){
         
         this.setState({loading: true});
@@ -115,7 +119,7 @@ class Header2 extends Component {
                         <div className="linksContainer">
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
                                 <li onClick={() => this.returnHome()} className="homeLink" >Home</li>
-                                <li className="navLinks"><Link to={'/'}>Login</Link></li>
+                                <li onClick={() => this.resetWatch()} className="resetLink" >Reset</li>                                
                                 <li className="navLinks"><Link to={'/'}>Register</Link></li>
                             </ul>
                         </div>

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './styles.css';
 import ReactTooltip from 'react-tooltip';
 import {store} from '../../index.js';
+import {addItemToWatch, removeFromWatch} from '../../actions/product.js';
 
 const axios = require('axios');
 
@@ -43,13 +44,36 @@ class Product extends Component{
     }
 
     handleWatch(watchFxn, product) {
+        
         //Assigns item to cache watchlist
         watchFxn(product);
+      
+
+        //Adds item to browser watchlist
+        store.dispatch(addItemToWatch(product));
 
         //If user is signed in with email or phone#, item is added to their watchlist on the firebase database as well
-        if (store.getState().item.storeUserId !== ""){
-            setWatchList(product);
-          };
+        // if (store.getState().item.storeUserId !== ""){
+        //     setWatchList(product);
+        //   };
+    }
+
+    itemInList(item){
+        const watchListItems = store.getState().item.watchedItems
+        for (let k = 0; k<(watchListItems.length); k++){
+            if (item.id == watchListItems[k].id){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    }
+
+    removeItem(watchFxn, item){
+        watchFxn(item);
+
+        store.dispatch(removeFromWatch(item));
     }
 
     render(){
@@ -61,13 +85,15 @@ class Product extends Component{
                 <img style={{width: "100%", height: "400px"}} src={this.props.item.image} alt={this.props.item.title} />
                 <div className="image_overlay"/>
                 <div className="view_details" onClick={() => this.props.compare(this.props.item)}>
-                {this.props.item.compare ? "Remove" : "Compare"}
+                {this.props.item.compare ? "Hide Details" : "Details"}
                 </div>
                 <div className="stats">
                     <div className="stats-container">
                         <span className="product_price">{this.props.item.price}</span>
                         <div className="buttonContainer" style={{display: "flex", justifyContent: "center", marginLeft: "60px"}}>
-                            <p data-tip={(this.props.item.watch? "Remove from watchlist" : "Add to watchlist")} ><i className="material-icons watchButton" style={{color: (this.props.item.watch ? "darkgoldenrod" : "black")}} onClick={() => this.handleWatch(this.props.watch, this.props.item)}>remove_red_eye</i></p>
+                            <p data-tip={(this.props.item.watch ? "This item is currently in your watchlist" : "Add to watchlist")} ><i className="material-icons watchButton" 
+                            style={{color: (this.props.item.watch? "darkgoldenrod" : "black")}} 
+                            onClick={(this.props.item.watch) ? () => console.log("If you would like to remove this item from your watchlist, please remove it through the watchlist tab") : () => this.handleWatch(this.props.watch, this.props.item)}>remove_red_eye</i></p>
                             <ReactTooltip />
                         </div>
                         <div className="name-container" style={{display: "flex", textAlign: "center", marginLeft: "50px"}}>
