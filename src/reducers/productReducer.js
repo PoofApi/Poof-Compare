@@ -21,6 +21,7 @@ export default function (state = INITIAL_STATE, action) {
           ({...item, compare: false, watch: false})
         )
       };
+
     case types.RESET_PRODUCTS:
       return {
         ...state, items: [], isLoading: false

@@ -108,15 +108,38 @@ class Home extends Component {
     const watchItems = this.props.items.filter(item => item.watch);
     console.log("User's current watchlist: ", watchItems);
   }
+
+  compareLists(items, storeWatchItems){
+    for (let k = 0; k < storeWatchItems.length; k++){
+      let watchItemName = storeWatchItems[k].title;
+
+      for (let j=0; j < items.length; j++){
+        let itemName = items[j].title;
+        if (itemName == watchItemName){
+          items[j].watch = true;
+        }
+      }
+    }
+  }
+
+  componentDidUpdate(){
+    const products = this.props.items;
+    const storeWatch = this.props.watchedItems;
   
+    this.compareLists(products, storeWatch);
+  }
+
   render() {
 
     // getItems();
     
     const {items, actions, isLoading, watchedItems} = this.props;
     const compareProducts = items.filter(item => item.compare);
-    const watchProducts = items.filter(item => item.watch);
     const storeWatchProducts = watchedItems;
+    const overlapWatch = this.compareLists(items, storeWatchProducts);
+
+    console.log(overlapWatch);
+
 
     return (
       

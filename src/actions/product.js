@@ -67,3 +67,15 @@ export const resetWatchList = () => ({
 export const includeToWatch = (item) => ({
   
 })
+
+export const alreadyInWatch = (payload) => ({
+  type: types.ALREADY_WATCHED,
+  payload: payload
+})
+
+export const alreadyInWatch2 = (item) => ({
+  type: types.ALREADY_WATCHED2,
+  item
+})
+
+

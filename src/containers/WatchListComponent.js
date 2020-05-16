@@ -109,6 +109,14 @@ class WatchList extends Component {
                                 <img className="watchImage" src={item.image} alt={item.title} key={item.id}/>
                                 <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.removeItem(this.props.watch, item)}>cancel</i>
                                 <ReactTooltip />
+                                <div>
+                                  <div className="itemName" style={{ textAlign: "center"}}>
+                                    {item.title}
+                                  </div>
+                                  <div className="itemPrice" style={{marginTop: "10px", textAlign: "center", fontWeight: "1000"}}>
+                                    {item.price}
+                                  </div>
+                                </div>
                         </div>
                     )}
                 </div>

@@ -34,7 +34,10 @@ async function getProductsForHome(keywords){
   
     let items = await response.data;
     console.log(items);
+    let storeWatch = store.getState().item.watchedItems;
+    console.log(storeWatch);
     store.dispatch(getItems2(items.items));
+
   }
 
   catch(err){

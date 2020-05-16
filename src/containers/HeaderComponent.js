@@ -38,6 +38,7 @@ async function getProductsForHome(keywords){
   
     let items = await response.data;
     console.log(items);
+    console.log(store.getState().item.watchedItems);
     store.dispatch(getItems2(items.items));
   }
 
