@@ -22,7 +22,8 @@ async function setWatchList(item){
             "userId" : store.getState().item.storeUserId,
             "title" : item.title,
             "itemUrl" : item.link,
-            "price" : item.price,            
+            "price" : item.price,   
+            "image" : item.image         
         },
       })
     
@@ -53,9 +54,9 @@ class Product extends Component{
         store.dispatch(addItemToWatch(product));
 
         //If user is signed in with email or phone#, item is added to their watchlist on the firebase database as well
-        // if (store.getState().item.storeUserId !== ""){
-        //     setWatchList(product);
-        //   };
+        if (store.getState().item.storeUserId !== ""){
+            setWatchList(product);
+          };
     }
 
     itemInList(item){

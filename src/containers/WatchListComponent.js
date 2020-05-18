@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import '../App.css';
+import VolumeSlider from './VolumeSliderComponent.js';
 import Modal3 from './Modal3.js';
 import {store} from '../index.js';
 import ReactTooltip from 'react-tooltip';
 import { addToWatch, removeFromWatch } from '../actions/product';
+import 'react-rangeslider/lib/index.css';
+import AlertModal from './AlertModal';
 
 
 const axios = require('axios');
@@ -23,7 +26,8 @@ async function setWatchList(item){
             "userId" : store.getState().item.storeUserId,
             "title" : item.title,
             "itemUrl" : item.link,
-            "price" : item.price,            
+            "price" : item.price,
+            "image" : item.image         
         },
       })
     
@@ -106,23 +110,28 @@ class WatchList extends Component {
                 <div className="watchContainer2">
                     {this.props.items.map(item =>
                         <div>
+                              <div className="watchItemContainer">
                                 <img className="watchImage" src={item.image} alt={item.title} key={item.id}/>
-                                <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.removeItem(this.props.watch, item)}>cancel</i>
-                                <ReactTooltip />
-                                <div>
-                                  <div className="itemName" style={{ textAlign: "center"}}>
-                                    {item.title}
-                                  </div>
-                                  <div className="itemPrice" style={{marginTop: "10px", textAlign: "center", fontWeight: "1000"}}>
-                                    {item.price}
-                                  </div>
+                                <span className="iconContainer">
+                                  <AlertModal item={item} />
+                                  <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.removeItem(this.props.watch, item)}>cancel</i>
+                                  <ReactTooltip />
+                                </span>
+                              </div>
+                              <div>
+                                <div className="itemName" style={{ textAlign: "center"}}>
+                                  {item.title}
                                 </div>
+                                <div className="itemPrice" style={{marginTop: "10px", textAlign: "center", fontWeight: "1000"}}>
+                                  {item.price}
+                                </div>
+                              </div>
                         </div>
                     )}
                 </div>
 
                 <div className="save-container">
-                    <Modal3 />
+                    {this.props.user == "" ? <Modal3 products={this.props.products} /> : <span></span>}
                     <a className="btn test2" onClick={getWatchList}>Test</a>
                     <a className="btn saveWatchBtn" onClick={() => this.saveWatchList(this.props.items)}>Save</a>
                     <a className="btn showBtn" onClick={this.showState}>State</a>

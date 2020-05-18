@@ -4,7 +4,8 @@ const INITIAL_STATE = {
   items: [],
   isLoading: true,
   storeUserId: "",
-  watchedItems: []
+  watchedItems: [],
+  usersWatchedItems: []
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -53,6 +54,11 @@ export default function (state = INITIAL_STATE, action) {
       return {
         ...state, storeUserId: action.payload
       };
+    
+    case types.LOGOUT_USER:
+      return {
+        ...state, storeUserId: ""
+      }
 
     case types.ADD_WATCH:
       return {
@@ -80,6 +86,13 @@ export default function (state = INITIAL_STATE, action) {
       return {
         ...state, watchedItems: state.watchedItems.filter(item => item !== action.payload)
       };
+    
+    case types.LOAD_ITEMS:
+      return {
+        ...state, usersWatchedItems: action.payload.map(item =>
+            ({...item, compare: false, watch: true})
+          )
+      }
     
     default:
       return state

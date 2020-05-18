@@ -4,12 +4,14 @@ import {auth} from '../firebase.js';
 import '../App.css';
 import {saveUser, resetWatchList} from '../actions/product';
 import {store} from '../index.js';
+import ReactTooltip from 'react-tooltip';
+import VolumeSlider from "./VolumeSliderComponent.js";
 
 function resetWatch(){
     store.dispatch(resetWatchList());
 }
 
-class Modal3 extends Component {
+class AlertModal extends Component {
 
     constructor(props){
         super(props);
@@ -68,33 +70,31 @@ class Modal3 extends Component {
 
         return (
             <div>
-              <a
-                className="btn modal-trigger"
-                data-target="modal1"
-              >
-                Login
-              </a>
+
+              <i className="material-icons alertBtn modal-trigger" data-target="modal1" data-tip={"Add an alert for this item"} >add_alert</i>
+              <ReactTooltip />
       
               <div
                 ref={Modal3 => {
                   this.Modal3 = Modal3;
                 }}
                 id="modal1"
-                className="modal"
+                className="modal alertModal"
               >
               <div className="modal-content">
                 <div className="headerContainer" style={{display: "flex", justifyContent: "center"}}>
-                    <h4>Save Poof! Watchlist</h4>
+                    <h4>Set an alert for "{this.props.item.title}"</h4>
                 </div>
                 <div className="row">
+                    <VolumeSlider />
                     <form className="col s12">
                         <div className="row">
-                            <div className="input-field col s12">
-                                <input id="userId" type="text" className="validate" onChange={this.handleChange} value={this.state.userId} required></input>
-                                <label for="userId">Please provide an email or a phone number to link your Poof! watchlist to.</label>
+                            <div className="input-field col s11" style={{marginTop: "20px"}}>
+                                <input id="userId" type="text" className="validate" style={{paddingLeft: "30px"}} onChange={this.handleChange} value={this.state.userId} required></input>
+                                <label style={{textAlign: "center"}} for="userId">Please provide a target price for your item.</label>
                             </div>
                         </div>
-                        <div className="row" style={{display:"flex", justifyContent: "center"}}>
+                        <div className="row" style={{display:"flex", justifyContent: "center", marginRight: "30px"}}>
                             <div >
                                 <a onClick={this.handleSubmit} className="btn submit-button modal-close" style={{marginRight: "20px"}}>Submit</a>
                             </div>
@@ -113,4 +113,4 @@ class Modal3 extends Component {
     }
 }
 
-export default Modal3;
+export default AlertModal;

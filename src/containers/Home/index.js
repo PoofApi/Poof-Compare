@@ -70,6 +70,43 @@ async function setWatchList(item){
   }
 }
 
+async function getWatchList(){
+
+  if(store.getState().item.storeUserId !== ""){
+    try{
+      let response = await axios({
+        method: 'post',
+        url: "https://us-central1-poofapibackend.cloudfunctions.net/watchList-getWatchListItems",
+        headers: {
+          "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+          "Accept" : "application/json",
+          "Content-Type" : "application/json",
+        },
+        data: {
+            "userId" : store.getState().item.storeUserId       
+        },
+      })
+    
+      let confirmation = await response.data;
+      console.log("Successfully retrieved watchlist!: ", confirmation);
+      return confirmation;
+    }
+  
+    catch(err){
+      console.log(err, "Unable to retrieve watchlist");
+    }
+  }
+  else {
+    return console.log("User is not signed in");
+  }
+}
+
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
+
 class Home extends Component {
   
   state = {
@@ -122,30 +159,63 @@ class Home extends Component {
     }
   }
 
-  componentDidUpdate(){
+  checkIfInWatch(){
     const products = this.props.items;
     const storeWatch = this.props.watchedItems;
   
     this.compareLists(products, storeWatch);
   }
 
+  checkIfInWatch2(){
+    const products = this.props.items;
+    const usersWatch = this.props.usersWatchedItems;
+
+    this.compareLists(products, usersWatch);
+  }
+
+  async getUsersItems(){
+    let usersItems = await getWatchList();
+    return usersItems;
+  }
+
+  async componentDidMount(){
+    if(this.props.storeUserId !== ""){
+      let items = await this.getUsersItems();
+      store.dispatch(this.props.actions.loadUsersItems(items));
+    }
+  }
+
+  handleLogOut(){
+    const searchItems = this.props.items
+    if (this.props.storeUserId == ""){
+      for (let k = 0; k < searchItems.length; k++){
+        searchItems[k].watch = false;
+      }
+    }
+  }
+
+  componentDidUpdate(){
+    this.checkIfInWatch();
+  }
+
   render() {
 
     // getItems();
     
-    const {items, actions, isLoading, watchedItems} = this.props;
+    const {items, actions, isLoading, watchedItems, usersWatchedItems, storeUserId} = this.props;
     const compareProducts = items.filter(item => item.compare);
     const storeWatchProducts = watchedItems;
-    const overlapWatch = this.compareLists(items, storeWatchProducts);
 
-    console.log(overlapWatch);
+    console.log(usersWatchedItems);
 
+    this.checkIfInWatch();
+    this.checkIfInWatch2();
 
     return (
       
       <div>
 
-    {this.props.items.length > 0 ? <div><Header2 /> {storeWatchProducts.length > 0 && (this.state.watchListOpen) ? <WatchList items={storeWatchProducts} toggleClick={this.closeWatchList} saveClick={this.saveList} watch={actions.watch} /> : <div></div>} {storeWatchProducts.length > 0 && (!this.state.watchListOpen) ? <WatchToolbar toggleClick={this.toggleWatchToolbar} /> : <div></div> } </div>: 
+    {this.props.items.length > 0 ? <div><Header2 user={this.props.storeUserId} items={this.props.items} /> {storeWatchProducts.length > 0 && (this.state.watchListOpen) ? <WatchList items={this.props.storeUserId !== "" ? usersWatchedItems : storeWatchProducts} products={this.props.items} user={this.props.storeUserId} toggleClick={this.closeWatchList} saveClick={this.saveList} watch={actions.watch} /> : <div></div>} {(this.props.storeUserId !== "" ? usersWatchedItems.length > 0 : storeWatchProducts.length > 0) && !this.state.watchListOpen ? <WatchToolbar toggleClick={this.toggleWatchToolbar} /> : <div></div> } </div>: 
         <div>
           <Header />
         </div>
@@ -187,7 +257,9 @@ class Home extends Component {
 export default connect(
   state => ({
     items: state.item.items,
-    watchedItems: state.item.watchedItems
+    watchedItems: state.item.watchedItems,
+    usersWatchedItems: state.item.usersWatchedItems,
+    storeUserId: state.item.storeUserId
   }),
   dispatch => ({
     actions: bindActionCreators(productActions, dispatch)

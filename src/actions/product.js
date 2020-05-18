@@ -68,14 +68,13 @@ export const includeToWatch = (item) => ({
   
 })
 
-export const alreadyInWatch = (payload) => ({
-  type: types.ALREADY_WATCHED,
+export const loadUsersItems = (payload) => ({
+  type: types.LOAD_ITEMS,
   payload: payload
 })
 
-export const alreadyInWatch2 = (item) => ({
-  type: types.ALREADY_WATCHED2,
-  item
+export const logOutUser = () => ({
+  type: types.LOGOUT_USER
 })
 
 

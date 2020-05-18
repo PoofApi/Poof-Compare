@@ -91,7 +91,16 @@ input::placeholder{
     padding: 0px 15px;
 }
 
+.resetUserLink {
+    padding: 0px 15px;
+}
+
 .homeLink:hover {
+    background-color: darkgoldenrod;
+    cursor: pointer;
+}
+
+.resetUserLink:hover {
     background-color: darkgoldenrod;
     cursor: pointer;
 }
@@ -247,6 +256,7 @@ a:hover{
 }
 
 .removeBtn{
+    margin-top: 8px;
     margin-left: 20px;
     color: black;
 }
@@ -254,6 +264,36 @@ a:hover{
 .removeBtn:hover{
     cursor: pointer;
     color: darkgoldenrod;
+}
+
+.alertBtn{
+    font-size: 28px;
+    margin-left: 18px;
+    color: black;
+}
+
+.alertBtn:hover{
+    cursor: pointer;
+    color: darkgoldenrod;
+}
+
+.iconContainer {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+/* .modalAlert {
+    width: 30% !important;
+    height: 40% !important;
+} */
+
+.rangeslider {
+    margin-left: 50px !important;
+    margin-right: 10px !important;
+}
+
+.alertModal {
+    height: 30% !important;
 }
 
 

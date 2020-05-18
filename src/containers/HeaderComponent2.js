@@ -3,7 +3,7 @@ import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import { Link } from 'react-router-dom';
 import '../App.css';
-import {resetSearch, resetWatchList} from '../actions/product';
+import {resetSearch, resetWatchList, logOutUser} from '../actions/product';
 import {store} from '../index.js';
 import * as types from '../constants/types';
 
@@ -60,12 +60,25 @@ class Header2 extends Component {
         this.handleChange = this.handleChange.bind(this);
     } 
 
+    unWatchProducts(){
+        let items = this.props.items;
+        for (let k = 0; k < items.length; k++){
+            items[k].watch = false;
+        }
+    }
+
     returnHome(){
         store.dispatch(resetSearch());
     }
 
-    resetWatch(){
+    async resetWatch(){
+        await this.unWatchProducts();
         store.dispatch(resetWatchList());
+    }
+
+    resetUser(){
+        store.dispatch(logOutUser());
+        alert("You have successfully logged out!")
     }
 
     async handleSubmit(event){
@@ -123,7 +136,7 @@ class Header2 extends Component {
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
                                 <li onClick={() => this.returnHome()} className="homeLink" >Home</li>
                                 <li onClick={() => this.resetWatch()} className="resetLink" >Reset</li>                                
-                                <li className="navLinks"><Link to={'/'}>Register</Link></li>
+                                {this.props.user == "" ? <div></div> : <li onClick={() => this.resetUser()} className="resetUserLink" >Log Out</li>}                                
                             </ul>
                         </div>
                         </div>
