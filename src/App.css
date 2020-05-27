@@ -51,22 +51,22 @@ input::placeholder{
 }
 
 .laptopIcon:hover {
-    background-color: darkgoldenrod;
+    background-color: #806543;
     cursor: pointer
 }
 
 .bookIcon:hover {
-    background-color: darkgoldenrod;
+    background-color: #806543;
     cursor: pointer
 }
 
 .toyIcon:hover {
-    background-color: darkgoldenrod;
+    background-color: #806543;
     cursor: pointer
 }
 
 .houseIcon:hover {
-    background-color: darkgoldenrod;
+    background-color: #806543;
     cursor: pointer
 }
 
@@ -81,7 +81,7 @@ input::placeholder{
 }
 
 .navLinks:hover {
-    background-color: darkgoldenrod;
+    background-color: #806543;
 }
 
 .homeLink {
@@ -97,22 +97,22 @@ input::placeholder{
 }
 
 .homeLink:hover {
-    background-color: darkgoldenrod;
+    background-color: #806543;
     cursor: pointer;
 }
 
 .resetUserLink:hover {
-    background-color: darkgoldenrod;
+    background-color: #806543;
     cursor: pointer;
 }
 
 .resetLink:hover {
-    background-color: darkgoldenrod;
+    background-color: #806543;
     cursor: pointer;
 }
 
 .brand-logo:hover {
-    background-color: darkgoldenrod;
+    background-color: #806543;
 }
 
 a:hover{
@@ -135,7 +135,7 @@ a:hover{
 
 .watchlist-container {
     height: 100vh;
-    background-color: bisque;
+    background-color: #806543;
     position: fixed;
     right: 0;
     width: 310px;
@@ -195,6 +195,7 @@ a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #0C1344;
 }
 
 .linksContainer {

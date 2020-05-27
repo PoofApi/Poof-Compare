@@ -41,7 +41,7 @@
 .detailsBtn:hover {
   opacity: 1;
   cursor: pointer;
-  background-color: red;
+  background-color: #0C1344;
   color: white !important;
 }
 

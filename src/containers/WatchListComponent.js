@@ -100,7 +100,7 @@ class WatchList extends Component {
     render(){
         return(
             <div className="watchlist-container">
-                <div className="watchlist-navbar" style={{height: "30px", backgroundColor: "black", position: "fixed", width: "100%"}}>
+                <div className="watchlist-navbar" style={{height: "30px", backgroundColor: "#111111", position: "fixed", width: "100%"}}>
                     <i className="material-icons toggle-watchlist" onClick={() => this.props.toggleClick()} >chevron_right</i>
                     <div className="watchlist-title">
                         My Poof! WatchList
