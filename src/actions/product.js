@@ -3,6 +3,35 @@ import { store } from '../index.js';
 
 const axios = require('axios');
 
+export async function setWatchList(item){
+
+  try{
+    let response = await axios({
+      method: 'post',
+      url: "https://us-central1-poofapibackend.cloudfunctions.net/watchList-setWatchlistItem",
+      headers: {
+        "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+        "Accept" : "application/json",
+        "Content-Type" : "application/json",
+      },
+      data: {
+          "userId" : store.getState().item.storeUserId,
+          "title" : item.title,
+          "itemUrl" : item.link,
+          "price" : item.price,   
+          "image" : item.image         
+      },
+    })
+  
+    let confirmation = await response.data;
+    console.log("Successfully added item to firebase watchlist!: ", confirmation, item.title);
+  }
+
+  catch(err){
+    console.log(err, "Unable to set items into watchlist");
+  }
+}
+
 export const getProducts = (keywords) =>
 
   dispatch =>
@@ -75,6 +104,10 @@ export const loadUsersItems = (payload) => ({
 
 export const logOutUser = () => ({
   type: types.LOGOUT_USER
+})
+
+export const addSignInWatch = () => ({
+  type: types.SIGN_IN_WATCH
 })
 
 

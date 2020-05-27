@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './styles.css';
+import './newStyles.css';
 import ReactTooltip from 'react-tooltip';
 import {store} from '../../index.js';
 import {addItemToWatch, removeFromWatch} from '../../actions/product.js';
@@ -82,32 +83,53 @@ class Product extends Component{
         return(
 
         <div className="col-sm-6 col-md-3">
-            <div className={"product " + (this.props.item.compare ? "compare" : "")} >
-                <img style={{width: "100%", height: "400px"}} src={this.props.item.image} alt={this.props.item.title} />
-                <div className="image_overlay"/>
-                <div className="view_details" onClick={() => this.props.compare(this.props.item)}>
-                {this.props.item.compare ? "Hide Details" : "Details"}
-                </div>
-                <div className="stats">
-                    <div className="stats-container">
-                        <span className="product_price">{this.props.item.price}</span>
-                        <div className="buttonContainer" style={{display: "flex", justifyContent: "center", marginLeft: "60px"}}>
-                            <p data-tip={(this.props.item.watch ? "This item is currently in your watchlist" : "Add to watchlist")} ><i className="material-icons watchButton" 
-                            style={{color: (this.props.item.watch? "darkgoldenrod" : "black")}} 
-                            onClick={(this.props.item.watch) ? () => console.log("If you would like to remove this item from your watchlist, please remove it through the watchlist tab") : () => this.handleWatch(this.props.watch, this.props.item)}>remove_red_eye</i></p>
-                            <ReactTooltip />
-                        </div>
-                        <div className="name-container" style={{display: "flex", textAlign: "center", marginLeft: "50px"}}>
-                            <span className="product_name" style={{position: "relative"}}>{this.props.item.title}</span>
-                        </div>
-                        {/* Previous line to allow for short details about the product */}
-                        {/* <p style={{position:"relative", top: "10px"}}>{item.short}</p> */}
+            <div className="row">
+                <div className="col s12 m6">
+                    <div className={" " + (this.props.item.compare ? "compare" : "")} >
+                            <div className="card" style={{height: "350px", width: "300px"}}>
+                                    <div className="card-image itemImage">
+                                            <img src={this.props.item.image} alt={this.props.item.title} style={{height:"250px", width: "100%"}}/>
+                                            <p data-tip={(this.props.item.watch ? "This item is currently in your watchlist" : "Add to watchlist")} ><a className="btn-floating halfway-fab floatingWatchBtn red"><i className="material-icons" style={{color: (this.props.item.watch? "yellow" : "white")}} onClick={(this.props.item.watch) ? () => console.log("If you would like to remove this item from your watchlist, please remove it through the watchlist tab") : () => this.handleWatch(this.props.watch, this.props.item)}>{this.props.item.watch? "favorite" : "remove_red_eye"} </i></a></p>
+                                            <ReactTooltip />
+                                            <span className="itemPrice">{this.props.item.price}</span>
+                                        <div className="card-overlay"></div>
+                                        <div className="detailsBtn" onClick={() => this.props.compare(this.props.item)} style={{color: "black", display: "flex", justifyContent: "center", alignItems:"center"}}>{this.props.item.compare ? "Hide Details" : "View Details"}</div>
+                                    </div>
+                                    <div className="card-content">
+                                        <span className="card-title" style={{ height:"4em" , lineHeight:"1.3em" ,fontSize:"18px", overflow:"hidden", position: "relative", bottom: "30%"}}>{this.props.item.title}</span>
+                                    </div>
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
-        );
-    }
+        )}
+        // <div className="col-sm-6 col-md-3">
+        //     <div className={"product " + (this.props.item.compare ? "compare" : "")} >
+        //         <img style={{width: "100%", height: "400px"}} src={this.props.item.image} alt={this.props.item.title} />
+        //         <div className="image_overlay"/>
+        //         <div className="view_details" onClick={() => this.props.compare(this.props.item)}>
+        //         {this.props.item.compare ? "Hide Details" : "Details"}
+        //         </div>
+        //         <div className="stats">
+        //             <div className="stats-container">
+        //                 <span className="product_price">{this.props.item.price}</span>
+        //                 <div className="buttonContainer" style={{display: "flex", justifyContent: "center", marginLeft: "60px"}}>
+        //                     <p data-tip={(this.props.item.watch ? "This item is currently in your watchlist" : "Add to watchlist")} ><i className="material-icons watchButton" 
+        //                     style={{color: (this.props.item.watch? "darkgoldenrod" : "black")}} 
+        //                     onClick={(this.props.item.watch) ? () => console.log("If you would like to remove this item from your watchlist, please remove it through the watchlist tab") : () => this.handleWatch(this.props.watch, this.props.item)}>remove_red_eye</i></p>
+        //                     <ReactTooltip />
+        //                 </div>
+        //                 <div className="name-container" style={{display: "flex", textAlign: "center", marginLeft: "50px"}}>
+        //                     <span className="product_name" style={{position: "relative"}}>{this.props.item.title}</span>
+        //                     </div>
+        //                 {/* Previous line to allow for short details about the product */}
+        //                 {/* <p style={{position:"relative", top: "10px"}}>{item.short}</p> */}
+        //                 </div>
+        //         </div>
+        //     </div>
+        // </div>
+        // )}
 } 
     
 

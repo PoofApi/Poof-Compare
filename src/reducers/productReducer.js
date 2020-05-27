@@ -70,7 +70,14 @@ export default function (state = INITIAL_STATE, action) {
 
     case types.ADD_WATCH_ITEM:
       return {
-        ...state, watchedItems: state.watchedItems.concat(action.payload)
+        ...state, watchedItems: state.watchedItems.concat(action.payload), 
+        usersWatchedItems: (state.storeUserId !== "" ? state.usersWatchedItems.concat(action.payload)
+        : state.usersWatchedItems)
+      };
+    
+    case types.SIGN_IN_WATCH:
+      return {
+        ...state, usersWatchedItems: state.usersWatchedItems.concat(state.watchedItems)
       };
     
     case types.INCLUDE_WATCH:

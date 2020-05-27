@@ -11,7 +11,7 @@ $product-main-color: $green;
   transition: all 500ms ease-out;
   margin-bottom: 30px;
   border: 1px solid #ddd;
-  height: 600px;
+  height: 300px;
   &:hover {
     box-shadow: 0 13px 21px -5px rgba(0, 0, 0, 0.2);
     .image_overlay {
@@ -125,4 +125,6 @@ $product-main-color: $green;
   .tooltip:hover .tooltiptext {
     visibility: visible;
   }
+  
+
 }

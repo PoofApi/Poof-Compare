@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import M from "materialize-css";
 import {auth} from '../firebase.js';
 import '../App.css';
-import {saveUser, resetWatchList} from '../actions/product';
+import {saveUser, resetWatchList, addSignInWatch, setWatchList} from '../actions/product';
 import {store} from '../index.js';
 
 function resetWatch(){
@@ -33,7 +33,11 @@ class Modal3 extends Component {
         }
     }
 
-    async handleSubmit() {
+    handleSubmit() {
+        let items = this.props.userItems;
+        items.map( item => setWatchList(item));
+        // this.unWatchProducts();
+        // resetWatch();
         store.dispatch(saveUser(this.state.userId));
     }
 
@@ -70,17 +74,17 @@ class Modal3 extends Component {
             <div>
               <a
                 className="btn modal-trigger"
-                data-target="modal1"
+                data-target="modal2"
               >
-                Login
+                Save
               </a>
       
               <div
                 ref={Modal3 => {
                   this.Modal3 = Modal3;
                 }}
-                id="modal1"
-                className="modal"
+                id="modal2"
+                className="modal signUpUser"
               >
               <div className="modal-content">
                 <div className="headerContainer" style={{display: "flex", justifyContent: "center"}}>

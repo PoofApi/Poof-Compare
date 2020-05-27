@@ -17,7 +17,7 @@ class AlertModal extends Component {
         super(props);
 
         this.state={
-            userId: ''
+            targetPrice: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -25,7 +25,7 @@ class AlertModal extends Component {
     }
     
     handleChange(event) {
-        this.setState({userId: event.target.value});
+        this.setState({targetPrice: event.target.value});
     }
 
     unWatchProducts(){
@@ -36,7 +36,13 @@ class AlertModal extends Component {
     }
 
     async handleSubmit() {
-        store.dispatch(saveUser(this.state.userId));
+        const product = this.props.item;
+        const price = this.state.targetPrice;
+        this.props.alert(price, product);
+    }
+
+    handleSubmit2(itemTitle) {
+        setTimeout(() => {alert(`Thank you! You have successfully submitted an alert for ${itemTitle}! You will be notified if/when your item reaches your target price.`);}, 3000)
     }
 
     componentDidMount() {
@@ -61,8 +67,12 @@ class AlertModal extends Component {
         startingTop: "4%",
         endingTop: "10%"
         };
-        M.Modal.init(this.Modal3, options);
+        M.Modal.init(this.AlertModal, options);
         
+    }
+
+    retrieveValue = (value) => {
+        this.setState({targetPrice: value});
     }
 
     
@@ -75,26 +85,31 @@ class AlertModal extends Component {
               <ReactTooltip />
       
               <div
-                ref={Modal3 => {
-                  this.Modal3 = Modal3;
+                ref={AlertModal => {
+                  this.AlertModal = AlertModal;
                 }}
                 id="modal1"
                 className="modal alertModal"
               >
               <div className="modal-content">
-                <div className="headerContainer" style={{display: "flex", justifyContent: "center"}}>
-                    <h4>Set an alert for "{this.props.item.title}"</h4>
+                <div className="headerContainer" style={{display: "flex", justifyContent: "center", flexWrap: "wrap"}}>
+                    <div>
+                        <h4 style={{textAlign: "center"}}><b>Set an alert (i.e. target price) for "{this.props.item.title}"</b></h4>
+                    </div>
+                    <div className="priceContainer" style={{textAlign: "center"}}>
+                        <h6>(Lowest available price is currently: {this.props.item.price})</h6>
+                    </div>
                 </div>
                 <div className="row">
-                    <VolumeSlider />
+                    <VolumeSlider getValue={this.retrieveValue}/>
                     <form className="col s12">
                         <div className="row">
-                            <div className="input-field col s11" style={{marginTop: "20px"}}>
-                                <input id="userId" type="text" className="validate" style={{paddingLeft: "30px"}} onChange={this.handleChange} value={this.state.userId} required></input>
-                                <label style={{textAlign: "center"}} for="userId">Please provide a target price for your item.</label>
+                            <div className="input-field col s3 m3" style={{marginTop: "20px"}}>
+                                <input id="userId" type="text" className="validate alertInput alertInput" style={{paddingLeft: "30px"}} onChange={this.handleChange} value={this.state.targetPrice} required></input>
+                                {/* <label style={{textAlign: "center", paddingRight: "100px"}} for="userId">Please provide a target price for your item.</label> */}
                             </div>
                         </div>
-                        <div className="row" style={{display:"flex", justifyContent: "center", marginRight: "30px"}}>
+                        <div className="row" style={{display:"flex", justifyContent: "center", marginRight: "70px"}}>
                             <div >
                                 <a onClick={this.handleSubmit} className="btn submit-button modal-close" style={{marginRight: "20px"}}>Submit</a>
                             </div>

@@ -15,6 +15,13 @@ import {store} from '../../index.js';
 
 const axios = require('axios');
 
+const getTitles = (list) => {
+
+  let titles = [];
+  list.forEach(element => titles.push(element.title));
+  
+  return titles;
+}
 // Part of previous code that used Eric's backend
 
 // async function getItems(){
@@ -42,31 +49,58 @@ const axios = require('axios');
 //   }
 // }
 
-async function setWatchList(item){
+async function setWatchList(item, storedList){
 
-  try{
-    let response = await axios({
-      method: 'post',
-      url: "https://us-central1-poofapibackend.cloudfunctions.net/watchList-setWatchlistItem",
-      headers: {
-        "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
-        "Accept" : "application/json",
-        "Content-Type" : "application/json",
-      },
-      data: {
-          "userId" : store.getState().item.storeUserId,
-          "title" : item.title,
-          "itemUrl" : item.link,
-          "price" : item.price,            
-      },
-    })
+  //Helper function to prevent duplicate entry into user's watchlist
+  let titles = getTitles(storedList);
+  console.log(titles);
+  console.log(titles.includes(item.title));
+
+  if (!titles.includes(item.title)){
+
+    try{
+      let response = await axios({
+        method: 'post',
+        url: "https://us-central1-poofapibackend.cloudfunctions.net/watchList-setWatchlistItem",
+        headers: {
+          "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+          "Accept" : "application/json",
+          "Content-Type" : "application/json",
+        },
+        data: {
+            "userId" : store.getState().item.storeUserId,
+            "title" : item.title,
+            "itemUrl" : item.link,
+            "price" : item.price,   
+            "image" : item.image         
+        },
+      })
+    
+      let confirmation = await response.data;
+      console.log("Successfully added item to firebase watchlist!: ", confirmation, item.title);
+    }
   
-    let confirmation = await response.data;
-    console.log("Successfully added item to firebase watchlist!: ", confirmation, item.title);
+    catch(err){
+      console.log(err, "Unable to set items into watchlist");
+    }
   }
 
-  catch(err){
-    console.log(err, "Unable to set items into watchlist");
+  else{
+    return console.log("Item already exists in user's list!");
+  }
+}
+
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
+function userType(email){
+  if (validateEmail(email)){
+    return "email";
+  }
+  else{
+    return "text";
   }
 }
 
@@ -99,11 +133,6 @@ async function getWatchList(){
   else {
     return console.log("User is not signed in");
   }
-}
-
-function validateEmail(email) {
-  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(email);
 }
 
 
@@ -179,7 +208,15 @@ class Home extends Component {
   }
 
   async componentDidMount(){
+
     if(this.props.storeUserId !== ""){
+      
+      let previousWatchItems = this.props.watchedItems;
+      console.log(previousWatchItems[0].title);
+      console.log(store.getState().item.storeUserId);
+      // let previousWatchItems = this.props.watchedItems;
+      await previousWatchItems.map(item => setWatchList(item, this.props.usersWatchedItems));
+      
       let items = await this.getUsersItems();
       store.dispatch(this.props.actions.loadUsersItems(items));
     }
@@ -194,13 +231,64 @@ class Home extends Component {
     }
   }
 
-  componentDidUpdate(){
-    this.checkIfInWatch();
+  //Ready to be implemented once Eric deploys this function
+  async setAlert(targetPrice, item){
+
+    const user = store.getState().item.storeUserId;
+    const type = userType(user);
+  
+    try{
+      let response = await axios({
+        method: 'post',
+        url: "https://us-central1-poofapibackend.cloudfunctions.net/alert-setAlert",
+        headers: {
+          "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+          "Accept" : "application/json",
+          "Content-Type" : "application/json",
+        },
+        data: {
+            "userId" : store.getState().item.storeUserId,
+            "title" : item.title,
+            "itemUrl" : item.link,
+            "price" : item.price,   
+            "whichSend": type,
+            "priceTarget": targetPrice         
+        },
+      })
+    
+      let confirmation = await response.data;
+      alert(`Successfully set an alert for ${item.title}!`, confirmation);
+    }
+  
+    catch(err){
+      alert(err, `We're very sorry. Poof! was unable to set an alert for ${item.title}. Please try again later.`);
+    }
   }
+
+  async componentDidUpdate(previousProps, previousState) {
+    this.checkIfInWatch();
+
+    console.log("ComponentDidUpdate called!");
+
+    // store.dispatch(this.props.actions.addSignInWatch());
+
+    if (previousProps.data !== this.props.data && this.props.storeUserId !== "") {
+
+      let previousWatchItems = this.props.watchedItems;
+      console.log(previousWatchItems);
+      console.log(store.getState().item.storeUserId);
+      await previousWatchItems.map(item => setWatchList(item));
+
+      let items = await this.getUsersItems();
+      store.dispatch(this.props.actions.loadUsersItems(items));
+    }
+}
+  
 
   render() {
 
     // getItems();
+
     
     const {items, actions, isLoading, watchedItems, usersWatchedItems, storeUserId} = this.props;
     const compareProducts = items.filter(item => item.compare);
@@ -215,7 +303,7 @@ class Home extends Component {
       
       <div>
 
-    {this.props.items.length > 0 ? <div><Header2 user={this.props.storeUserId} items={this.props.items} /> {storeWatchProducts.length > 0 && (this.state.watchListOpen) ? <WatchList items={this.props.storeUserId !== "" ? usersWatchedItems : storeWatchProducts} products={this.props.items} user={this.props.storeUserId} toggleClick={this.closeWatchList} saveClick={this.saveList} watch={actions.watch} /> : <div></div>} {(this.props.storeUserId !== "" ? usersWatchedItems.length > 0 : storeWatchProducts.length > 0) && !this.state.watchListOpen ? <WatchToolbar toggleClick={this.toggleWatchToolbar} /> : <div></div> } </div>: 
+    {this.props.items.length > 0 ? <div><Header2 user={this.props.storeUserId} items={this.props.items} /> {storeWatchProducts.length > 0 && (this.state.watchListOpen) ? <WatchList alert={this.setAlert} items={this.props.storeUserId !== "" ? usersWatchedItems : storeWatchProducts} products={this.props.items} user={this.props.storeUserId} toggleClick={this.closeWatchList} saveClick={this.saveList} watch={actions.watch} /> : <div></div>} {(this.props.storeUserId !== "" ? usersWatchedItems.length > 0 : storeWatchProducts.length > 0) && !this.state.watchListOpen ? <WatchToolbar toggleClick={this.toggleWatchToolbar} /> : <div></div> } </div>: 
         <div>
           <Header />
         </div>

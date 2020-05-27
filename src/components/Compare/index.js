@@ -12,7 +12,7 @@ const Compare = ({items, toggleClick}) =>
                 <img className="compareImage" src={item.image} alt={item.title} key={item.id}/>
                 <div className="info">
                   <div className="itemName">
-                    <h3 className='username'>Item Crap</h3>
+                      <h3 className='username'>{item.title}</h3>
                   </div>
                   <div className="fillerContent">
                     <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat

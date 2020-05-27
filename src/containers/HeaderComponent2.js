@@ -115,24 +115,33 @@ class Header2 extends Component {
                             <Link style={{paddingRight: "20px", paddingLeft: "15px", borderRight: "1px solid"}} to={'/'} className="brand-logo">Poof!</Link>
                         </div>
                         <div className="searchContainer">
-                            
+                        <div className="spacer"></div>
                         {!this.state.loading ? 
-
-                            <form onSubmit={this.handleSubmit}>
-                                <div className="input-field searchBox" style={{display: "flex", justifyContent: "center"}}>
-                                    <input className="browser-default search-field" style={{paddingLeft: "25px", width: "600px", height: "3.5vh"}} id="search" type="search" onChange={this.handleChange} value={this.state.value} required></input>
+                            
+                            
+                            <div className="searchBox">
+                                <div>
+                                    <form style={{marginLeft: "auto"}} onSubmit={this.handleSubmit}>
+                                        <div className="input-field searchBox" >
+                                            <input className="browser-default search-field" style={{paddingLeft: "50px", width: "600px", height: "3.5vh"}} id="search" type="search" onChange={this.handleChange} value={this.state.value} required></input>
+                                        </div>
+                                    </form> 
+                                    <div className="search2Btn" onClick={this.handleSubmit} >
+                                        <i style={{position: "absolute", color: "black", top: "0", marginLeft: "10px"}} className="material-icons">search</i>
+                                    </div>
                                 </div>
-                            </form> 
+                            </div>
 
                             :
 
-                            <div className="progress" style={{width: "39%"}}>
-                                <div className="indeterminate"></div>
+                            <div className="progress progressBar" style={{width: "32%", marginRight: "300px"}}>
+                                <div className="indeterminate indeterminateBar"></div>
                             </div>
                             
                         }    
                             
-                        <div className="linksContainer">
+                        
+                        <div className="navButtons" style={{marginLeft: "auto"}}>
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
                                 <li onClick={() => this.returnHome()} className="homeLink" >Home</li>
                                 <li onClick={() => this.resetWatch()} className="resetLink" >Reset</li>                                

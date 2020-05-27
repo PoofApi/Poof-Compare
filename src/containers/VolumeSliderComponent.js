@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-rangeslider';
+import '../App.css';
  
 class VolumeSlider extends Component {
   constructor(props, context) {
@@ -12,11 +13,15 @@ class VolumeSlider extends Component {
   handleOnChange = (value) => {
     this.setState({
       volume: value
-    })
+    });
+    this.props.getValue(this.state.volume);
   }
+
  
   render() {
+    let submitValue = this.props.value;
     let { volume } = this.state
+    submitValue = this.state.volume;
     return (
       <Slider
         value={volume}

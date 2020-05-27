@@ -11,3 +11,4 @@ export const REMOVE_WATCH = "REMOVE_WATCH";
 export const INCLUDE_WATCH = "INCLUDE_WATCH";
 export const LOAD_ITEMS = "LOAD_ITEMS";
 export const LOGOUT_USER = "LOGOUT_USER";
+export const SIGN_IN_WATCH = "SIGN_IN_WATCH";

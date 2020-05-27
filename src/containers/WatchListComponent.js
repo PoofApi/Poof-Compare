@@ -109,11 +109,49 @@ class WatchList extends Component {
 
                 <div className="watchContainer2">
                     {this.props.items.map(item =>
-                        <div>
-                              <div className="watchItemContainer">
+                        <div className="container">
+                              <div className="card mb-3" style={{maxWidth: "540px", height: "150px"}}>
+                                <div className="row no-gutters">
+                                  <div className="col-md-4" style={{position: "relative", left: "5%", top: "3%"}}>
+                                    <img src={item.image} alt={item.title} key={item.id} style={{maxWidth: "100%", maxHeight: "60%"}}/>
+                                  </div> 
+                                  <div className="card-price" style={{position: "absolute", left: "14%", bottom: "10%", color: "tomato"}}>
+                                    <b>{item.price}</b>
+                                  </div>
+                                  <div className="col-md-8">
+                                    <div className="card-body">
+                                      <h5 className="card-title" style={{ height:"3.5em" , fontSize:"18px", overflow:"hidden"}}>{item.title}</h5>
+                                      {/* <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> */}
+                                      <div className="card-text">
+                                         
+                                            <div className="row" style={{display: "flex", justifyContent: "flex-end"}}>
+                                              {/* {this.props.user !== "" ?  */}
+                                              
+                                              <div style={{marginTop: "6.5px"}}>
+                                                 <AlertModal item={item} alert={this.props.alert}/>
+                                              </div> 
+                                              
+                                              {/* :
+                                              
+                                              <div></div>
+                                              
+                                              } */}
+                                              
+                                              <div style={{position: "relative", right: "8%"}}>
+                                                <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.removeItem(this.props.watch, item)}>cancel</i>
+                                                <ReactTooltip />
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* <div className="watchItemContainer">
                                 <img className="watchImage" src={item.image} alt={item.title} key={item.id}/>
                                 <span className="iconContainer">
-                                  <AlertModal item={item} />
+                                  <AlertModal item={item} alert={this.props.alert}/>
                                   <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.removeItem(this.props.watch, item)}>cancel</i>
                                   <ReactTooltip />
                                 </span>
@@ -125,16 +163,21 @@ class WatchList extends Component {
                                 <div className="itemPrice" style={{marginTop: "10px", textAlign: "center", fontWeight: "1000"}}>
                                   {item.price}
                                 </div>
-                              </div>
+                              </div> */}
+                              
                         </div>
                     )}
                 </div>
 
-                <div className="save-container">
-                    {this.props.user == "" ? <Modal3 products={this.props.products} /> : <span></span>}
-                    <a className="btn test2" onClick={getWatchList}>Test</a>
+                {/* <a className="btn saveBtn" >Save</a> */}
+
+                <div>
+                  <div className="saveBtn">
+                    {this.props.user == "" ? <Modal3 userItems={this.props.items} products={this.props.products} /> : <span></span>}
+                  </div>
+                    {/* <a className="btn test2" onClick={getWatchList}>Test</a>
                     <a className="btn saveWatchBtn" onClick={() => this.saveWatchList(this.props.items)}>Save</a>
-                    <a className="btn showBtn" onClick={this.showState}>State</a>
+                    <a className="btn showBtn" onClick={this.showState}>State</a> */}
                 </div>
             </div>
         )
