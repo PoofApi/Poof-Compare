@@ -114,16 +114,17 @@ class Header2 extends Component {
                         <div className="poofLogo">
                             <Link style={{paddingRight: "20px", paddingLeft: "15px", borderRight: "1px solid"}} to={'/'} className="brand-logo">Poof!</Link>
                         </div>
-                        <div className="searchContainer">
+                        <div className="searchContainer row d-flex justify-content-center align-items-center">
                         <div className="spacer"></div>
                         {!this.state.loading ? 
                             
                             
-                            <div className="searchBox">
+                            <div className="searchBox col-sm-6 col-md-4">
                                 <div>
                                     <form style={{marginLeft: "auto"}} onSubmit={this.handleSubmit}>
                                         <div className="input-field searchBox" >
-                                            <input className="browser-default search-field" style={{paddingLeft: "50px", width: "600px", height: "3.5vh"}} id="search" type="search" onChange={this.handleChange} value={this.state.value} required></input>
+                                            <input className="browser-default search-field" id="search" type="search" onChange={this.handleChange} value={this.state.value} required></input>
+                                            {/* style={{paddingLeft: "50px", width: "600px", height: "3.5vh"}} */}
                                         </div>
                                     </form> 
                                     <div className="search2Btn" onClick={this.handleSubmit} >
