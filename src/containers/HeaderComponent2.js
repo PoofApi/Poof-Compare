@@ -118,29 +118,47 @@ class Header2 extends Component {
                         <div className="spacer"></div>
                         {!this.state.loading ? 
                             
-                            
-                            <div className="searchBox col-sm-6 col-md-4">
-                                <div>
-                                    <form style={{marginLeft: "auto"}} onSubmit={this.handleSubmit}>
-                                        <div className="input-field searchBox" >
-                                            <input className="browser-default search-field" id="search" type="search" onChange={this.handleChange} value={this.state.value} required></input>
-                                            {/* style={{paddingLeft: "50px", width: "600px", height: "3.5vh"}} */}
-                                        </div>
-                                    </form> 
-                                    <div className="search2Btn" onClick={this.handleSubmit} >
-                                        <i style={{position: "absolute", color: "black", top: "0", marginLeft: "10px"}} className="material-icons">search</i>
+                            // Previous searchbar using materialize-css
+
+                            // <div className="searchBox col-sm-6 col-md-4">
+                            //     <div>
+                            //         <form style={{marginLeft: "auto"}} onSubmit={this.handleSubmit}>
+                            //             <div className="input-field searchBox" >
+                            //                 <input className="browser-default search-field" id="search" type="search" onChange={this.handleChange} value={this.state.value} required></input>
+                            //                 {/* style={{paddingLeft: "50px", width: "600px", height: "3.5vh"}} */}
+                            //             </div>
+                            //         </form> 
+                            //         <div className="search2Btn" onClick={this.handleSubmit} >
+                            //             <i style={{position: "absolute", color: "black", top: "0", marginLeft: "10px"}} className="material-icons">search</i>
+                            //         </div>
+                            //     </div>
+                            // </div>
+
+                            <div className="searchBox col-sm-12 offset-md-1 col-md-4">
+                                    <div className="searchboot">
+                                        <form className="form-inline" onSubmit={this.handleSubmit}>
+                                            <div style={{backgroundColor: "white", borderRadius: "5px"}} className="input-group inputBox">
+                                                <input id="search" type="search" onChange={this.handleChange} value={this.state.value} required className="form-control searchboot2" placeholder="Search Item" aria-label="Search Item" aria-describedby="basic-addon1"></input>
+                                                <div className="input-group-prepend" onClick={this.handleSubmit}>
+                                                    <span className="input-group-text" style={{paddingLeft: "20px"}} id="basic-addon1"><i style={{position:"absolute", right: "3px"}} className="material-icons">search</i></span>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
-                                </div>
                             </div>
 
                             :
 
-                            <div className="progress progressBar" style={{width: "32%", marginRight: "300px"}}>
+                            <div className="progress progressBar" style={{width: "21%", marginRight: "300px"}}>
                                 <div className="indeterminate indeterminateBar"></div>
                             </div>
                             
                         }    
                             
+                        {/* <span className="search2Btn" onClick={this.handleSubmit} >
+                            <i style={{position: "absolute", color: "black", top: "0", marginLeft: "10px"}} className="searchSign material-icons">search</i>
+                        </span> */}
+
                         
                         <div className="navButtons" style={{marginLeft: "auto"}}>
                             <ul id="nav-mobile" className="right hide-on-med-and-down">

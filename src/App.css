@@ -36,12 +36,16 @@ input::placeholder{
     .label-icon{
         display: none;
     }
+
+    .searchBox {
+        display: none;
+    }
 }
 
 
 
 .nav-wrapper{
-    background-color: transparent !important;
+    background-color: #0C1344 !important;
 }
 
 .container-fluid {
@@ -330,6 +334,28 @@ a:hover{
 .search2Btn:hover {
     cursor: pointer;
 }
+
+.searchboot2 {
+    height: 20px !important;
+    padding-top: 15px !important;
+    margin-left: 10px !important;
+    border-bottom: none !important;
+}
+
+.searchboot2:focus {
+    outline: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+.inputBox {
+    width: 70% !important;
+}
+
+.input-group-prepend:hover {
+    cursor: pointer;
+}
+
 
 
 
