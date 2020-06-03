@@ -40,12 +40,24 @@ input::placeholder{
     .searchBox {
         display: none;
     }
+
+    .watchlist-container {
+        display: none;
+    }
+
+    .watchtool-container {
+        display: none;
+    }
 }
 
-
+@media screen and (min-width: 992px) {
+    .poofLogo2 {
+        display: none !important;
+    }
+}
 
 .nav-wrapper{
-    background-color: #0C1344 !important;
+    background-color: transparent;
 }
 
 .container-fluid {
@@ -98,6 +110,7 @@ input::placeholder{
 
 .resetUserLink {
     padding: 0px 15px;
+    margin-right: 15px;
 }
 
 .homeLink:hover {
@@ -348,6 +361,25 @@ a:hover{
     box-shadow: none !important;
 }
 
+
+.searchboot4 {
+    border-bottom: none !important;
+    padding-left: 15px !important;
+    height: 20px !important;
+    margin-top: 9px !important;
+}
+
+.searchboot4:focus {
+    outline: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+.inputBox2 {
+    display: flex !important;
+    align-items: center !important;
+}
+
 .inputBox {
     width: 70% !important;
 }
@@ -356,6 +388,34 @@ a:hover{
     cursor: pointer;
 }
 
+.nav-wrapper2 {
+    background-color: #0C1344 !important;
+}
+
+.sidenav {
+    background-color: #806543 !important;
+}
+
+.sidenav-overlay {
+    left: 300px !important;
+}
+
+.sidenav li>a:hover {
+    background-color: #0C1344 !important;
+}
+
+.sidenavPoof {
+    background-color: black;
+    height: 6%;
+}
+
+.searchBox2 {
+    margin-top: 10px;
+}
+
+.sidenavHome {
+    margin-top: 10px;
+}
 
 
 

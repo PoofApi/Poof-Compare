@@ -108,8 +108,9 @@ class Header2 extends Component {
     render(){
         return (
             <div className="jumbo2">
-                <nav className="transparent">
-                    <div className="nav-wrapper" style={{borderBottom: "1px solid"}}>
+                <nav>
+                    <div className="nav-wrapper nav-wrapper2" style={{borderBottom: "1px solid"}}>
+                        <a href="#!" className="brand-logo poofLogo2">Poof!</a>
                         <a href="/" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                         <div className="poofLogo">
                             <Link style={{paddingRight: "20px", paddingLeft: "15px", borderRight: "1px solid"}} to={'/'} className="brand-logo">Poof!</Link>
@@ -172,9 +173,22 @@ class Header2 extends Component {
                 </nav>
 
                 <ul id="slide-out" className="sidenav">
-                    <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>About</Link></li>
-                    <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Login</Link></li>
-                    <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Register</Link></li>               
+                    {/* <li className="navLinks sidenavPoof" style={{textAlign: "center"}}><Link style={{fontSize: "xx-large", color: "white", paddingTop: "8px"}} to={'/'}>Poof!</Link></li> */}
+                    <div className="searchBox2 col-sm-12">
+                        <div className="searchboot3">
+                            <form className="form-inline" onSubmit={this.handleSubmit}>
+                                <div style={{backgroundColor: "white", borderRadius: "5px"}} className="input-group inputBox2">
+                                    <input id="search" type="search" onChange={this.handleChange} value={this.state.value} required className="form-control searchboot4" placeholder="Search Item" aria-label="Search Item" aria-describedby="basic-addon1"></input>
+                                    <div className="input-group-prepend" onClick={this.handleSubmit}>
+                                        <span className="input-group-text" id="basic-addon1"><i className="material-icons">search</i></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <li className="navLinks sidenavHome" style={{textAlign: "center"}}><Link to={'/'}>Home</Link></li>
+                    <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Reset List</Link></li>
+                    <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Log Out</Link></li>               
                 </ul>
             </div>
             

@@ -82,7 +82,7 @@ class Product extends Component{
 
         return(
 
-        <div className="col-sm-6 col-md-3">
+        <div className="col-sm-12 col-md-6 col-lg-4">
             <div className="row">
                 <div className="col s12 m6">
                     <div className={" " + (this.props.item.compare ? "compare" : "")} >
