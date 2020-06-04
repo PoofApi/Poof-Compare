@@ -52,6 +52,16 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+      var urlName = window.location.pathname;
+
+        if (urlName === "/watchlist" ){
+            var x = document.getElementById("sidenav-overlay");
+
+            if (x){
+              x.style.display = "none";
+            }
+        }
+    </script>
   </body>
 </html>

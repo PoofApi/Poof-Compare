@@ -95,8 +95,13 @@ class Header extends Component {
         if ( this.searchInput ) {
             this.searchInput.focus();
         }
-        let sidenav = document.querySelector('#slide-out');
-        M.Sidenav.init(sidenav, {});
+
+        var urlName = window.location.pathname;
+
+        if (urlName !== "/watchlist" ){
+            let sidenav = document.querySelector('#slide-out');
+            M.Sidenav.init(sidenav, {});
+        }
     }
 
     render(){
@@ -107,7 +112,7 @@ class Header extends Component {
                 <img src={piggy3} />
                 <nav className="transparent">
                     <div className="nav-wrapper" style={{borderBottom: "1px solid"}}>
-                        <a href="/" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                        {/* <a href="/" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
                         <div className="poofLogo">
                             <Link style={{paddingRight: "20px", borderRight: "1px solid", paddingLeft: "15px"}} to={'/'} className="brand-logo">Poof!</Link>
                         </div>
@@ -119,11 +124,11 @@ class Header extends Component {
                     </div>
                 </nav>
 
-                <ul id="slide-out" className="sidenav">
+                {/* <ul id="slide-out" className="sidenav">
                     <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>About</Link></li>
                     <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Login</Link></li>
                     <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Register</Link></li>               
-                </ul>
+                </ul> */}
                 <div className="row" style={{paddingTop: "180px", display: "flex", justifyContent: "center"}}>
                     <div className="col-12">
                         <h2 style={{textAlign: "center", fontSize: "60px", fontFamily: "Roboto"}} className="mb-3 flow-text white-text"><b>Welcome to Poof! Auto-Compare!</b></h2>

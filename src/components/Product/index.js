@@ -82,11 +82,11 @@ class Product extends Component{
 
         return(
 
-        <div className="col-sm-12 col-md-6 col-lg-4">
+        <div className="col-sm-12 col-md-6 col-lg-3">
             <div className="row">
                 <div className="col s12 m6">
                     <div className={" " + (this.props.item.compare ? "compare" : "")} >
-                            <div className="card" style={{height: "350px", width: "300px"}}>
+                            <div className="card" >
                                     <div className="card-image itemImage">
                                             <img src={this.props.item.image} alt={this.props.item.title} style={{height:"250px", width: "100%"}}/>
                                             <p data-tip={(this.props.item.watch ? "This item is currently in your watchlist" : "Add to watchlist")} ><a className="btn-floating halfway-fab floatingWatchBtn indigo darken-4"><i className="material-icons" style={{color: (this.props.item.watch? "red" : "white")}} onClick={(this.props.item.watch) ? () => console.log("If you would like to remove this item from your watchlist, please remove it through the watchlist tab") : () => this.handleWatch(this.props.watch, this.props.item)}>{this.props.item.watch? "favorite" : "remove_red_eye"} </i></a></p>
