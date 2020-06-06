@@ -9,28 +9,6 @@ import "materialize-css/dist/js/materialize.min.js";
 
 class App extends Component {
 
-  removeOverlay(){
-  
-    let urlName = window.location.pathname;
-
-    if (urlName === "/watchlist"){
-      var overlay = document.querySelector(".sidenav-overlay"); 
-      console.log(overlay)
-      if(Array.isArray(overlay)){
-        overlay.forEach(ele => 
-          ele.style.display = "none"
-        )
-      } else{
-        overlay.style.display = "none"
-      }
-    }
-    
-  }
-
-  componentDidUpdate(){
-    this.removeOverlay();
-  }
-
   render() {
 
     return (

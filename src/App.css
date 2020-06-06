@@ -49,10 +49,21 @@ input::placeholder{
         display: none;
     }
 
+    .resetUserLink {
+        margin-top: 12px !important;
+    }
+}
+
+.poofPic:hover {
+    cursor: pointer;
 }
 
 @media screen and (min-width: 998px) {
     .poofPic {
+        display: none !important;
+    }
+
+    .mobile-watchlist {
         display: none !important;
     }
 }
@@ -117,8 +128,7 @@ input::placeholder{
 
 .resetUserLink {
     padding: 0px 15px;
-    margin-right: 15px;
-    margin-top: 12px;
+    margin-top: 22px;
     color: white;
 }
 
@@ -127,7 +137,11 @@ input::placeholder{
     cursor: pointer;
 }
 
-.resetUserLink:hover {
+.logOutBtn {
+    height: 100%;
+}
+
+.logOutBtn:hover {
     background-color: #806543;
     cursor: pointer;
 }
@@ -465,6 +479,115 @@ a {
 .searchboot {
     margin-left: 60px;
 }
+
+.mobile-watchlist {
+    height: 75px;
+    width: 75px;
+    background-color: #806543;
+    position: absolute;
+    right: 5%;
+    top: 10%;
+    display: flex;
+    justify-content: "center";
+    align-items: "center";
+    border-radius: 7px;
+    z-index: 2;
+}
+
+.mobile-watchlist:hover {
+    cursor: pointer;
+    background-color: #0C1344;
+}
+
+.watchlistMobileTitle {
+    color: white;
+    text-align: center;
+    margin-top: 14px;
+}
+
+.mobile-watchlist2 {
+    color: white;
+    text-align: center;
+    margin-top: 14px;
+}
+
+.watchlistContainerBar {
+    height: 50px;
+    background-color: #0C1344;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.returnToSearch {
+    height: 75px;
+    width: 82px;
+    background-color: #806543;
+    position: absolute;
+    right: 2%;
+    top: 8%;
+    border-radius: 7px;
+    z-index: 2;
+
+}
+
+.returnToSearch:hover {
+    cursor: pointer;
+    background-color: #0C1344;
+}
+
+.returnTitle {
+    color: white !important;
+    text-align: center !important;
+    margin-top: 14px !important;
+}
+
+.watchCard {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 5px;
+    margin: 20px 30px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16);
+    color: rgba(0, 0, 0, 0.87);
+    outline: none;
+}
+
+.watchCard:hover {
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.22);
+}
+
+
+
+.watchImage{
+    background-color: blue;
+}
+
+.watchContent {
+    background-color: red;
+    height: 150px;
+    width: 150px;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.test1 {
+    height: 50px;
+    width: 50px;
+    background-color: blue;
+}
+
+.test2 {
+    height: 50px;
+    width: 50px;
+    background-color: red;
+}
+
 
 
 

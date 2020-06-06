@@ -118,10 +118,10 @@ class Header2 extends Component {
                     {/* <a href="#!" className="brand-logo poofLogo2">Poof!</a>
                     <a href="/" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
                     
-                    <div className="poofLogo">
+                    <div onClick={() => this.returnHome()} className="poofLogo">
                         <Link className="newPoofLogo" to={'/'}>Poof!</Link>
                     </div>
-                    <div className="poofPic">
+                    <div onClick={() => this.returnHome()} className="poofPic">
                         <img src={poofWithBackground} alt="poofPicture" style={{width: "80px", marginBottom: "5px"}}/>
                     </div>
                     {!this.state.loading ? 
@@ -153,10 +153,11 @@ class Header2 extends Component {
                             </div>
 
                         :
-
-                        <div className="progress progressBar col-sm-12 col-md-3">
-                            <div className="indeterminate indeterminateBar"></div>
-                        </div>
+                            <div className="col-sm-2 col-md-3">
+                                <div className="progress progressBar">
+                                    <div className="indeterminate indeterminateBar"></div>
+                                </div>
+                            </div>
                         
                     }    
                         

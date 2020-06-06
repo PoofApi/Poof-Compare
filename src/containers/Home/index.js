@@ -11,6 +11,7 @@ import WatchToolbar from '../WatchToolbarComponent.js';
 import Loading from '../LoadingComponent.js';
 import './styles.css';
 import {store} from '../../index.js';
+import { Link } from 'react-router-dom';
 
 
 const axios = require('axios');
@@ -322,6 +323,10 @@ class Home extends Component {
         <div className="productHome">
           <div className="home mt-5">
             <ProductList items={items} compare={actions.compare} watch={actions.watch}/>
+            <div className="mobile-watchlist">
+              <Link className="mobile-watchlist2" to={'/watchlist'}>My Poof! Watch List</Link>
+              {/* <div className="watchlistMobileTitle">My Poof! Watchlist</div> */}
+            </div>
             <div className="compareTable">
               {compareProducts.length >= 1 && (this.state.compareTableOpen) ? 
                 <Compare items={compareProducts} toggleClick={this.toggleCompare} 
