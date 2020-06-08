@@ -5,7 +5,7 @@
 
 .hToolbar {
     height: 35px;
-    background-color: darkgoldenrod;
+    background-color: #0C1344
 }
 
 .toggleButton{
@@ -16,13 +16,8 @@
     cursor: pointer;
 }
 
-.compareImage{
-    height: 250px;
-    width: 250px;
-    float: left;
-    margin-top: 10px;
-    margin-left: 100px;
-
+.comparePicHolder {
+    margin: 30px 0px 0px 20px;
 }
 
 .info{
@@ -42,4 +37,17 @@
 
 .fillerContent{
     margin-left: 40px;
+}
+
+.itemSource {
+    font-size: x-large;
+}
+
+.itemName2 {
+    padding-top: 15px;
+}
+
+.watchContainer {
+    border-top: 3px solid #0C1344;
+    padding-bottom: 30px;
 }

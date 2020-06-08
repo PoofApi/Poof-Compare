@@ -327,7 +327,7 @@ class Home extends Component {
               <Link className="mobile-watchlist2" to={'/watchlist'}>My Poof! Watch List</Link>
               {/* <div className="watchlistMobileTitle">My Poof! Watchlist</div> */}
             </div>
-            <div className="compareTable">
+            <div className="compareTable" style={{display: (this.state.compareToolbarOpen ? "none" : "block")}}>
               {compareProducts.length >= 1 && (this.state.compareTableOpen) ? 
                 <Compare items={compareProducts} toggleClick={this.toggleCompare} 
               />

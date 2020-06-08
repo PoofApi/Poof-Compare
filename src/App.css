@@ -106,7 +106,7 @@ input::placeholder{
 
 .compareToolbar {
     height: 40px;
-    background: darkgoldenrod;
+    background: #0C1344;
     position: fixed;
     display: flex;
     bottom: 0;
@@ -162,11 +162,12 @@ a:hover{
 
 .toggleButton{
     margin-left: 5px;
+    color: white;
 }
 
 .toggleButton:hover{
     cursor: pointer;
-    color: white;
+    color: #806543;
 }
 
 .label-icon:hover {
