@@ -589,6 +589,13 @@ a {
     background-color: red;
 }
 
+.priceTag2 {
+    font-weight: 600;
+    font-size: 30px;
+    color: #e64949;
+    padding-left: 50px !important;
+}
+
 
 
 

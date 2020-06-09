@@ -91,10 +91,21 @@ class WatchlistRoute extends Component {
                                     <div className="col-8 col-sm-9">
                                         <div className="card-body">
                                             <h5 className="card-title">{item.title}</h5>
-                                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <p className="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                            {/* <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <p className="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
                                         </div>
                                     </div>
+                                </div>
+                                <div className="row">
+                                        <div className="col-4 priceTag2">{item.price}</div>
+                                        <div className="col-4" style={{paddingLeft: "40px", fontSize: "x-large"}}>{item.source}</div>
+                                        <div className="watchlistButtons col-4">
+                                            <i className="material-icons alertBtn" data-tip={"Add an alert for this item"}>add_alert</i>
+                                            <ReactTooltip />
+
+                                            <i className="material-icons removeBtn" data-tip={"Remove from watchlist"}>cancel</i>
+                                            <ReactTooltip />
+                                        </div>
                                 </div>
                             </div>
                         </div>

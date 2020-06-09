@@ -41,6 +41,7 @@
 
 .itemSource {
     font-size: x-large;
+    padding-top: 5px;
 }
 
 .itemName2 {
@@ -50,4 +51,11 @@
 .watchContainer {
     border-top: 3px solid #0C1344;
     padding-bottom: 30px;
+}
+
+.priceTag {
+    font-weight: 600;
+    font-size: 30px;
+    color: #e64949;
+    padding-left: 50px !important;
 }

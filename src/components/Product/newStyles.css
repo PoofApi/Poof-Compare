@@ -46,9 +46,9 @@
 }
 
 .itemPrice {
-  position: absolute;
-  left: 5%;
-  bottom: 1%;
+  position: relative;
+  left: 40%;
+  bottom: 2%;
   font-weight: 600;
   font-size: 30px;
   color: #e64949;

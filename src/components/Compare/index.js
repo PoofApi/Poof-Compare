@@ -42,7 +42,7 @@ const Compare = ({items, toggleClick}) =>
                 </div>
               </div>
               <div className="row">
-                <div className="col-4 itemPrice">{item.price}</div>
+                <div className="col-4 priceTag">{item.price}</div>
                 <div className="col-7 itemSource">Source: {item.source}</div>
               </div>
               <div className="row">
