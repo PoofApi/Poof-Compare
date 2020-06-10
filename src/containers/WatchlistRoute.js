@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 import 'react-rangeslider/lib/index.css';
 import AlertModal from './AlertModal';
+import { removeFromWatch, watch } from '../actions/product';
 
 class WatchlistRoute extends Component {
     constructor(props){
@@ -25,9 +26,17 @@ class WatchlistRoute extends Component {
     //     this.removeOverlay();
     // }
 
+    handleRemove(item){
+        this.props.removeFromWatch(item);
+        this.props.watch(item);
+    } 
+
     render(){
 
         const { watchedItems, usersWatchedItems } = this.props;
+
+        console.log(watchedItems);
+        console.log(usersWatchedItems);
 
         return (
             <div className="watchlistRoutePage">
@@ -67,7 +76,7 @@ class WatchlistRoute extends Component {
                                         } */}
                                         
                                         <div style={{position: "relative", right: "8%"}}>
-                                        <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.removeItem(this.props.watch, item)}>cancel</i>
+                                        <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.handleRemove(item)}>cancel</i>
                                         <ReactTooltip />
                                         </div>
                                     </div>
@@ -103,7 +112,7 @@ class WatchlistRoute extends Component {
                                             <i className="material-icons alertBtn" data-tip={"Add an alert for this item"}>add_alert</i>
                                             <ReactTooltip />
 
-                                            <i className="material-icons removeBtn" data-tip={"Remove from watchlist"}>cancel</i>
+                                            <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.handleRemove(item)}>cancel</i>
                                             <ReactTooltip />
                                         </div>
                                 </div>
@@ -136,4 +145,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(WatchlistRoute);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        removeFromWatch : (item) => { dispatch(removeFromWatch(item)) },
+        watch: (item) => { dispatch(watch(item)) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WatchlistRoute);

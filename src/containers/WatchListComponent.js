@@ -176,8 +176,8 @@ class WatchList extends Component {
                     {this.props.user == "" ? <Modal3 userItems={this.props.items} products={this.props.products} /> : <span></span>}
                   </div>
                     {/* <a className="btn test2" onClick={getWatchList}>Test</a>
-                    <a className="btn saveWatchBtn" onClick={() => this.saveWatchList(this.props.items)}>Save</a>
-                    <a className="btn showBtn" onClick={this.showState}>State</a> */}
+                    <a className="btn saveWatchBtn" onClick={() => this.saveWatchList(this.props.items)}>Save</a> */}
+                    <a className="btn showBtn" style={{marginLeft: "100px"}} onClick={this.showState}>State</a>
                 </div>
             </div>
         )
