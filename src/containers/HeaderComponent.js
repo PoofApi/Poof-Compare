@@ -10,6 +10,7 @@ import {store} from '../index.js';
 import * as types from '../constants/types';
 import Loading from './LoadingComponent.js';
 import MobileSignIn from './MobileSignIn';
+import MobileSignIn2 from './MobileSignIn';
 
 
 const axios = require('axios');
@@ -113,10 +114,9 @@ class Header extends Component {
                 <img src={piggy3} />
                 <nav className="transparent">
                     <div className="nav-wrapper" style={{borderBottom: "1px solid"}}>
-                        <a href="#" className="brand-logo newPoofLogo">Poof!</a>
-                        <div className="mediaLoadBtn"><MobileSignIn /></div>
-                        <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            <li><MobileSignIn /></li>
+                        <a href="#" className="brand-logo newPoofLogo2">Poof!</a>
+                        <ul id="nav-mobile" className="right header1Load2">
+                            <li className="header1Load"><MobileSignIn /></li>
                         </ul>
                     </div>
                 </nav>
@@ -127,6 +127,9 @@ class Header extends Component {
                     <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Register</Link></li>               
                 </ul> */}
                 <div className="row" style={{paddingTop: "180px", display: "flex", justifyContent: "center"}}>
+                    {/* <div className="col-12 flow-text white-text mediaHolder" style={{textAlign: "center"}}>
+                        <MobileSignIn2 />
+                    </div> */}
                     <div className="col-12">
                         <h2 style={{textAlign: "center", fontSize: "60px", fontFamily: "Roboto"}} className="mb-3 flow-text white-text"><b>Welcome to Poof! Auto-Compare!</b></h2>
                     </div>
