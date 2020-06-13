@@ -10,7 +10,6 @@ function resetWatch(){
 }
 
 class MobileSignIn extends Component {
-
     constructor(props){
         super(props);
 
@@ -42,6 +41,8 @@ class MobileSignIn extends Component {
     }
 
     componentDidMount() {
+        
+
         const options = {
         onOpenStart: () => {
             console.log("Open Start");
@@ -65,6 +66,7 @@ class MobileSignIn extends Component {
         };
         M.Modal.init(this.MobileSignIn, options);
         
+        this.loginInput.focus();
     }
 
     
@@ -94,8 +96,9 @@ class MobileSignIn extends Component {
                     <form className="col s12">
                         <div className="row">
                             <div className="input-field col s12">
-                                <input id="userId" type="text" className="mobileInput validate" onChange={this.handleChange} value={this.state.userId} required></input>
-                                <label for="userId">Please provide the email or phone number that your Poof! account is linked to.</label>
+                                <input placeholder="Please enter your email or phone #" id="userId" type="text" className="mobileInput validate" type="text" ref={(input) => {this.loginInput = input; }} onChange={this.handleChange} value={this.state.userId} required></input>
+                                {/* <label for="userId">Please provide the email or phone number that your Poof! account is linked to.</label> */}
+
                             </div>
                         </div>
                         <div className="row" style={{display:"flex", justifyContent: "center"}}>
