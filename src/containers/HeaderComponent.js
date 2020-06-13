@@ -9,6 +9,7 @@ import piggy3 from '../images/piggy3.jpg';
 import {store} from '../index.js';
 import * as types from '../constants/types';
 import Loading from './LoadingComponent.js';
+import MobileSignIn from './MobileSignIn';
 
 
 const axios = require('axios');
@@ -112,15 +113,11 @@ class Header extends Component {
                 <img src={piggy3} />
                 <nav className="transparent">
                     <div className="nav-wrapper" style={{borderBottom: "1px solid"}}>
-                        {/* <a href="/" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
-                        <div className="poofLogo">
-                            <Link style={{paddingRight: "20px", borderRight: "1px solid", paddingLeft: "15px"}} to={'/'} className="brand-logo">Poof!</Link>
-                        </div>
-                            <ul id="nav-mobile" className="right hide-on-med-and-down">
-                                <li className="navLinks"><Link to={'/'}>About</Link></li>
-                                <li className="navLinks"><Link to={'/'}>Login</Link></li>
-                                <li className="navLinks"><Link to={'/'}>Register</Link></li>
-                            </ul>
+                        <a href="#" className="brand-logo newPoofLogo">Poof!</a>
+                        <div className="mediaLoadBtn"><MobileSignIn /></div>
+                        <ul id="nav-mobile" className="right hide-on-med-and-down">
+                            <li><MobileSignIn /></li>
+                        </ul>
                     </div>
                 </nav>
 

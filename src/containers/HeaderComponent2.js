@@ -7,6 +7,7 @@ import {resetSearch, resetWatchList, logOutUser} from '../actions/product';
 import {store} from '../index.js';
 import * as types from '../constants/types';
 import poofWithBackground from '../images/poofWithBackground.jpg';
+import MobileSignIn from './MobileSignIn';
 
 const axios = require('axios');
 
@@ -170,7 +171,7 @@ class Header2 extends Component {
                         <ul>
                             {/* <li onClick={() => this.returnHome()} className="homeLink" >Home</li>
                             <li onClick={() => this.resetWatch()} className="resetLink" >Reset</li>*/}
-                            {this.props.user == "" ? <div></div> : <li onClick={() => this.resetUser()} className="resetUserLink" >Log Out</li>}                                
+                            {this.props.user == "" ? <MobileSignIn /> : <li onClick={() => this.resetUser()} className="resetUserLink" >Log Out</li>}                                
                         </ul>
                     </div>
                 </div>

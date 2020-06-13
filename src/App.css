@@ -33,6 +33,10 @@ input::placeholder{
         display: none;
     }
 
+    .newPoofLogo {
+        display: none !important;
+    }
+
     .label-icon{
         display: none;
     }
@@ -46,7 +50,7 @@ input::placeholder{
     }
 
     .watchtool-container {
-        display: none;
+        display: none !important;
     }
 
     .resetUserLink {
@@ -65,6 +69,17 @@ input::placeholder{
 
     .mobile-watchlist {
         display: none !important;
+    }
+
+    .mediaLoadBtn {
+        display: none !important;
+    }
+
+}
+
+@media screen and (min-width: 576px) {
+    .logOutBtn {
+        padding-top: 10px !important;
     }
 }
 
@@ -460,6 +475,13 @@ a:hover{
     height: 65px;
 }
 
+.newPoofLogo {
+    padding-left: 20px !important;
+    border-right: white solid 1px !important;
+    padding-right: 23px !important;
+    font-size: xxx-large !important;
+}
+
 .poofLogo {
     padding: 0px 20px 0px 15px;
     border-right: 1px solid;
@@ -471,6 +493,18 @@ a:hover{
 
 .poofLogo:hover {
     background-color: #806543;
+}
+
+.mainHeaderLogo {
+    font-size: xxx-large;
+    padding-left: 20px;
+    border-right: white solid 1px;
+    width: 160px;
+}
+
+.mainHeaderLogo:hover {
+    background-color: #806543;
+    cursor: pointer;
 }
 
 a {
@@ -594,6 +628,20 @@ a {
     font-size: 30px;
     color: #e64949;
     padding-left: 50px !important;
+}
+
+.logInMobile {
+    color: white;
+    font-size: large;
+}
+
+.mobileLogin {
+    text-align: center;
+    padding: 5px 10px 0px 10px;
+}
+
+.mobileInput {
+    margin-top: 15px !important;
 }
 
 
