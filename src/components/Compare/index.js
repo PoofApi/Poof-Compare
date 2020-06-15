@@ -9,10 +9,10 @@ const Compare = ({items, toggleClick}) =>
         {items.map(item =>
             <div className="watchContainer">
               <div className="row">
-                <div className="col-3 comparePicHolder">
+                <div className="col-3 col-md-2 comparePicHolder">
                   <img className="img-fluid compareImage" src={item.image} alt={item.title} key={item.id}/>
                 </div>
-                <div className="col-7 info">
+                <div className="col-7 col-md-9 info">
                   <div className="itemName">
                       <h3 className='username itemName2'>{item.title}</h3>
                   </div>

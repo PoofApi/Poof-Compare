@@ -9,7 +9,7 @@ function resetWatch(){
     store.dispatch(resetWatchList());
 }
 
-class MobileSignIn extends Component {
+class SaveUserModal extends Component {
     constructor(props){
         super(props);
 
@@ -64,39 +64,37 @@ class MobileSignIn extends Component {
         startingTop: "4%",
         endingTop: "10%"
         };
-        M.Modal.init(this.MobileSignIn, options);
-        
-        this.loginInput.focus();
+        M.Modal.init(this.SaveUserModal, options);
     }
 
     
     render() {
 
         return (
-            <div className="mobileLogin">
-              <span
-                className="modal-trigger logInMobile"
-                data-target="modal2"
+            <div>
+              <a
+                className="btn modal-trigger newSaveBtn"
+                data-target="modal4"
               >
-                Load List
-              </span>
+                New Save
+              </a>
       
               <div
-                ref={MobileSignIn => {
-                  this.MobileSignIn = MobileSignIn;
+                ref={SaveUserModal => {
+                  this.SaveUserModal = SaveUserModal;
                 }}
-                id="modal2"
-                className="modal signUpUser"
+                id="modal4"
+                className="modal"
               >
               <div className="modal-content">
                 <div className="headerContainer" style={{display: "flex", justifyContent: "center", color: "black"}}>
-                    <h4>Load your saved list</h4>
+                    <h4>Save your list</h4>
                 </div>
                 <div className="row">
                     <form className="col s12">
                         <div className="row">
                             <div className="input-field col s12">
-                                <input placeholder="Please enter your email or phone #" id="userId" type="text" className="mobileInput validate" type="text" ref={(input) => {this.loginInput = input; }} onChange={this.handleChange} value={this.state.userId} required></input>
+                                <input placeholder="Please enter your email or phone #" id="userId" type="text" className="validate" type="text" ref={(input) => {this.loginInput = input; }} onChange={this.handleChange} value={this.state.userId} required></input>
                                 {/* <label for="userId">Please provide the email or phone number that your Poof! account is linked to.</label> */}
 
                             </div>
@@ -120,4 +118,4 @@ class MobileSignIn extends Component {
     }
 }
 
-export default MobileSignIn;
+export default SaveUserModal;

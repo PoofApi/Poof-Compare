@@ -7,6 +7,7 @@ import ReactTooltip from 'react-tooltip';
 import { addToWatch, removeFromWatch } from '../actions/product';
 import 'react-rangeslider/lib/index.css';
 import AlertModal from './AlertModal';
+import SaveUserModal from './SaveUserModal';
 
 
 const axios = require('axios');
@@ -177,7 +178,7 @@ class WatchList extends Component {
                   </div>
                     {/* <a className="btn test2" onClick={getWatchList}>Test</a>
                     <a className="btn saveWatchBtn" onClick={() => this.saveWatchList(this.props.items)}>Save</a> */}
-                    <a className="btn showBtn" style={{marginLeft: "100px"}} onClick={this.showState}>State</a>
+                    <SaveUserModal />
                 </div>
             </div>
         )

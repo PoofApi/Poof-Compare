@@ -161,8 +161,9 @@ input::placeholder{
     position: fixed;
     display: flex;
     bottom: 0;
-    width: 100%;
-    z-index: 3
+    width: 500px;
+    z-index: 3;
+    border-radius: 0px 5px 0px 0px;
 }
 
 .navLinks:hover {
@@ -267,7 +268,7 @@ a:hover{
     width: 40px;
     z-index: 101;
     margin-top: 120px;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -684,6 +685,18 @@ a {
 
 .mobileInput {
     margin-top: 15px !important;
+}
+
+.submit-button:hover{
+    background-color: #806543 !important;
+}
+
+.close-button:hover{
+    background-color: #806543 !important;
+}
+
+.newSaveBtn {
+    margin-left: 100px;
 }
 
 

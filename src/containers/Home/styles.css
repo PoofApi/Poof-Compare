@@ -22,7 +22,8 @@
     height: 78%;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    left: 0;
+    width: 500px;
     z-index: 2;
     background-color: blanchedalmond;
 }
