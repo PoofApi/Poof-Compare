@@ -12,6 +12,7 @@ import Loading from '../LoadingComponent.js';
 import './styles.css';
 import {store} from '../../index.js';
 import { Link } from 'react-router-dom';
+import ReactTooltip from 'react-tooltip';
 
 
 const axios = require('axios');
@@ -324,7 +325,8 @@ class Home extends Component {
           <div className="home mt-5">
             <ProductList items={items} compare={actions.compare} watch={actions.watch}/>
             <div className="mobile-watchlist">
-              <Link className="mobile-watchlist2" to={'/watchlist'}>My Poof! Watch List</Link>
+              <Link className="mobile-watchlist2" to={'/watchlist'}><p data-tip={"My Poof! Watchlist"} ><i className="material-icons mobile-watchlist-icon">view_list</i></p></Link>
+              <ReactTooltip />
               {/* <div className="watchlistMobileTitle">My Poof! Watchlist</div> */}
             </div>
             <div className={compareProducts.length >= 1 ? "compareTable" : "filler"} style={{display: (this.state.compareToolbarOpen ? "none" : "block")}}>

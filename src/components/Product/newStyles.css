@@ -10,6 +10,10 @@
     height: 100%;
   }
 
+.productCard:hover {
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.22);
+}
+
 .itemImage:hover .card-overlay{
   opacity: 0.5 !important;
 }
@@ -46,8 +50,6 @@
 }
 
 .itemPrice {
-  position: relative;
-  left: 40%;
   bottom: 2%;
   font-weight: 600;
   font-size: 30px;

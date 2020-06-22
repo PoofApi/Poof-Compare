@@ -41,11 +41,14 @@ class WatchlistRoute extends Component {
         return (
             <div className="watchlistRoutePage">
                 <div className="watchlistContainerBar">
-                        My Poof! Watchlist
+                    <div className="returnToSearchIcon"><Link to={'/'}><p data-tip={"Return to item search"} ><i className="material-icons">keyboard_return</i></p></Link></div>
+                    <ReactTooltip />
+                    <div>My Poof! Watchlist</div>
+                    <div className="fillerSpace"></div>
                 </div>
-                <div className="returnToSearch">
+                {/* <div className="returnToSearch">
                     <div className="returnTitle"><Link to={'/'}>Return to item search</Link></div>
-                </div>
+                </div> */}
                 {usersWatchedItems.length > 0 ? usersWatchedItems.map(item =>
                     <div className="container">
                         <div className="card mb-3" style={{maxWidth: "540px", height: "150px"}}>
