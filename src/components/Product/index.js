@@ -91,8 +91,10 @@ class Product extends Component{
                                             <img src={this.props.item.image} alt={this.props.item.title} style={{height:"250px", width: "60%", marginTop: "25px"}}/>
                                             <p data-tip={(this.props.item.watch ? "This item is currently in your watchlist" : "Add to watchlist")} ><a className="btn-floating halfway-fab floatingWatchBtn indigo darken-4"><i className="material-icons" style={{color: (this.props.item.watch? "red" : "white")}} onClick={(this.props.item.watch) ? () => console.log("If you would like to remove this item from your watchlist, please remove it through the watchlist tab") : () => this.handleWatch(this.props.watch, this.props.item)}>{this.props.item.watch? "favorite" : "remove_red_eye"} </i></a></p>
                                             <ReactTooltip />
-                                        <div className="card-overlay"></div>
+                                        <div className={(this.props.item.compare ? "card-overlay2" : "card-overlay")}></div>
                                         <div className="detailsBtn" onClick={() => this.props.compare(this.props.item)} style={{color: "black", display: "flex", justifyContent: "center", alignItems:"center"}}>{this.props.item.compare ? "Hide Details" : "View Details"}</div>
+                                        {/* <div className="card-overlay2"></div> */}
+                                        {/* <div className="detailsBtn2" onClick={() => this.props.compare(this.props.item)} style={{color: "black", display: "flex", justifyContent: "center", alignItems:"center"}}>{this.props.item.compare ? "Hide Details" : "View Details"}</div> */}
                                     </div>
                                     <div className="card-content" style={{display: "flex", alignItems: "center", flexDirection: "column"}}>
                                         <div className="card-title" style={{ lineHeight:"1.3em" ,fontSize:"18px", overflow:"hidden", position: "relative", bottom: "30%", textAlign: "center"}}>{this.props.item.title}</div>

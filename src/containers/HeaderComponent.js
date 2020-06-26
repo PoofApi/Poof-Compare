@@ -137,7 +137,7 @@ class Header extends Component {
                     {
                     this.state.loading ? 
                     
-                        <div className="col-md-4">
+                        <div className="col-8 col-sm-8 col-md-4">
                             <div style={{fontSize: "20px", color: "white", textAlign: "center"}}>
                                 Just one moment while Poof! finds you the best deals!....
                             </div>

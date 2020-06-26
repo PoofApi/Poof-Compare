@@ -6,6 +6,7 @@ import ReactTooltip from 'react-tooltip';
 import 'react-rangeslider/lib/index.css';
 import AlertModal from './AlertModal';
 import { removeFromWatch, watch } from '../actions/product';
+import MobileSignIn2 from './MobileSignIn2';
 
 class WatchlistRoute extends Component {
     constructor(props){
@@ -44,8 +45,7 @@ class WatchlistRoute extends Component {
                     <div className="returnToSearchIcon"><Link to={'/'}><p data-tip={"Return to item search"} ><i className="material-icons keyboardReturnIcon">keyboard_return</i></p></Link></div>
                     <ReactTooltip />
                     <div>My Poof! Watchlist</div>
-                    <div className="loadListIcon"><p data-tip={"Load previously saved list"}><i className="material-icons">import_contacts</i></p></div>
-                    <ReactTooltip />
+                    <MobileSignIn2 />
                 </div>
                 {/* <div className="returnToSearch">
                     <div className="returnTitle"><Link to={'/'}>Return to item search</Link></div>
@@ -95,7 +95,7 @@ class WatchlistRoute extends Component {
                     :
 
                     watchedItems.length > 0 ? watchedItems.map(item =>
-                        <div className="container">
+                        <div className="container watchlistRouteContainer">
                             <div className="card watchCard">
                                 <div className="row">
                                     <div className="col-4 col-sm-3">

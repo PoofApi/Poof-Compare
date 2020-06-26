@@ -4,6 +4,7 @@ import {auth} from '../firebase.js';
 import '../App.css';
 import {saveUser, resetWatchList, addSignInWatch, setWatchList} from '../actions/product';
 import {store} from '../index.js';
+import ReactTooltip from 'react-tooltip';
 
 function resetWatch(){
     store.dispatch(resetWatchList());
@@ -71,14 +72,9 @@ class MobileSignIn2 extends Component {
     render() {
 
         return (
-            <div className="mobileLogin">
-              <span
-                className="modal-trigger logInMobile"
-                data-target="modal3"
-              >
-                Load List
-              </span>
-      
+            <div className="mobileRouteLogin">
+              <div className="loadListIcon modal-trigger" data-target="modal3"><p data-tip={"Load previously saved list"}><i className="material-icons">import_contacts</i></p></div>
+                <ReactTooltip />
               <div
                 ref={MobileSignIn2 => {
                   this.MobileSignIn2 = MobileSignIn2;

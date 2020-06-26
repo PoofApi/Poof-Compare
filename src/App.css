@@ -753,6 +753,18 @@ a {
     right: 3%;
 }
 
+.watchlistRouteContainer{
+    width: 90% !important;
+    margin-top: 25px !important;
+    margin-bottom: 30px !important;
+}
+
+.mobileRouteLogin{
+    position: relative;
+    right: 3%;
+    top: 14%;
+}
+
 
 
 
