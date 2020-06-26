@@ -748,6 +748,11 @@ a {
     color: #806543;
 }
 
+.mobileSearchProgress{
+    position: relative;
+    right: 3%;
+}
+
 
 
 

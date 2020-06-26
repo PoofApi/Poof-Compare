@@ -156,7 +156,7 @@ class Header2 extends Component {
                             </div>
 
                         :
-                            <div className="col-sm-2 col-md-3">
+                            <div className="col-6 col-sm-2 col-md-3 mobileSearchProgress">
                                 <div className="progress progressBar">
                                     <div className="indeterminate indeterminateBar"></div>
                                 </div>
