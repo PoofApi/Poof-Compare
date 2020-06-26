@@ -41,10 +41,11 @@ class WatchlistRoute extends Component {
         return (
             <div className="watchlistRoutePage">
                 <div className="watchlistContainerBar">
-                    <div className="returnToSearchIcon"><Link to={'/'}><p data-tip={"Return to item search"} ><i className="material-icons">keyboard_return</i></p></Link></div>
+                    <div className="returnToSearchIcon"><Link to={'/'}><p data-tip={"Return to item search"} ><i className="material-icons keyboardReturnIcon">keyboard_return</i></p></Link></div>
                     <ReactTooltip />
                     <div>My Poof! Watchlist</div>
-                    <div className="fillerSpace"></div>
+                    <div className="loadListIcon"><p data-tip={"Load previously saved list"}><i className="material-icons">import_contacts</i></p></div>
+                    <ReactTooltip />
                 </div>
                 {/* <div className="returnToSearch">
                     <div className="returnTitle"><Link to={'/'}>Return to item search</Link></div>

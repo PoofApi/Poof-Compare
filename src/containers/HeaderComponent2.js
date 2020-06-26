@@ -8,6 +8,8 @@ import {store} from '../index.js';
 import * as types from '../constants/types';
 import poofWithBackground from '../images/poofWithBackground.jpg';
 import MobileSignIn from './MobileSignIn';
+import ReactTooltip from 'react-tooltip';
+
 
 const axios = require('axios');
 
@@ -167,12 +169,16 @@ class Header2 extends Component {
                     </span> */}
 
                     
-                    <div className="logOutBtn">
+                    {/* <div className="logOutBtn">
                         <ul>
-                            {/* <li onClick={() => this.returnHome()} className="homeLink" >Home</li>
-                            <li onClick={() => this.resetWatch()} className="resetLink" >Reset</li>*/}
+                            <li onClick={() => this.returnHome()} className="homeLink" >Home</li>
+                            <li onClick={() => this.resetWatch()} className="resetLink" >Reset</li>
                             {this.props.user == "" ? <MobileSignIn /> : <li onClick={() => this.resetUser()} className="resetUserLink" >Log Out</li>}                                
                         </ul>
+                    </div> */}
+                    <div className="mobile-watchlist3">
+                        <Link className="mobile-watchlist4" to={'/watchlist'}><p data-tip={"My Poof! Watchlist"} ><i className="material-icons mobile-watchlist-icon2">view_list</i></p></Link>
+                        <ReactTooltip />
                     </div>
                 </div>
                 

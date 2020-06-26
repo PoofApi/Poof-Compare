@@ -324,11 +324,10 @@ class Home extends Component {
         <div className="productHome">
           <div className="home mt-5">
             <ProductList items={items} compare={actions.compare} watch={actions.watch}/>
-            <div className="mobile-watchlist">
+            {/* <div className="mobile-watchlist">
               <Link className="mobile-watchlist2" to={'/watchlist'}><p data-tip={"My Poof! Watchlist"} ><i className="material-icons mobile-watchlist-icon">view_list</i></p></Link>
               <ReactTooltip />
-              {/* <div className="watchlistMobileTitle">My Poof! Watchlist</div> */}
-            </div>
+            </div> */}
             <div className={compareProducts.length >= 1 ? "compareTable" : "filler"} style={{display: (this.state.compareToolbarOpen ? "none" : "block")}}>
               {compareProducts.length >= 1 && (this.state.compareTableOpen) ? 
                 <Compare items={compareProducts} toggleClick={this.toggleCompare} 

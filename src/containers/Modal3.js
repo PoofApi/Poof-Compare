@@ -73,7 +73,7 @@ class Modal3 extends Component {
         return (
             <div>
               <a
-                className="btn modal-trigger"
+                className="btn modal-trigger watchlistSaveBtn"
                 data-target="modal2"
               >
                 Save

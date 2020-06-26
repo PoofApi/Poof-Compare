@@ -5,7 +5,8 @@
 
 .hToolbar {
     height: 35px;
-    background-color: #0C1344
+    background-color: #0C1344;
+    border-radius: 0px 10px 0px 0px;
 }
 
 .toggleButton{

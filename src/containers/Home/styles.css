@@ -16,16 +16,28 @@
     left: 0;
 }
 
+@media screen and (max-width: 998px){
+    .compareTable{
+        height: 78% !important;
+        border-radius: 0px !important;
+    }
+
+    .hToolbar{
+        border-radius: 0px !important;
+    }
+}
+
 .compareTable{
     display: block;
     overflow: scroll;
-    height: 78%;
+    height: 43%;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 500px;
     z-index: 2;
     background-color: blanchedalmond;
+    border-radius: 0px 10px 0px 0px;
 }
 
 .compareTable::-webkit-scrollbar {

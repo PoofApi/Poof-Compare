@@ -89,6 +89,14 @@ input::placeholder{
     .mediaHolder {
         display: none !important;
     }
+
+    .mobile-watchlist-icon2{
+        display: none;
+    }
+
+    .mobile-watchlist-icon2{
+        display: none;
+    }
 }
 
 @media screen and (min-width: 576px) {
@@ -234,7 +242,7 @@ a:hover{
     width: 310px;
     z-index: 101;
     top: 0;
-    margin-top: 63px;
+    margin-top: 65px;
     overflow: auto;
 }
 
@@ -262,7 +270,7 @@ a:hover{
 
 .watchtool-container {
     height: 400px;
-    background-color: black;
+    background-color: #0C1344;
     position: fixed;
     right: 0;
     width: 40px;
@@ -311,6 +319,7 @@ a:hover{
 
 .watchlist-navbar{
     display: flex;
+    border-top: white solid 1px;
 }
 
 .watchlist-title {
@@ -558,6 +567,25 @@ a {
     margin-left: 60px;
 }
 
+
+.mobile-watchlist-icon2 {
+    font-size: 48px;
+}
+
+.keyboardReturnIcon:hover{
+    color: #806543;
+}
+
+.mobile-watchlist-icon2:hover{
+    color: #806543;
+}
+
+.mobile-watchlist3{
+    position: relative;
+    right: 2%;
+    top: 14%;
+}
+
 .mobile-watchlist {
     height: 40px;
     width: 40px;
@@ -702,8 +730,23 @@ a {
 
 .newSaveBtn {
     margin-left: 100px;
+    background-color: #0C1344 !important;
 }
 
+.watchlistSaveBtn{
+    background-color: #0C1344 !important;
+}
+
+.loadListIcon{
+    position: relative;
+    right: 3%;
+    top: 17%;
+}
+
+.loadListIcon:hover{
+    cursor: pointer;
+    color: #806543;
+}
 
 
 
