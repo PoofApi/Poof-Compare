@@ -410,7 +410,7 @@ a:hover{
 }
 
 .signUpUser {
-    height: 30% !important;
+    height: 100% !important;
 }
 
 .progressBar2 {
@@ -765,8 +765,27 @@ a {
     top: 14%;
 }
 
+/*WatchRoute Component */
+.watchRouteCard{
+    position: relative;
+    left: 17%;
+    top: -4%;
+}
 
+.logOutUserWatchRoute{
+    position: relative;
+    right: 2%;
+    top: 15%;
+}
 
+.logOutUserWatchRoute:hover{
+    cursor: pointer;
+    color: #806543;
+}
+
+.watchRouteCardTitle{
+    font-size: 16px !important;
+}
 
 
 

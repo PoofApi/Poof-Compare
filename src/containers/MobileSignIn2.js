@@ -2,13 +2,47 @@ import React, { Component } from "react";
 import M from "materialize-css";
 import {auth} from '../firebase.js';
 import '../App.css';
-import {saveUser, resetWatchList, addSignInWatch, setWatchList} from '../actions/product';
+import {saveUser, resetWatchList, addSignInWatch, setWatchList, removeFromWatch, watch, logOutUser, addItemToWatch2} from '../actions/product';
 import {store} from '../index.js';
 import ReactTooltip from 'react-tooltip';
+import {connect} from 'react-redux';
+const axios = require('axios');
+
 
 function resetWatch(){
     store.dispatch(resetWatchList());
 }
+
+async function getWatchList(user){
+
+    if(user !== ""){
+      try{
+        let response = await axios({
+          method: 'post',
+          url: "https://us-central1-poofapibackend.cloudfunctions.net/watchList-getWatchListItems",
+          headers: {
+            "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+            "Accept" : "application/json",
+            "Content-Type" : "application/json",
+          },
+          data: {
+              "userId" : user       
+          },
+        })
+      
+        let confirmation = await response.data;
+        console.log("Successfully retrieved watchlist!: ", confirmation);
+        return confirmation;
+      }
+    
+      catch(err){
+        console.log(err, "Unable to retrieve watchlist");
+      }
+    }
+    else {
+      return console.log("User is not signed in");
+    }
+  }
 
 class MobileSignIn2 extends Component {
 
@@ -34,12 +68,21 @@ class MobileSignIn2 extends Component {
     //     }
     // }
 
-    handleSubmit() {
+    async handleSubmit() {
         // let items = this.props.userItems;
         // items.map( item => setWatchList(item));
         // this.unWatchProducts();
         // resetWatch();
-        store.dispatch(saveUser(this.state.userId));
+        this.props.saveUser(this.state.userId);
+        window.location.reload(false);
+        // console.log(this.props.storeUserId);
+        // if(this.props.storeUserId !== ""){
+        //     let signedUserItems = await getWatchList(this.props.storeUserId);
+        //     console.log(signedUserItems);
+        //     if(signedUserItems){
+        //         signedUserItems.map(item => this.props.addItemToWatch2(item));
+        //     }
+        // }
     }
 
     componentDidMount() {
@@ -113,4 +156,20 @@ class MobileSignIn2 extends Component {
     }
 }
 
-export default MobileSignIn2;
+const mapStateToProps = (state) => {
+    return {
+        storeUserId: state.item.storeUserId
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        removeFromWatch : (item) => { dispatch(removeFromWatch(item)) },
+        watch: (item) => { dispatch(watch(item)) },
+        logOutUser: () => {dispatch(logOutUser())},
+        addItemToWatch2: (item) => { dispatch(addItemToWatch2(item)) },
+        saveUser: (user) => { dispatch(saveUser(user)) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MobileSignIn2);

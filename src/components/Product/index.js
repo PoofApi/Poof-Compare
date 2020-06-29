@@ -93,8 +93,6 @@ class Product extends Component{
                                             <ReactTooltip />
                                         <div className={(this.props.item.compare ? "card-overlay2" : "card-overlay")}></div>
                                         <div className="detailsBtn" onClick={() => this.props.compare(this.props.item)} style={{color: "black", display: "flex", justifyContent: "center", alignItems:"center"}}>{this.props.item.compare ? "Hide Details" : "View Details"}</div>
-                                        {/* <div className="card-overlay2"></div> */}
-                                        {/* <div className="detailsBtn2" onClick={() => this.props.compare(this.props.item)} style={{color: "black", display: "flex", justifyContent: "center", alignItems:"center"}}>{this.props.item.compare ? "Hide Details" : "View Details"}</div> */}
                                     </div>
                                     <div className="card-content" style={{display: "flex", alignItems: "center", flexDirection: "column"}}>
                                         <div className="card-title" style={{ lineHeight:"1.3em" ,fontSize:"18px", overflow:"hidden", position: "relative", bottom: "30%", textAlign: "center"}}>{this.props.item.title}</div>

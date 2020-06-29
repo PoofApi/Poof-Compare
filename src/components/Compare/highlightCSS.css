@@ -36,6 +36,10 @@
     justify-content: center;
 }
 
+.itemLink{
+    font-size: small;
+}
+
 .fillerContent{
     margin-left: 40px;
 }
@@ -47,6 +51,7 @@
 
 .itemName2 {
     padding-top: 15px;
+    font-size: large;
 }
 
 .watchContainer {

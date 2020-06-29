@@ -84,6 +84,11 @@ export const addItemToWatch = (payload) => ({
   payload: payload
 })
 
+export const addItemToWatch2 = (payload) => ({
+  type: types.ADD_WATCH_ITEM2,
+  payload: payload
+})
+
 export const removeFromWatch = (payload) => ({
   type: types.REMOVE_WATCH,
   payload: payload

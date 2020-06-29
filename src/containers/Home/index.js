@@ -213,11 +213,11 @@ class Home extends Component {
 
     if(this.props.storeUserId !== ""){
       
-      let previousWatchItems = this.props.watchedItems;
-      console.log(previousWatchItems[0].title);
-      console.log(store.getState().item.storeUserId);
-      // let previousWatchItems = this.props.watchedItems;
-      await previousWatchItems.map(item => setWatchList(item, this.props.usersWatchedItems));
+      if(this.props.watchedItems){
+        let previousWatchItems = this.props.watchedItems;
+        // let previousWatchItems = this.props.watchedItems;
+        await previousWatchItems.map(item => setWatchList(item, this.props.usersWatchedItems));
+      }
       
       let items = await this.getUsersItems();
       store.dispatch(this.props.actions.loadUsersItems(items));

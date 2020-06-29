@@ -6,6 +6,7 @@ export const WATCH_PRODUCT = 'WATCH_PRODUCT';
 export const ADD_USER = "ADD_USER";
 export const ADD_WATCH = "ADD_WATCH";
 export const ADD_WATCH_ITEM = "ADD_WATCH_ITEM";
+export const ADD_WATCH_ITEM2 = "ADD_WATCH_ITEM2";
 export const RESET_WATCH = "RESET_WATCH";
 export const REMOVE_WATCH = "REMOVE_WATCH";
 export const INCLUDE_WATCH = "INCLUDE_WATCH";

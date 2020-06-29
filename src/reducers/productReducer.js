@@ -57,7 +57,7 @@ export default function (state = INITIAL_STATE, action) {
     
     case types.LOGOUT_USER:
       return {
-        ...state, storeUserId: ""
+        ...state, storeUserId: "", usersWatchedItems: []
       }
 
     case types.ADD_WATCH:
@@ -74,6 +74,11 @@ export default function (state = INITIAL_STATE, action) {
         usersWatchedItems: (state.storeUserId !== "" ? state.usersWatchedItems.concat(action.payload)
         : state.usersWatchedItems)
       };
+
+    case types.ADD_WATCH_ITEM2:
+      return {
+        ...state, usersWatchedItems: state.usersWatchedItems.concat(action.payload)
+      }; 
     
     case types.SIGN_IN_WATCH:
       return {
