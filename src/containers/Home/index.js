@@ -13,6 +13,7 @@ import './styles.css';
 import {store} from '../../index.js';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
+import uuid from 'react-uuid';
 
 
 const axios = require('axios');
@@ -190,6 +191,16 @@ class Home extends Component {
     }
   }
 
+  addId(items){
+    for(let item of items){
+      if(!item.id){
+        item.id = uuid();
+      }
+    }
+
+    return items;
+  }
+
   checkIfInWatch(){
     const products = this.props.items;
     const storeWatch = this.props.watchedItems;
@@ -267,25 +278,30 @@ class Home extends Component {
     }
   }
 
-  async componentDidUpdate(previousProps, previousState) {
-    this.checkIfInWatch();
+//   async componentDidUpdate(previousProps, previousState) {
+//     this.checkIfInWatch();
 
-    console.log("ComponentDidUpdate called!");
+//     console.log("ComponentDidUpdate called!");
 
-    // store.dispatch(this.props.actions.addSignInWatch());
+//     // This was previously backslashed out
+//     // store.dispatch(this.props.actions.addSignInWatch());
 
-    if (previousProps.data !== this.props.data && this.props.storeUserId !== "") {
+//     if (previousProps.data !== this.props.data && this.props.storeUserId !== "") {
 
-      let previousWatchItems = this.props.watchedItems;
-      console.log(previousWatchItems);
-      console.log(store.getState().item.storeUserId);
-      await previousWatchItems.map(item => setWatchList(item));
+//       let previousWatchItems = this.props.watchedItems;
+//       console.log(previousWatchItems);
+//       console.log(store.getState().item.storeUserId);
+//       await previousWatchItems.map(item => setWatchList(item));
 
-      let items = await this.getUsersItems();
-      store.dispatch(this.props.actions.loadUsersItems(items));
-    }
-}
-  
+//       let items = await this.getUsersItems();
+//       store.dispatch(this.props.actions.loadUsersItems(items));
+//     }
+// }
+
+  componentDidUpdate(){
+    console.log("Product items: ", this.props.items);
+  }
+
 
   render() {
 
@@ -293,6 +309,10 @@ class Home extends Component {
 
     
     const {items, actions, isLoading, watchedItems, usersWatchedItems, storeUserId} = this.props;
+
+    let revisedItems = this.addId(items);
+    console.log("Revised items WITH ids: ", revisedItems);
+    
     const compareProducts = items.filter(item => item.compare);
     const storeWatchProducts = watchedItems;
 

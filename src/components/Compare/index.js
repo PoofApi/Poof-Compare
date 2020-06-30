@@ -1,5 +1,6 @@
 import React from 'react';
 import './highlightCSS.css';
+import uuid from 'react-uuid';
 
 const Compare = ({items, toggleClick}) =>
   <div className="highlightContainer">
@@ -7,7 +8,7 @@ const Compare = ({items, toggleClick}) =>
         <i className="material-icons toggleButton" onClick={() => toggleClick()} >expand_more</i>
     </div>
         {items.map(item =>
-            <div className="watchContainer">
+            <div className="watchContainer" key={uuid()}>
               <div className="row">
                 <div className="col-3 col-md-3 comparePicHolder">
                   <img className="img-fluid compareImage" src={item.image} alt={item.title} key={item.id}/>
@@ -16,29 +17,6 @@ const Compare = ({items, toggleClick}) =>
                   <div className="itemName">
                       <h3 className='username itemName2'>{item.title}</h3>
                   </div>
-                  {/* <div className="fillerContent">
-                    <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
-                    ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
-                    purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
-                    <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
-                    ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
-                    purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
-                    <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
-                    ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
-                    purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
-                    <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
-                    ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
-                    purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
-                    <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
-                    ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
-                    purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
-                    <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
-                    ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
-                    purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
-                    <p className='comment'>Aptent vel egestas vestibulum aliquam ullamcorper volutpat
-                    ullamcorper pharetra hac posuere a rhoncus purus molestie torquent. Scelerisque
-                    purus cursus dictum ornare a phasellus. A augue venenatis adipiscing.</p>
-                  </div> */}
                 </div>
               </div>
               <div className="row">

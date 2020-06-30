@@ -30,6 +30,7 @@
 .compareTable{
     display: block;
     overflow: scroll;
+    overflow-x: hidden;
     height: 43%;
     position: fixed;
     bottom: 0;
