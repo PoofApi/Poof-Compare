@@ -130,7 +130,7 @@ class Header extends Component {
                     <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Login</Link></li>
                     <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Register</Link></li>               
                 </ul> */}
-                <div className="row d-none d-sm-block" style={{paddingTop: "180px", display: "flex", justifyContent: "center"}}>
+                <div className="row desktopFrontPage" style={{paddingTop: "180px", display: "flex", justifyContent: "center"}}>
                     {/* <div className="col-12 flow-text white-text mediaHolder" style={{textAlign: "center"}}>
                         <MobileSignIn2 />
                     </div> */}
@@ -144,7 +144,7 @@ class Header extends Component {
                     {
                     this.state.loading ? 
                     
-                        <div className="col-8 col-sm-8 col-md-4">
+                        <div className="col-8 col-sm-8 col-md-5 mainPageProgressBar">
                             <div style={{fontSize: "20px", color: "white", textAlign: "center"}}>
                                 Just one moment while Poof! finds you the best deals!....
                             </div>
@@ -204,7 +204,7 @@ class Header extends Component {
                     {
                     this.state.loading ? 
                     
-                        <div className="col-8 col-sm-8 col-md-4">
+                        <div className="col-8 col-sm-8 col-md-4 mobileProgressSearchBar">
                             <div style={{fontSize: "20px", color: "white", textAlign: "center"}}>
                                 Just one moment while Poof! finds you the best deals!....
                             </div>

@@ -107,6 +107,12 @@ input::placeholder{
     }
 }
 
+@media screen and (max-width: 575px) {
+    .desktopFrontPage{
+        display: none !important;
+    }
+}
+
 @media screen and (min-width: 992px) {
     .poofLogo2 {
         display: none !important;
@@ -814,7 +820,7 @@ a {
 
 .mobileFrontPage{
     position: absolute;
-    top: 12%;
+    top: 11%;
 }
 
 .mobileFrontPic{
@@ -828,6 +834,10 @@ a {
 
 .mobileSearchBar{
     top: -18%;
+}
+
+.mobileProgressSearchBar{
+    margin-left: 85px;
 }
 
 
