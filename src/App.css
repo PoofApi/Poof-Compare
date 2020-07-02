@@ -61,7 +61,9 @@ input::placeholder{
         margin-top: 12px !important;
     }
 
-
+    .jumbo{
+        height: 744px;
+    }
 }
 
 .poofPic:hover {
@@ -410,7 +412,8 @@ a:hover{
 }
 
 .signUpUser {
-    height: 100% !important;
+    height: 36% !important;
+    border-radius: 7px !important;
 }
 
 .progressBar2 {
@@ -786,6 +789,48 @@ a {
 .watchRouteCardTitle{
     font-size: 16px !important;
 }
+
+.modalTitle{
+    color: black;
+    font-size: 170%;
+    font-weight: 600;
+}
+
+/*Mobile Front Page*/
+.mobileBanner{
+    height: 60px;
+    position: absolute;
+    width: 100%;
+    background-color: #806543;
+}
+
+.mobileFooter{
+    height: 70px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #806543;
+}
+
+.mobileFrontPage{
+    position: absolute;
+    top: 12%;
+}
+
+.mobileFrontPic{
+    position: absolute;
+    height: 92% !important;
+    width: 146% !important;
+    opacity: 0.38;
+    top: 8%;
+    left: -14%;
+}
+
+.mobileSearchBar{
+    top: -18%;
+}
+
+
 
 
 
