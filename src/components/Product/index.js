@@ -96,7 +96,7 @@ class Product extends Component{
                                     </div>
                                     <div className="card-content" style={{display: "flex", alignItems: "center", flexDirection: "column"}}>
                                         <div className="card-title" style={{ lineHeight:"1.3em" ,fontSize:"18px", overflow:"hidden", position: "relative", bottom: "30%", textAlign: "center"}}>{this.props.item.title}</div>
-                                        <div className="itemPrice">{this.props.item.price}</div>
+                                        <div className="itemPrice">{`$${this.props.item.price}`}</div><span>{this.props.item.source}</span>
                                     </div>
                             </div>
                     </div>
