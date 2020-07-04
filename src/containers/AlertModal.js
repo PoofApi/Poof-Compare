@@ -97,7 +97,7 @@ class AlertModal extends Component {
                         <h4 style={{textAlign: "center"}}><b>Set an alert (i.e. target price) for "{this.props.item.title}"</b></h4>
                     </div>
                     <div className="priceContainer" style={{textAlign: "center"}}>
-                        <h6>(Lowest available price is currently: {this.props.item.price})</h6>
+                        <h6>(Lowest available price is currently: {`$${this.props.item.price}`})</h6>
                     </div>
                 </div>
                 <div className="row">

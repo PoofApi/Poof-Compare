@@ -138,7 +138,7 @@ class WatchlistRoute extends Component {
                                 <img src={item.image} alt={item.title} key={item.id} style={{maxWidth: "100%", maxHeight: "60%"}}/>
                             </div> 
                             <div className="card-price" style={{position: "absolute", left: "8%", bottom: "10%", color: "tomato"}}>
-                            <b>{item.price}</b>
+                            <b>{`$${item.price}`}</b>
                             </div>
                             <div className="col-8 col-md-8">
                             <div className="card-body watchRouteCard">
@@ -190,8 +190,8 @@ class WatchlistRoute extends Component {
                                     </div>
                                 </div>
                                 <div className="row">
-                                        <div className="col-4 priceTag2">{item.price}</div>
-                                        <div className="col-4" style={{paddingLeft: "40px", fontSize: "x-large"}}>{item.source}</div>
+                                        <div className="col-5 priceTag2">{`$${item.price}`}</div>
+                                        <div className="col-3" style={{fontSize: "large", paddingTop: "8px"}}>{item.source}</div>
                                         <div className="watchlistButtons col-4">
                                             <i className="material-icons alertBtn" data-tip={"Add an alert for this item"}>add_alert</i>
                                             <ReactTooltip />

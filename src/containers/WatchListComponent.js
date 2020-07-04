@@ -117,7 +117,7 @@ class WatchList extends Component {
                                     <img src={item.image} alt={item.title} key={item.id} style={{maxWidth: "100%", maxHeight: "60%"}}/>
                                   </div> 
                                   <div className="card-price" style={{position: "absolute", left: "14%", bottom: "10%", color: "tomato"}}>
-                                    <b>{item.price}</b>
+                                    <b>{`$${item.price}`}</b>
                                   </div>
                                   <div className="col-md-8">
                                     <div className="card-body">

@@ -20,8 +20,8 @@ const Compare = ({items, toggleClick}) =>
                 </div>
               </div>
               <div className="row">
-                <div className="col-4 priceTag">{item.price}</div>
-                <div className="col-7 col-md-5 itemSource">Source: {item.source}</div>
+                <div className="col-4 priceTag">{`$${item.price}`}</div>
+                <div className="col-4 col-md-4 itemSource">{item.source}</div>
               </div>
               <div className="row">
                 <div className="col-12 itemLink" style={{textAlign: "center"}}>{item.link}</div>

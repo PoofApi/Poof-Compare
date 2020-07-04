@@ -64,6 +64,23 @@ input::placeholder{
     .jumbo{
         height: 744px;
     }
+
+    .comparePicHolder{
+        position: relative;
+        left: 17px;
+    }
+
+    .info{
+        margin-top: 30px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        left: 20px;
+    }
+}
+
+.info{
+    margin-top: 30px;
 }
 
 .poofPic:hover {
@@ -800,6 +817,10 @@ a {
     color: black;
     font-size: 170%;
     font-weight: 600;
+}
+
+.watchRouteImage{
+    margin: 6px 0px 0px 23px;
 }
 
 /*Mobile Front Page*/

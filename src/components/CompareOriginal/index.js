@@ -20,7 +20,7 @@ const Compare2 = ({items, toggleClick}) =>
             <tr className="price">
               <th scope="row">Price</th>
               {items.map(item =>
-                <td key={item.id} className="text-center">{item.price}</td>
+                <td key={item.id} className="text-center">{`$${item.price}`}</td>
               )}
             </tr>
             <tr className="condition">
