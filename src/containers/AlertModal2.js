@@ -49,6 +49,7 @@ class AlertModal2 extends Component {
         const options = {
         onOpenStart: () => {
             console.log("Open Start");
+            console.log("other spot: ", this.props.item);
         },
         onOpenEnd: () => {
             console.log("Open End");
@@ -78,17 +79,20 @@ class AlertModal2 extends Component {
     
     render() {
 
+        console.log(this.props.item);
+
         return (
+            
             <span>
 
-              <i className="material-icons alertBtn modal-trigger" data-target="modal5" data-tip={"Add an alert for this item"} >add_alert</i>
+              <i className="material-icons alertBtn modal-trigger" data-target={`${this.props.item.title}`} data-tip={"Add an alert for this item"} >add_alert</i>
               <ReactTooltip />
       
               <div
                 ref={AlertModal2 => {
                   this.AlertModal2 = AlertModal2;
                 }}
-                id="modal5"
+                id={`${this.props.item.title}`}
                 className="modal alertModalMobile"
               >
               <div className="modal-content">

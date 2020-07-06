@@ -924,6 +924,14 @@ a {
     margin-left: 85px;
 }
 
+.poofMobileLogo{
+    opacity: 1 !important;
+}
+
+.poofMobileLogo:hover{
+    cursor: pointer;
+}
+
 
 
 

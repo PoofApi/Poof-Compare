@@ -7,6 +7,7 @@ import 'react-rangeslider/lib/index.css';
 import AlertModal2 from './AlertModal2';
 import { removeFromWatch, watch, logOutUser, addItemToWatch2 } from '../actions/product';
 import MobileSignIn2 from './MobileSignIn2';
+import uuid from 'react-uuid';
 const axios = require('axios');
 
 
@@ -80,6 +81,7 @@ class WatchlistRoute extends Component {
       }
 
     async componentDidMount(){
+
         if(this.props.storeUserId !== ""){
             let signedUserItems = await getWatchList(this.props.storeUserId);
             console.log("signedUserItems", signedUserItems);
@@ -115,7 +117,7 @@ class WatchlistRoute extends Component {
 
         const { watchedItems, usersWatchedItems, storeUserId } = this.props;
 
-        console.log(watchedItems);
+        console.log("watchedItems: ", watchedItems);
         console.log(usersWatchedItems);
         console.log(storeUserId);
 
@@ -150,7 +152,7 @@ class WatchlistRoute extends Component {
                                         {/* {this.props.user !== "" ?  */}
                                         
                                         <div style={{marginTop: "6.5px"}}>
-                                            <AlertModal2 item={item} alert={this.props.alert}/>
+                                            <AlertModal2 key={uuid()} item={item} alert={this.props.alert}/>
                                         </div> 
                                         
                                         {/* :
@@ -193,7 +195,7 @@ class WatchlistRoute extends Component {
                                         <div className="col-5 priceTag2">{`$${item.price}`}</div>
                                         <div className="col-3" style={{fontSize: "large", paddingTop: "8px"}}>{item.source}</div>
                                         <div className="col-4 watchlistButtons">
-                                            <AlertModal2 item={item} alert={this.props.alert}/>
+                                            <AlertModal2 key={uuid()} item={item} alert={this.props.alert}/>
                                             
                                             <span><i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.handleRemove(item)}>cancel</i></span>
                                             <ReactTooltip />

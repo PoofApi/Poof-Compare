@@ -11,6 +11,7 @@ import * as types from '../constants/types';
 import Loading from './LoadingComponent.js';
 import MobileSignIn from './MobileSignIn';
 import MobileSignIn2 from './MobileSignIn';
+import poofWithBackground from '../images/poofWithBackground.jpg';
 
 
 const axios = require('axios');
@@ -92,6 +93,10 @@ class Header extends Component {
         this.setState({value: event.target.value});
     }
 
+    handlePoofClick(){
+        window.location.reload(false);
+    }
+
 
     componentDidMount(){
         if ( this.searchInput ) {
@@ -122,7 +127,9 @@ class Header extends Component {
                     </div>
                 </nav>
                 <div className="d-block d-sm-none mobileBanner">
-
+                    <div className="mobileDesktopLogo">
+                        <img className="poofMobileLogo" onClick={this.handlePoofClick} src={poofWithBackground} alt="poofPicture" style={{width: "80px", marginBottom: "5px"}}/>
+                    </div>
                 </div>
 
                 {/* <ul id="slide-out" className="sidenav">
