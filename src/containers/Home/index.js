@@ -249,6 +249,7 @@ class Home extends Component {
 
     const user = store.getState().item.storeUserId;
     const type = userType(user);
+    console.log("setAlert function has been called......")
   
     try{
       let response = await axios({
@@ -299,7 +300,7 @@ class Home extends Component {
 // }
 
   componentDidUpdate(){
-    console.log("Product items: ", this.props.items);
+    // console.log("Product items: ", this.props.items);
   }
 
 
@@ -311,12 +312,12 @@ class Home extends Component {
     const {items, actions, isLoading, watchedItems, usersWatchedItems, storeUserId} = this.props;
 
     let revisedItems = this.addId(items);
-    console.log("Revised items WITH ids: ", revisedItems);
+    // console.log("Revised items WITH ids: ", revisedItems);
     
     const compareProducts = items.filter(item => item.compare);
     const storeWatchProducts = watchedItems;
 
-    console.log(usersWatchedItems);
+    // console.log(usersWatchedItems);
 
     this.checkIfInWatch();
     this.checkIfInWatch2();

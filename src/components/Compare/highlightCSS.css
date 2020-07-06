@@ -82,4 +82,9 @@
         left: 90px;
         bottom: 2px;
     }
+
+    .priceTag{
+        position: relative;
+        left: 30px;
+    }
 }

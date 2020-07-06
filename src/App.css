@@ -77,6 +77,14 @@ input::placeholder{
         text-align: center;
         left: 20px;
     }
+
+    .alertModal{
+        width: 85% !important;
+    }
+
+    .modal{
+        width: 85% !important;
+    }
 }
 
 .info{
@@ -115,6 +123,10 @@ input::placeholder{
 
     .mobile-watchlist-icon2{
         display: none;
+    }
+
+    .modal{
+        width: 60% !important;
     }
 }
 
@@ -357,13 +369,13 @@ a:hover{
 
 .modal {
     height: 400px;
-    max-height: 40% !important;
+    max-height: 45% !important;
     top: 10%;
     left: 0;
     right: 0;
     bottom: unset !important;
     background-color: white !important;
-    width: 60% !important;
+    width: 60%;
 }
 
 .modal-content{
@@ -417,8 +429,8 @@ a:hover{
 }
 
 .alertModal {
-    width: 40% !important;
-    height: 35% !important;
+    width: 40%;
+    height: 100% !important;
 }
 
 .alertInput {
