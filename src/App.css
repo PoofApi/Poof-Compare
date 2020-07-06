@@ -26,10 +26,23 @@ input::placeholder{
     opacity: 0.38;
 }
 
+.mobileRouteLogin2{
+    color: white;
+    position: relative;
+    right: 20px;
+    top: 7px;
+}
 
+.desktopLoadWatchlist2{
+    font-size: 35px;
+}
 
 @media screen and (max-width: 998px) {
     .poofLogo {
+        display: none;
+    }
+
+    .loadDesktopWatchlist{
         display: none;
     }
 
@@ -85,6 +98,10 @@ input::placeholder{
     .modal{
         width: 85% !important;
     }
+
+    .mobileRouteLogin2{
+        display: none;
+    }
 }
 
 .info{
@@ -100,12 +117,32 @@ input::placeholder{
     top: 1% !important;
 }
 
+.loadDesktopWatchlist:hover{
+    cursor: pointer;
+    color: #806543;
+}
+
+.loadDesktopWatchlist{
+    position: relative;
+    right: 20px;
+    top: 7px;
+    color: white;
+}
+
+.loadDesktopWatchlistIcon{
+    font-size: 35px;
+}
+
 @media screen and (min-width: 998px) {
     .poofPic {
         display: none !important;
     }
 
     .mobile-watchlist {
+        display: none !important;
+    }
+
+    .mobile-watchlist3 {
         display: none !important;
     }
 
@@ -127,6 +164,11 @@ input::placeholder{
 
     .modal{
         width: 60% !important;
+    }
+
+    .desktopSignUp{
+        width: 29% !important;
+        height: 32% !important;
     }
 }
 
@@ -369,7 +411,7 @@ a:hover{
 
 .modal {
     height: 400px;
-    max-height: 45% !important;
+    max-height: 50% !important;
     top: 10%;
     left: 0;
     right: 0;
@@ -404,7 +446,7 @@ a:hover{
 
 .removeBtn:hover{
     cursor: pointer;
-    color: darkgoldenrod;
+    color: #806543;
 }
 
 .alertBtn{
@@ -415,7 +457,7 @@ a:hover{
 
 .alertBtn:hover{
     cursor: pointer;
-    color: darkgoldenrod;
+    color: #806543;
 }
 
 .iconContainer {
@@ -447,7 +489,7 @@ a:hover{
 }
 
 .signUpUser {
-    height: 36% !important;
+    height: 32% !important;
     border-radius: 7px !important;
 }
 
@@ -457,10 +499,14 @@ a:hover{
 }
 
 .alertInput {
-    padding-left: 52px !important;
-    width: 10% !important;
+    padding-left: 30px !important;
+    width: 15% !important;
     position: relative;
     left: 35%;
+}
+
+.alertModalMobile{
+    border-radius: 7px !important;
 }
 
 .spacer {
@@ -833,6 +879,11 @@ a {
 
 .watchRouteImage{
     margin: 6px 0px 0px 23px;
+}
+
+.mobileAlertModal{
+    position: relative !important;
+    left: -30px !important;
 }
 
 /*Mobile Front Page*/

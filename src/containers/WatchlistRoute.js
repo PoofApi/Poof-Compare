@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 import 'react-rangeslider/lib/index.css';
-import AlertModal from './AlertModal';
+import AlertModal2 from './AlertModal2';
 import { removeFromWatch, watch, logOutUser, addItemToWatch2 } from '../actions/product';
 import MobileSignIn2 from './MobileSignIn2';
 const axios = require('axios');
@@ -150,7 +150,7 @@ class WatchlistRoute extends Component {
                                         {/* {this.props.user !== "" ?  */}
                                         
                                         <div style={{marginTop: "6.5px"}}>
-                                            <AlertModal item={item} alert={this.props.alert}/>
+                                            <AlertModal2 item={item} alert={this.props.alert}/>
                                         </div> 
                                         
                                         {/* :
@@ -192,11 +192,10 @@ class WatchlistRoute extends Component {
                                 <div className="row">
                                         <div className="col-5 priceTag2">{`$${item.price}`}</div>
                                         <div className="col-3" style={{fontSize: "large", paddingTop: "8px"}}>{item.source}</div>
-                                        <div className="watchlistButtons col-4">
-                                            <i className="material-icons alertBtn" data-tip={"Add an alert for this item"}>add_alert</i>
-                                            <ReactTooltip />
-
-                                            <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.handleRemove(item)}>cancel</i>
+                                        <div className="col-4 watchlistButtons">
+                                            <AlertModal2 item={item} alert={this.props.alert}/>
+                                            
+                                            <span><i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.handleRemove(item)}>cancel</i></span>
                                             <ReactTooltip />
                                         </div>
                                 </div>

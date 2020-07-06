@@ -9,6 +9,7 @@ import * as types from '../constants/types';
 import poofWithBackground from '../images/poofWithBackground.jpg';
 import MobileSignIn from './MobileSignIn';
 import ReactTooltip from 'react-tooltip';
+import MobileSignIn3 from "./MobileSignIn3";
 
 
 const axios = require('axios');
@@ -176,6 +177,11 @@ class Header2 extends Component {
                             {this.props.user == "" ? <MobileSignIn /> : <li onClick={() => this.resetUser()} className="resetUserLink" >Log Out</li>}                                
                         </ul>
                     </div> */}
+                    {/* <div className="loadDesktopWatchlist">
+                        <p data-tip={"Load previously saved list"}><i className="material-icons loadDesktopWatchlistIcon">import_contacts</i></p>
+                        <ReactTooltip />
+                    </div> */}
+                    <MobileSignIn3 />
                     <div className="mobile-watchlist3">
                         <Link className="mobile-watchlist4" to={'/watchlist'}><p data-tip={"My Poof! Watchlist"} ><i className="material-icons mobile-watchlist-icon2">view_list</i></p></Link>
                         <ReactTooltip />
