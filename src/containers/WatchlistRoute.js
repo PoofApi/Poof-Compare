@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 import 'react-rangeslider/lib/index.css';
 import AlertModal2 from './AlertModal2';
-import { removeFromWatch, watch, logOutUser, addItemToWatch2 } from '../actions/product';
+import { removeFromWatch, watch, logOutUser, addItemToWatch2, removeFromUserWatch } from '../actions/product';
 import MobileSignIn2 from './MobileSignIn2';
 import uuid from 'react-uuid';
 import {store} from '../index.js';
@@ -45,6 +45,41 @@ async function getWatchList(user){
     }
   }
 
+async function removeWatchListItems(item){
+
+    console.log("removeWatchlistitem function was called.....");
+    const user = store.getState().item.storeUserId;
+
+    if(user !== ""){
+        try{
+        let response = await axios({
+            method: 'post',
+            url: "https://us-central1-poofapibackend.cloudfunctions.net/watchList-removeWatchListItems",
+            headers: {
+            "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+            "Accept" : "application/json",
+            "Content-Type" : "application/json",
+            },
+            data: {
+                "userId" : user,
+                "itemId" : item.itemId       
+            },
+        })
+        
+        let confirmation = await response.data;
+        console.log(`Successfully removed ${item.title} from watchlist!: `, confirmation);
+        return confirmation;
+        }
+
+        catch(err){
+        console.log(err, "Unable to remove item from user's watchlist database");
+        }
+    }
+    else {
+        return console.log("User is not signed in");
+    }
+}
+
 function validateEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
@@ -69,6 +104,9 @@ class WatchlistRoute extends Component {
         };
 
         this.handleLogin = this.handleLogin.bind(this);
+        this.handRemove = this.handleRemove.bind(this);
+        this.handRemove2 = this.handleRemove2.bind(this);
+
     }
 
     // removeOverlay(){
@@ -87,6 +125,13 @@ class WatchlistRoute extends Component {
     handleRemove(item){
         this.props.removeFromWatch(item);
         this.props.watch(item);
+    }
+
+    handleRemove2(item){
+        this.props.removeFromUserWatch(item);
+        this.props.removeFromWatch(item);
+        this.props.watch(item);
+        removeWatchListItems(item);
     }
 
     handleLogin(){
@@ -276,7 +321,7 @@ class WatchlistRoute extends Component {
                                         <div className="col-4 watchlistButtons">
                                             <AlertModal2 key={uuid()} item={item} alert={this.setAlert}/>
                                             
-                                            <span><i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.handleRemove(item)}>cancel</i></span>
+                                            <span><i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.handleRemove2(item)}>cancel</i></span>
                                             <ReactTooltip />
                                         </div>
                                 </div>
@@ -345,6 +390,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        removeFromUserWatch: (item) => { dispatch(removeFromUserWatch(item)) },
         removeFromWatch : (item) => { dispatch(removeFromWatch(item)) },
         watch: (item) => { dispatch(watch(item)) },
         logOutUser: () => {dispatch(logOutUser())},

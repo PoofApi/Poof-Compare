@@ -95,6 +95,11 @@ export const removeFromWatch = (payload) => ({
   payload: payload
 })
 
+export const removeFromUserWatch = (payload) => ({
+  type: types.REMOVE_USER_WATCH,
+  payload: payload
+})
+
 export const resetWatchList = () => ({
   type: types.RESET_WATCH
 })

@@ -98,6 +98,11 @@ export default function (state = INITIAL_STATE, action) {
       return {
         ...state, watchedItems: state.watchedItems.filter(item => item !== action.payload)
       };
+
+    case types.REMOVE_USER_WATCH:
+      return {
+        ...state, usersWatchedItems: state.usersWatchedItems.filter(item => item !== action.payload)
+      };
     
     case types.LOAD_ITEMS:
       return {
