@@ -886,6 +886,19 @@ a {
     left: -30px !important;
 }
 
+.loadingUserItems{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobileLoadingText{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
+
 /*Mobile Front Page*/
 .mobileBanner{
     height: 60px;

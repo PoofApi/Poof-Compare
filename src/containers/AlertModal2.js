@@ -49,7 +49,6 @@ class AlertModal2 extends Component {
         const options = {
         onOpenStart: () => {
             console.log("Open Start");
-            console.log("other spot: ", this.props.item);
         },
         onOpenEnd: () => {
             console.log("Open End");
@@ -79,7 +78,6 @@ class AlertModal2 extends Component {
     
     render() {
 
-        console.log(this.props.item);
 
         return (
             

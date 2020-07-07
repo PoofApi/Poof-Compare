@@ -8,6 +8,9 @@ import AlertModal2 from './AlertModal2';
 import { removeFromWatch, watch, logOutUser, addItemToWatch2 } from '../actions/product';
 import MobileSignIn2 from './MobileSignIn2';
 import uuid from 'react-uuid';
+import {store} from '../index.js';
+
+
 const axios = require('axios');
 
 
@@ -42,11 +45,30 @@ async function getWatchList(user){
     }
   }
 
+function validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+function userType(email){
+    if (validateEmail(email)){
+        return "email";
+    }
+    else{
+        return "text";
+    }
+}
+
 
 class WatchlistRoute extends Component {
     constructor(props){
         super(props);
 
+        this.state={
+            loading: false
+        };
+
+        this.handleLogin = this.handleLogin.bind(this);
     }
 
     // removeOverlay(){
@@ -67,6 +89,10 @@ class WatchlistRoute extends Component {
         this.props.watch(item);
     }
 
+    handleLogin(){
+        this.setState({loading: true});
+    }
+
     handleLogOut(){
         this.props.logOutUser();
     }
@@ -79,6 +105,41 @@ class WatchlistRoute extends Component {
       
         return titles;
       }
+    
+    async setAlert(targetPrice, item){
+
+        const user = store.getState().item.storeUserId;
+        const type = userType(user);
+        console.log("setAlert function has been called......")
+        
+        try{
+            let response = await axios({
+            method: 'post',
+            url: "https://us-central1-poofapibackend.cloudfunctions.net/alert-setAlert",
+            headers: {
+                "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+                "Accept" : "application/json",
+                "Content-Type" : "application/json",
+            },
+            data: {
+                "userId" : store.getState().item.storeUserId,
+                "title" : item.title,
+                "itemUrl" : item.link,
+                "price" : item.price,
+                "itemId": item.id,  
+                "which": type,
+                "priceTarget": targetPrice         
+            },
+            })
+        
+            let confirmation = await response.data;
+            alert(`Successfully set an alert for ${item.title}!`, confirmation);
+        }
+        
+        catch(err){
+            alert(err, `We're very sorry. Poof! was unable to set an alert for ${item.title}. Please try again later.`);
+            }
+    }
 
     async componentDidMount(){
 
@@ -127,51 +188,100 @@ class WatchlistRoute extends Component {
                     <div className="returnToSearchIcon"><Link to={'/'}><p data-tip={"Return to item search"} ><i className="material-icons keyboardReturnIcon">keyboard_return</i></p></Link></div>
                     <ReactTooltip />
                     <div>My Poof! Watchlist</div>
-                    {storeUserId == "" ? <MobileSignIn2/> : <div className="logOutUserWatchRoute"><p data-tip={"Click to log out"} ><i className="material-icons WatchLogOutUserIcon" onClick={() => this.handleLogOut()}>perm_identity</i></p></div> }<ReactTooltip />
+                    {storeUserId == "" ? <MobileSignIn2 login={this.handleLogin}/> : <div className="logOutUserWatchRoute"><p data-tip={"Click to log out"} ><i className="material-icons WatchLogOutUserIcon" onClick={() => this.handleLogOut()}>perm_identity</i></p></div> }<ReactTooltip />
                 </div>
                 {/* <div className="returnToSearch">
                     <div className="returnTitle"><Link to={'/'}>Return to item search</Link></div>
                 </div> */}
-                {usersWatchedItems.length > 0 ? usersWatchedItems.map(item =>
-                    <div className="container">
-                        <div className="card mb-3" style={{maxWidth: "540px", height: "150px"}}>
-                        <div className="row no-gutters">
-                            <div className="col-2 col-md-4" style={{position: "relative", left: "5%", top: "3%"}}>
-                                <img src={item.image} alt={item.title} key={item.id} style={{maxWidth: "100%", maxHeight: "60%"}}/>
-                            </div> 
-                            <div className="card-price" style={{position: "absolute", left: "8%", bottom: "10%", color: "tomato"}}>
-                            <b>{`$${item.price}`}</b>
+                {this.state.loading? 
+                
+                <div className="loadingUserItems">
+                    <h4 className="mobileLoadingText" style={{textAlign: "center"}}>
+                        Just one moment while we retrieve your Poof! Watchlist
+                    </h4>
+                    <div className="preloader-wrapper big active">
+                        <div className="spinner-layer spinner-green-only">
+                            <div className="circle-clipper left">
+                                <div className="circle"></div>
                             </div>
-                            <div className="col-8 col-md-8">
-                            <div className="card-body watchRouteCard">
-                                <h5 className="card-title watchRouteCardTitle" style={{ height:"3.5em" , fontSize:"16px"}}>{item.title}</h5>
-                                {/* <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> */}
-                                <div className="card-text">
+                            <div className="gap-patch">
+                                <div className="circle"></div>
+                            </div>
+                            <div className="circle-clipper right">
+                                <div className="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                :
+
+                usersWatchedItems.length > 0 ? usersWatchedItems.map(item =>
+                    // <div className="container">
+                    //     <div className="card mb-3" style={{maxWidth: "540px", height: "150px"}}>
+                    //     <div className="row no-gutters">
+                    //         <div className="col-2 col-md-4" style={{position: "relative", left: "5%", top: "3%"}}>
+                    //             <img src={item.image} alt={item.title} key={item.id} style={{maxWidth: "100%", maxHeight: "60%"}}/>
+                    //         </div> 
+                    //         <div className="card-price" style={{position: "absolute", left: "8%", bottom: "10%", color: "tomato"}}>
+                    //         <b>{`$${item.price}`}</b>
+                    //         </div>
+                    //         <div className="col-8 col-md-8">
+                    //         <div className="card-body watchRouteCard">
+                    //             <h5 className="card-title watchRouteCardTitle" style={{ height:"3.5em" , fontSize:"16px"}}>{item.title}</h5>
+                    //             {/* <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> */}
+                    //             <div className="card-text">
                                     
-                                    <div className="row" style={{display: "flex", justifyContent: "flex-end"}}>
-                                        {/* {this.props.user !== "" ?  */}
+                    //                 <div className="row" style={{display: "flex", justifyContent: "flex-end"}}>
+                    //                     {/* {this.props.user !== "" ?  */}
                                         
-                                        <div style={{marginTop: "6.5px"}}>
-                                            <AlertModal2 key={uuid()} item={item} alert={this.props.alert}/>
-                                        </div> 
+                    //                     <div style={{marginTop: "6.5px"}}>
+                    //                         <AlertModal2 key={uuid()} item={item} alert={this.props.alert}/>
+                    //                     </div> 
                                         
-                                        {/* :
+                    //                     {/* :
                                         
-                                        <div></div>
+                    //                     <div></div>
                                         
-                                        } */}
+                    //                     } */}
                                         
-                                        <div style={{position: "relative", right: "8%"}}>
-                                        <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.handleRemove(item)}>cancel</i>
-                                        <ReactTooltip />
+                    //                     <div style={{position: "relative", right: "8%"}}>
+                    //                     <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.handleRemove(item)}>cancel</i>
+                    //                     <ReactTooltip />
+                    //                     </div>
+                    //                 </div>
+                    //             </div>
+                    //         </div>
+                    //         </div>
+                    //     </div>
+                    //     </div>
+                    // </div>
+                    <div className="container watchlistRouteContainer">
+                            <div className="card watchCard">
+                                <div className="row">
+                                    <div className="col-4 col-sm-3">
+                                        <img src={item.image} className="img-fluid watchRouteImage" alt={item.title}/>
+                                    </div>
+                                    <div className="col-8 col-sm-9">
+                                        <div className="card-body">
+                                            <h5 className="card-title watchRouteCardTitle">{item.title}</h5>
+                                            {/* <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <p className="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> */}
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div className="row">
+                                        <div className="col-5 priceTag2">{`$${item.price}`}</div>
+                                        <div className="col-3" style={{fontSize: "large", paddingTop: "8px"}}>{item.source}</div>
+                                        <div className="col-4 watchlistButtons">
+                                            <AlertModal2 key={uuid()} item={item} alert={this.setAlert}/>
+                                            
+                                            <span><i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.handleRemove(item)}>cancel</i></span>
+                                            <ReactTooltip />
+                                        </div>
+                                </div>
                             </div>
                         </div>
-                        </div>
-                    </div>
                     )
                 
                     :
@@ -216,7 +326,9 @@ class WatchlistRoute extends Component {
 
                         : 
 
-                        <div style={{textAlign: "center", marginTop: "30px"}}>You have 0 items in your Poof! watch list.</div>}
+                        <div style={{textAlign: "center", marginTop: "30px"}}>You have 0 items in your Poof! watch list.</div>
+                        
+                    }
             </div>
             
         )

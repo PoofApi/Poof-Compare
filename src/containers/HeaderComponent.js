@@ -121,9 +121,9 @@ class Header extends Component {
                 <nav className="transparent d-none d-sm-block">
                     <div className="d-none d-sm-block nav-wrapper" style={{borderBottom: "1px solid"}}>
                         <a href="#" className="brand-logo newPoofLogo2">Poof!</a>
-                        <ul id="nav-mobile" className="right header1Load2">
+                        {/* <ul id="nav-mobile" className="right header1Load2">
                             <li className="header1Load"><MobileSignIn /></li>
-                        </ul>
+                        </ul> */}
                     </div>
                 </nav>
                 <div className="d-block d-sm-none mobileBanner">

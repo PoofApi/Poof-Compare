@@ -75,7 +75,8 @@ async function setWatchList(item, storedList){
             "title" : item.title,
             "itemUrl" : item.link,
             "price" : item.price,   
-            "image" : item.image         
+            "image" : item.image,
+            "itemId": item.id         
         },
       })
     
@@ -264,8 +265,9 @@ class Home extends Component {
             "userId" : store.getState().item.storeUserId,
             "title" : item.title,
             "itemUrl" : item.link,
-            "price" : item.price,   
-            "whichSend": type,
+            "price" : item.price,
+            "itemId": item.id,  
+            "which": type,
             "priceTarget": targetPrice         
         },
       })

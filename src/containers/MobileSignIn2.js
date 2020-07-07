@@ -73,6 +73,7 @@ class MobileSignIn2 extends Component {
         // items.map( item => setWatchList(item));
         // this.unWatchProducts();
         // resetWatch();
+        this.props.login();
         this.props.saveUser(this.state.userId);
         window.location.reload(false);
         // console.log(this.props.storeUserId);

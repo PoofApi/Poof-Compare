@@ -19,7 +19,8 @@ export async function setWatchList(item){
           "title" : item.title,
           "itemUrl" : item.link,
           "price" : item.price,   
-          "image" : item.image         
+          "image" : item.image,
+          "itemId": item.id      
       },
     })
   
