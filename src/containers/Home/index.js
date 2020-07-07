@@ -232,7 +232,9 @@ class Home extends Component {
       }
       
       let items = await this.getUsersItems();
-      store.dispatch(this.props.actions.loadUsersItems(items));
+      if(items){
+        store.dispatch(this.props.actions.loadUsersItems(items));
+      }
     }
   }
 
