@@ -236,7 +236,7 @@ class WatchlistRoute extends Component {
                     <div className="returnToSearchIcon"><Link to={'/'}><p data-tip={"Return to item search"} ><i className="material-icons keyboardReturnIcon">keyboard_return</i></p></Link></div>
                     <ReactTooltip />
                     <div>My Poof! Watchlist</div>
-                    {storeUserId == "" ? <MobileSignIn2 login={this.handleLogin}/> : <div className="logOutUserWatchRoute"><p data-tip={"Click to log out"} ><i className="material-icons WatchLogOutUserIcon" onClick={() => this.handleLogOut()}>perm_identity</i></p></div> }<ReactTooltip />
+                    {storeUserId == "" ? <MobileSignIn2 login={this.handleLogin}/> : <div className="logOutUserWatchRoute"><p data-tip={"Click to log out"} ><i className="material-icons WatchLogOutUserIcon" onClick={() => this.handleLogOut()}>cloud_off</i></p></div> }<ReactTooltip />
                 </div>
                 {/* <div className="returnToSearch">
                     <div className="returnTitle"><Link to={'/'}>Return to item search</Link></div>

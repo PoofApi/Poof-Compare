@@ -126,23 +126,17 @@ class WatchList extends Component {
                                       {/* <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> */}
                                       <div className="card-text">
                                          
-                                            <div className="row" style={{display: "flex", justifyContent: "flex-end"}}>
-                                              {/* {this.props.user !== "" ?  */}
+                                            <div className="row desktopButtonRow" style={{display: "flex", justifyContent: "flex-end"}}>
                                               
                                               <div style={{marginTop: "6.5px"}}>
                                                  <AlertModal item={item} alert={this.props.alert}/>
                                               </div> 
                                               
-                                              {/* :
-                                              
-                                              <div></div>
-                                              
-                                              } */}
-                                              
-                                              <div style={{position: "relative", right: "8%"}}>
+                                              <div>
                                                 <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.removeItem(this.props.watch, item)}>cancel</i>
                                                 <ReactTooltip />
                                               </div>
+
                                             </div>
                                         </div>
                                     </div>

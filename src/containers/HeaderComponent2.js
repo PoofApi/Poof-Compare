@@ -10,6 +10,7 @@ import poofWithBackground from '../images/poofWithBackground.jpg';
 import MobileSignIn from './MobileSignIn';
 import ReactTooltip from 'react-tooltip';
 import MobileSignIn3 from "./MobileSignIn3";
+import {connect} from 'react-redux';
 
 
 const axios = require('axios');
@@ -105,6 +106,10 @@ class Header2 extends Component {
         this.setState({value: event.target.value});
     }
 
+    handleLogOut(){
+        this.props.logOutUser();
+    }
+
     componentDidMount(){
 
         var urlName = window.location.pathname;
@@ -116,6 +121,8 @@ class Header2 extends Component {
     }
 
     render(){
+
+        const user = this.props.storeUserId;
         
         return (
                 <div className="newNavBar" style={{borderBottom: "1px solid", display: "flex", position: "fixed", justifyContent: "space-between", alignItems: "center", backgroundColor: "#0C1344"}}>
@@ -181,7 +188,7 @@ class Header2 extends Component {
                         <p data-tip={"Load previously saved list"}><i className="material-icons loadDesktopWatchlistIcon">import_contacts</i></p>
                         <ReactTooltip />
                     </div> */}
-                    <MobileSignIn3 />
+                    {user == "" ? <MobileSignIn3 /> : <div className="logOutUserWatchDesktop" onClick={() => this.handleLogOut()}><p data-tip={"Click to log out"} ><i className="material-icons logOutDesktop">cloud_off</i></p></div>}<ReactTooltip />
                     <div className="mobile-watchlist3">
                         <Link className="mobile-watchlist4" to={'/watchlist'}><p data-tip={"My Poof! Watchlist"} ><i className="material-icons mobile-watchlist-icon2">view_list</i></p></Link>
                         <ReactTooltip />
@@ -226,5 +233,18 @@ class Header2 extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        watchedItems: state.item.watchedItems,
+        usersWatchedItems: state.item.usersWatchedItems,
+        storeUserId: state.item.storeUserId
+    }
+}
 
-export default Header2;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        logOutUser: () => {dispatch(logOutUser())}
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header2);

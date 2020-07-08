@@ -102,6 +102,10 @@ input::placeholder{
     .mobileRouteLogin2{
         display: none;
     }
+
+    .logOutUserWatchDesktop{
+        display: none;
+    }
 }
 
 .info{
@@ -115,6 +119,12 @@ input::placeholder{
 .mediaHolder {
     position: absolute !important;
     top: 1% !important;
+}
+
+.desktopButtonRow{
+    position: relative;
+    top: 20px;
+    right: 46px;
 }
 
 .loadDesktopWatchlist:hover{
@@ -603,6 +613,22 @@ a:hover{
     width: 100%;
     z-index: 2;
     height: 65px;
+}
+
+.logOutUserWatchDesktop{
+    position: relative;
+    right: 15px;
+    top: 8px;
+    color: white;
+}
+
+.logOutUserWatchDesktop:hover{
+    cursor: pointer;
+    color: #806543
+}
+
+.logOutDesktop{
+    font-size: 40px;
 }
 
 .newPoofLogo {

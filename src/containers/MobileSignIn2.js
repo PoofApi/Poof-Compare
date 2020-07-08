@@ -117,7 +117,7 @@ class MobileSignIn2 extends Component {
 
         return (
             <div className="mobileRouteLogin">
-              <div className="loadListIcon modal-trigger" data-target="modal3"><p data-tip={"Load previously saved list"}><i className="material-icons">import_contacts</i></p></div>
+              <div className="loadListIcon modal-trigger" data-target="modal3"><p data-tip={"Load previously saved list"}><i className="material-icons">perm_identity</i></p></div>
                 <ReactTooltip />
               <div
                 ref={MobileSignIn2 => {
