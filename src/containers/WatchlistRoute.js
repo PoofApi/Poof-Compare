@@ -62,7 +62,7 @@ async function removeWatchListItems(item){
             },
             data: {
                 "userId" : user,
-                "itemId" : item.itemId       
+                "itemId" : item.itemId ? item.itemId : item.id      
             },
         })
         
