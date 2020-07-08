@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 import 'react-rangeslider/lib/index.css';
 import AlertModal2 from './AlertModal2';
-import { removeFromWatch, watch, logOutUser, addItemToWatch2, removeFromUserWatch } from '../actions/product';
+import { removeFromWatch, removeFromWatch2, watch, logOutUser, addItemToWatch2, removeFromUserWatch, watchUser } from '../actions/product';
 import MobileSignIn2 from './MobileSignIn2';
 import uuid from 'react-uuid';
 import {store} from '../index.js';
@@ -128,9 +128,12 @@ class WatchlistRoute extends Component {
     }
 
     handleRemove2(item){
+        console.log("handleRemove2 called....");
+        this.props.watch(item);
+        this.props.watchUser(item);
         this.props.removeFromUserWatch(item);
         this.props.removeFromWatch(item);
-        this.props.watch(item);
+        this.props.removeFromWatch2(item);
         removeWatchListItems(item);
     }
 
@@ -224,7 +227,7 @@ class WatchlistRoute extends Component {
         const { watchedItems, usersWatchedItems, storeUserId } = this.props;
 
         console.log("watchedItems: ", watchedItems);
-        console.log(usersWatchedItems);
+        console.log("userWatchedItems: ", usersWatchedItems);
         console.log(storeUserId);
 
         return (
@@ -390,8 +393,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        watchUser: (item) => { dispatch(watchUser(item)) },
         removeFromUserWatch: (item) => { dispatch(removeFromUserWatch(item)) },
         removeFromWatch : (item) => { dispatch(removeFromWatch(item)) },
+        removeFromWatch2 : (item) => { dispatch(removeFromWatch2(item)) },
         watch: (item) => { dispatch(watch(item)) },
         logOutUser: () => {dispatch(logOutUser())},
         addItemToWatch2: (item) => { dispatch(addItemToWatch2(item)) }

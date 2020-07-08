@@ -66,6 +66,11 @@ export const watch = item => ({
     item
   })
 
+export const watchUser = item => ({
+    type: types.WATCH_USER_PRODUCT,
+    item
+  })
+
 export const resetSearch = () => ({
   type: types.RESET_PRODUCTS
 })
@@ -92,6 +97,11 @@ export const addItemToWatch2 = (payload) => ({
 
 export const removeFromWatch = (payload) => ({
   type: types.REMOVE_WATCH,
+  payload: payload
+})
+
+export const removeFromWatch2 = (payload) => ({
+  type: types.REMOVE_WATCH2,
   payload: payload
 })
 

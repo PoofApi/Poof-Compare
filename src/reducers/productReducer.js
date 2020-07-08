@@ -50,6 +50,15 @@ export default function (state = INITIAL_STATE, action) {
         )
       };
 
+    case types.WATCH_USER_PRODUCT:
+      return {
+        ...state, isLoading: false, items: state.items.map(item =>
+          item.id === action.item.itemId ?
+            ({...item, watch: !item.watch}) :
+            item
+        )
+      };
+
     case types.ADD_USER:
       return {
         ...state, storeUserId: action.payload
@@ -97,6 +106,11 @@ export default function (state = INITIAL_STATE, action) {
     case types.REMOVE_WATCH:
       return {
         ...state, watchedItems: state.watchedItems.filter(item => item !== action.payload)
+      };
+    
+    case types.REMOVE_WATCH2:
+      return {
+        ...state, watchedItems: state.watchedItems.filter(item => item.id !== action.payload.itemId)
       };
 
     case types.REMOVE_USER_WATCH:
