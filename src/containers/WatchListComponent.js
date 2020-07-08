@@ -4,10 +4,11 @@ import VolumeSlider from './VolumeSliderComponent.js';
 import Modal3 from './Modal3.js';
 import {store} from '../index.js';
 import ReactTooltip from 'react-tooltip';
-import { addToWatch, removeFromWatch } from '../actions/product';
+import { addToWatch, removeFromWatch,watchUser, removeFromWatch2, removeFromUserWatch, logOutUser, watch, addItemToWatch2 } from '../actions/product';
 import 'react-rangeslider/lib/index.css';
 import AlertModal from './AlertModal';
 import SaveUserModal from './SaveUserModal';
+import {connect} from 'react-redux';
 
 
 const axios = require('axios');
@@ -68,7 +69,40 @@ async function getWatchList(){
     }
   }
 
+  async function removeWatchListItems(item){
 
+    console.log("removeWatchlistitem function was called.....");
+    const user = store.getState().item.storeUserId;
+
+    if(user !== ""){
+        try{
+        let response = await axios({
+            method: 'post',
+            url: "https://us-central1-poofapibackend.cloudfunctions.net/watchList-removeWatchListItems",
+            headers: {
+            "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+            "Accept" : "application/json",
+            "Content-Type" : "application/json",
+            },
+            data: {
+                "userId" : user,
+                "itemId" : item.itemId ? item.itemId : item.id      
+            },
+        })
+        
+        let confirmation = await response.data;
+        console.log(`Successfully removed ${item.title} from watchlist!: `, confirmation);
+        return confirmation;
+        }
+
+        catch(err){
+        console.log(err, "Unable to remove item from user's watchlist database");
+        }
+    }
+    else {
+        return console.log("User is not signed in");
+    }
+  }
 
 class WatchList extends Component {
     constructor(props){
@@ -95,8 +129,13 @@ class WatchList extends Component {
     };
 
     removeItem(watchFxn, item){
+      console.log("desktop removeItem fxn called....");
       watchFxn(item);
-      store.dispatch(removeFromWatch(item));
+      this.props.watchUser(item);
+      this.props.removeFromWatch(item);
+      this.props.removeFromUserWatch(item);
+      this.props.removeFromWatch2(item);
+      removeWatchListItems(item);
     }
 
     render(){
@@ -122,7 +161,7 @@ class WatchList extends Component {
                                   </div>
                                   <div className="col-md-8">
                                     <div className="card-body">
-                                      <h5 className="card-title" style={{ height:"3.5em" , fontSize:"18px", overflow:"hidden"}}>{item.title}</h5>
+                                      <h5 className="card-title desktopWatchlistItemTitle" style={{ height:"3.5em" , fontSize:"18px", overflow:"hidden"}}>{item.title}</h5>
                                       {/* <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> */}
                                       <div className="card-text">
                                          
@@ -181,4 +220,24 @@ class WatchList extends Component {
     
 }
 
-export default WatchList;
+const mapStateToProps = (state) => {
+  return {
+      watchedItems: state.item.watchedItems,
+      usersWatchedItems: state.item.usersWatchedItems,
+      storeUserId: state.item.storeUserId
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+      watchUser: (item) => { dispatch(watchUser(item)) },
+      removeFromUserWatch: (item) => { dispatch(removeFromUserWatch(item)) },
+      removeFromWatch : (item) => { dispatch(removeFromWatch(item)) },
+      removeFromWatch2 : (item) => { dispatch(removeFromWatch2(item)) },
+      watch: (item) => { dispatch(watch(item)) },
+      logOutUser: () => {dispatch(logOutUser())},
+      addItemToWatch2: (item) => { dispatch(addItemToWatch2(item)) }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WatchList);
