@@ -127,7 +127,7 @@ class MobileSignIn3 extends Component {
               >
               <div className="modal-content">
                 <div className="headerContainer" style={{display: "flex", justifyContent: "center"}}>
-                    <h4 className="modalTitle">Load your saved list</h4>
+                    <h3 className="modalTitle2">Load your saved list</h3>
                 </div>
                 <div className="row">
                     <form className="col s12">

@@ -22,6 +22,19 @@
     bottom: 31px;
 }
 
+.compareSourceLogoPic{
+    position: relative;
+    right: 32px;
+    bottom: 2px;
+}
+
+.compareBestBuyLogo{
+    background-color: cornflowerblue;
+    position: relative;
+    right: 32px;
+    bottom: 2px;
+}
+
 .comparePicHolder {
     margin: 30px 0px 0px 20px;
 }

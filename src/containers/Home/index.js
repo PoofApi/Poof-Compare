@@ -266,9 +266,9 @@ class Home extends Component {
         data: {
             "userId" : store.getState().item.storeUserId,
             "title" : item.title,
-            "itemUrl" : item.link,
+            "itemUrl" : item.link ? item.link : item.itemUrl,
             "price" : item.price,
-            "itemId": item.id,  
+            "itemId": item.id ? item.id : item.itemId,  
             "which": type,
             "priceTarget": targetPrice         
         },

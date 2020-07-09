@@ -81,14 +81,14 @@ class AlertModal extends Component {
         return (
             <div>
 
-              <i className="material-icons alertBtn modal-trigger" data-target="modal1" data-tip={"Add an alert for this item"} >add_alert</i>
+              <i className="material-icons alertBtn modal-trigger" data-target={`${this.props.item.title}`} data-tip={"Add an alert for this item"} >add_alert</i>
               <ReactTooltip />
       
               <div
                 ref={AlertModal => {
                   this.AlertModal = AlertModal;
                 }}
-                id="modal1"
+                id={`${this.props.item.title}`}
                 className="modal alertModal"
               >
               <div className="modal-content">

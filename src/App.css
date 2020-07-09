@@ -336,7 +336,7 @@ a:hover{
     position: fixed;
     right: 0;
     width: 310px;
-    z-index: 101;
+    z-index: 3;
     top: 0;
     margin-top: 65px;
     overflow: auto;
@@ -442,15 +442,15 @@ a:hover{
 }
 
 .btn {
-    background-color: unset !important;
+    background-color: #0C1344 !important;
 }
 
 .btn:hover {
-    background-color: darkgoldenrod !important;
+    background-color: #806543 !important;
 }
 
 .btn, .btn-large, .btn-small {
-    background-color: black !important;
+    background-color: #0C1344 !important;
     color: white !important;
 }
 
@@ -489,7 +489,7 @@ a:hover{
 
 .alertModal {
     width: 40%;
-    height: 100% !important;
+    height: 45% !important;
 }
 
 .alertInput {
@@ -506,7 +506,7 @@ a:hover{
 }
 
 .signUpUser {
-    height: 32% !important;
+    height: 38% !important;
     border-radius: 7px !important;
 }
 
@@ -620,6 +620,21 @@ a:hover{
     width: 100%;
     z-index: 2;
     height: 65px;
+}
+
+.modalTitle2{
+    font-weight: 600;
+    color: #0C1344;
+}
+
+.desktopModalSignIn{
+    border-radius: 10px !important;
+    height: 35% !important;
+}
+
+.desktopModalTitle{
+    font-weight: 600;
+    color: #0C1344;
 }
 
 .logOutUserWatchDesktop{
@@ -848,6 +863,8 @@ a {
 .newSaveBtn {
     margin-left: 100px;
     background-color: #0C1344 !important;
+    position: fixed;
+    bottom: 20px;
 }
 
 .watchlistSaveBtn{
@@ -905,7 +922,7 @@ a {
 }
 
 .modalTitle{
-    color: black;
+    color: #0C1344;
     font-size: 170%;
     font-weight: 600;
 }

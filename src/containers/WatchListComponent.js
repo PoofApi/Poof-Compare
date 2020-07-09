@@ -139,6 +139,9 @@ class WatchList extends Component {
     }
 
     render(){
+
+        const user = this.props.storeUserId;
+
         return(
             <div className="watchlist-container">
                 <div className="watchlist-navbar" style={{height: "30px", backgroundColor: "#0C1344", position: "fixed", width: "100%"}}>
@@ -167,14 +170,17 @@ class WatchList extends Component {
                                          
                                             <div className="row desktopButtonRow" style={{display: "flex", justifyContent: "flex-end"}}>
                                               
-                                              <div style={{marginTop: "6.5px"}}>
-                                                 <AlertModal item={item} alert={this.props.alert}/>
-                                              </div> 
-                                              
-                                              <div>
-                                                <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.removeItem(this.props.watch, item)}>cancel</i>
-                                                <ReactTooltip />
-                                              </div>
+                                              {user !== "" ? 
+                                                <div style={{marginTop: "6.5px"}}>
+                                                  <AlertModal item={item} alert={this.props.alert}/>
+                                                </div> 
+                                                :
+                                                <div></div>
+                                              }
+                                                <div>
+                                                  <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.removeItem(this.props.watch, item)}>cancel</i>
+                                                  <ReactTooltip />
+                                                </div>
 
                                             </div>
                                         </div>
@@ -207,12 +213,12 @@ class WatchList extends Component {
                 {/* <a className="btn saveBtn" >Save</a> */}
 
                 <div>
-                  <div className="saveBtn">
+                  {/* <div className="saveBtn">
                     {this.props.user == "" ? <Modal3 userItems={this.props.items} products={this.props.products} /> : <span></span>}
-                  </div>
+                  </div> */}
                     {/* <a className="btn test2" onClick={getWatchList}>Test</a>
                     <a className="btn saveWatchBtn" onClick={() => this.saveWatchList(this.props.items)}>Save</a> */}
-                    <SaveUserModal />
+                    {this.props.user == "" ? <SaveUserModal /> : <div></div>}
                 </div>
             </div>
         )

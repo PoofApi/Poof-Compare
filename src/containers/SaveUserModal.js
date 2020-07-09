@@ -74,28 +74,28 @@ class SaveUserModal extends Component {
             <div>
               <a
                 className="btn modal-trigger newSaveBtn"
-                data-target="modal4"
+                data-target="modal5"
               >
-                New Save
+                Save List
               </a>
       
               <div
                 ref={SaveUserModal => {
                   this.SaveUserModal = SaveUserModal;
                 }}
-                id="modal4"
-                className="modal"
+                id="modal5"
+                className="modal desktopModalSignIn"
               >
               <div className="modal-content">
                 <div className="headerContainer" style={{display: "flex", justifyContent: "center", color: "black"}}>
-                    <h4>Save your list</h4>
+                    <h5 className="desktopModalTitle">Save your list for future visits and for additional features!</h5>
                 </div>
                 <div className="row">
                     <form className="col s12">
                         <div className="row">
                             <div className="input-field col s12">
-                                <input placeholder="Please enter your email or phone #" id="userId" type="text" className="validate" type="text" ref={(input) => {this.loginInput = input; }} onChange={this.handleChange} value={this.state.userId} required></input>
-                                {/* <label for="userId">Please provide the email or phone number that your Poof! account is linked to.</label> */}
+                                <input id="userId" type="text" className="validate" type="text" ref={(input) => {this.loginInput = input; }} onChange={this.handleChange} value={this.state.userId} required></input>
+                                <label for="userId">Please provide an email or phone number to link you Poof! account to.</label>
 
                             </div>
                         </div>
