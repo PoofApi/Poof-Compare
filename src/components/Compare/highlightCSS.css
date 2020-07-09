@@ -17,6 +17,11 @@
     cursor: pointer;
 }
 
+.compareSourceLogo{
+    position: relative;
+    bottom: 31px;
+}
+
 .comparePicHolder {
     margin: 30px 0px 0px 20px;
 }

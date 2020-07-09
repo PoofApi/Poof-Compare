@@ -353,7 +353,7 @@ class WatchlistRoute extends Component {
                                         <div className="col-5 priceTag2">{`$${item.price}`}</div>
                                         <div className="col-3" style={{fontSize: "large", paddingTop: "8px"}}>{item.source}</div>
                                         <div className="col-4 watchlistButtons">
-                                            <AlertModal2 key={uuid()} item={item} alert={this.props.alert}/>
+                                            {/* <AlertModal2 key={uuid()} item={item} alert={this.setAlert}/> */}
                                             
                                             <span><i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.handleRemove(item)}>cancel</i></span>
                                             <ReactTooltip />

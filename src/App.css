@@ -129,7 +129,7 @@ input::placeholder{
 
 .desktopWatchlistItemTitle{
     position: relative;
-    bottom: 15px;
+    bottom: 10px;
     left: 15px;
     max-height: 61px !important;
 }
@@ -332,7 +332,7 @@ a:hover{
 
 .watchlist-container {
     height: 100vh;
-    background-color: #806543;
+    background-color: blanchedalmond;
     position: fixed;
     right: 0;
     width: 310px;

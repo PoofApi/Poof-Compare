@@ -156,7 +156,7 @@ class WatchList extends Component {
                                   <div className="col-md-4" style={{position: "relative", left: "5%", top: "3%"}}>
                                     <img src={item.image} alt={item.title} key={item.id} style={{maxWidth: "100%", maxHeight: "60%"}}/>
                                   </div> 
-                                  <div className="card-price" style={{position: "absolute", left: "14%", bottom: "10%", color: "tomato"}}>
+                                  <div className="card-price" style={{position: "absolute", left: "14%", bottom: "10%", color: "#e64949"}}>
                                     <b>{`$${item.price}`}</b>
                                   </div>
                                   <div className="col-md-8">

@@ -97,7 +97,10 @@ class Product extends Component{
                                     </div>
                                     <div className="card-content" style={{display: "flex", alignItems: "center", flexDirection: "column"}}>
                                         <div className="card-title" style={{ lineHeight:"1.3em" ,fontSize:"18px", overflow:"hidden", position: "relative", bottom: "30%", textAlign: "center"}}>{this.props.item.title}</div>
-                                        <div className="itemPrice">{`$${this.props.item.price}`}</div><span>{this.props.item.source}</span>
+                                        <div className="itemPrice">{`$${this.props.item.price}`}</div>
+                                        <div className="productSourceLogo">
+                                            <img className={"img-fluid" + (this.props.item.logo == "https://firebasestorage.googleapis.com/v0/b/poofapibackend.appspot.com/o/icons%2Fbestbuy.png?alt=media&token=da783e57-802f-4a40-b609-3af1fd78098a" ? " productBestBuyLogo" : " productSourceLogoPic")} src={this.props.item.logo} alt={this.props.item.title}/>
+                                        </div>
                                     </div>
                             </div>
                     </div>

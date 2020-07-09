@@ -21,12 +21,33 @@
   height: 100%;
 }
 
+.productSourceLogo{
+  display: flex;
+  justify-content: center;
+}
+
+.productSourceLogoPic{
+  max-width: 30% !important;
+  max-height: 30%;
+  position: relative;
+  left: 7px;
+}
+
+.productBestBuyLogo{
+  background-color: cornflowerblue;
+  max-width: 30% !important;
+  max-height: 30%;
+  position: relative;
+  left: 7px;
+  top: 12px;
+}
+
 .card-title {
   max-height: 47px;
 }
 
 .productCard {
-  min-height: 447px;
+  min-height: 490px;
 }
 
 .productCard:hover {

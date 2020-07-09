@@ -21,11 +21,13 @@ const Compare = ({items, toggleClick}) =>
               </div>
               <div className="row">
                 <div className="col-4 priceTag">{`$${item.price}`}</div>
-                <div className="col-4 col-md-4 itemSource">{item.source}</div>
+                <div className="col-4 col-md-4 itemSource">
+                  <img className="img-fluid compareSourceLogo" src={item.logo} alt={item.title}/>
+                </div>
               </div>
-              <div className="row">
+              {/* <div className="row">
                 <div className="col-12 itemLink" style={{textAlign: "center"}}>{item.link}</div>
-              </div>
+              </div> */}
             </div>
         )}
   </div>;
