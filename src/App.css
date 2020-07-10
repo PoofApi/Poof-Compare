@@ -179,13 +179,10 @@ input::placeholder{
         display: none;
     }
 
-    .modal{
-        width: 60% !important;
-    }
-
     .desktopSignUp{
         width: 29% !important;
         height: 32% !important;
+        border-radius: 10px !important;
     }
 }
 
@@ -328,6 +325,21 @@ a:hover{
 
 .label-icon:hover {
     cursor: pointer;
+}
+
+.purchaseLinkBtn{
+    position: relative;
+    top: 9px;
+    left: 25px;
+}
+
+
+.purchaseLinkIconBtn{
+    color: black;
+}
+
+.purchaseLinkIconBtn:hover{
+    color: #806543;
 }
 
 .watchlist-container {
@@ -488,8 +500,9 @@ a:hover{
 }
 
 .alertModal {
-    width: 40%;
+    width: 40% !important;
     height: 45% !important;
+    border-radius: 10px !important;
 }
 
 .alertInput {
@@ -506,7 +519,7 @@ a:hover{
 }
 
 .signUpUser {
-    height: 38% !important;
+    height: 32% !important;
     border-radius: 7px !important;
 }
 
@@ -524,6 +537,7 @@ a:hover{
 
 .alertModalMobile{
     border-radius: 7px !important;
+    height: 45% !important;
 }
 
 .spacer {
@@ -629,7 +643,8 @@ a:hover{
 
 .desktopModalSignIn{
     border-radius: 10px !important;
-    height: 35% !important;
+    height: 30% !important;
+    width: 35% !important;
 }
 
 .desktopModalTitle{
@@ -935,6 +950,31 @@ a {
     position: relative !important;
     left: -30px !important;
 }
+
+.fillerRoute{
+    width: 105px;
+}
+
+.purchaseLinkIconBtnMobile{
+    color: black;
+}
+
+.purchaseLinkIconBtnMobile:hover{
+    color: #806543;
+}
+
+.purchaseLinkBtnMobile{
+    position: relative;
+    left: 20px;
+    bottom: 2px;
+}
+
+.watchlistButtons{
+    position: relative;
+    right: 40px;
+}
+
+
 
 .loadingUserItems{
     flex-direction: column;

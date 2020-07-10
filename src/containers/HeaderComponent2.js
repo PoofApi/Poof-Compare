@@ -3,7 +3,7 @@ import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import { Link } from 'react-router-dom';
 import '../App.css';
-import {resetSearch, resetWatchList, logOutUser} from '../actions/product';
+import {resetSearch, resetWatchList, logOutUser, resetEntireWatch} from '../actions/product';
 import {store} from '../index.js';
 import * as types from '../constants/types';
 import poofWithBackground from '../images/poofWithBackground.jpg';
@@ -108,6 +108,7 @@ class Header2 extends Component {
 
     handleLogOut(){
         this.props.logOutUser();
+        this.props.resetEntireWatch();
     }
 
     componentDidMount(){
@@ -243,7 +244,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        logOutUser: () => {dispatch(logOutUser())}
+        logOutUser: () => {dispatch(logOutUser())},
+        resetEntireWatch: () => {dispatch(resetEntireWatch())}
     }
 }
 

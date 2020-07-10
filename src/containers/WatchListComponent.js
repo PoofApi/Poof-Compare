@@ -44,28 +44,34 @@ async function setWatchList(item){
   }
 
 
-async function getWatchList(){
+  async function getWatchList(user){
 
-    try{
-      let response = await axios({
-        method: 'post',
-        url: "https://us-central1-poofapibackend.cloudfunctions.net/watchList-getWatchListItems",
-        headers: {
-          "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
-          "Accept" : "application/json",
-          "Content-Type" : "application/json",
-        },
-        data: {
-            "userId" : store.getState().item.storeUserId       
-        },
-      })
+    if(user !== ""){
+      try{
+        let response = await axios({
+          method: 'post',
+          url: "https://us-central1-poofapibackend.cloudfunctions.net/watchList-getWatchListItems",
+          headers: {
+            "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+            "Accept" : "application/json",
+            "Content-Type" : "application/json",
+          },
+          data: {
+              "userId" : user       
+          },
+        })
+      
+        let confirmation = await response.data;
+        console.log("Successfully retrieved watchlist!: ", confirmation);
+        return confirmation;
+      }
     
-      let confirmation = await response.data;
-      console.log("Successfully retrieved watchlist!: ", confirmation);
+      catch(err){
+        console.log(err, "Unable to retrieve watchlist");
+      }
     }
-  
-    catch(err){
-      console.log(err, "Unable to retrieve watchlist");
+    else {
+      return console.log("User is not signed in");
     }
   }
 
@@ -138,6 +144,38 @@ class WatchList extends Component {
       removeWatchListItems(item);
     }
 
+    userItemTitles(userItems){
+      let titles = [];
+      for(let k of userItems){
+        titles.push(k.title);
+      }
+    
+      return titles;
+    }
+
+    async componentDidMount(){
+
+      if(this.props.storeUserId !== ""){
+          let signedUserItems = await getWatchList(this.props.storeUserId);
+          console.log("signedUserItems (desktop)", signedUserItems);
+          console.log("usersWatchedItems (desktop)", this.props.usersWatchedItems);
+
+          let titles = this.userItemTitles(this.props.usersWatchedItems);
+          console.log(titles);
+
+          if(signedUserItems){
+              for(let k = 0; k < signedUserItems.length; k++){
+                  if(!titles.includes(signedUserItems[k].title)){
+                      this.props.addItemToWatch2(signedUserItems[k]);
+                  }
+                  else{
+                      console.log("Attempt to add duplicate was prevented :)")
+                  }
+              }
+          }
+      }
+    }
+
     render(){
 
         const user = this.props.storeUserId;
@@ -180,6 +218,10 @@ class WatchList extends Component {
                                                 <div>
                                                   <i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.removeItem(this.props.watch, item)}>cancel</i>
                                                   <ReactTooltip />
+                                                </div>
+                                                <div className="purchaseLinkBtn">
+                                                    <a href={`${item.itemUrl ? item.itemUrl : item.link}`}  target="_blank" className="purchaseLinkBtnAnchor"><i className="material-icons purchaseLinkIconBtn" data-tip={"Go to product source"}>launch</i></a>
+                                                    <ReactTooltip />
                                                 </div>
 
                                             </div>

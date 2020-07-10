@@ -9,6 +9,7 @@ export const ADD_WATCH = "ADD_WATCH";
 export const ADD_WATCH_ITEM = "ADD_WATCH_ITEM";
 export const ADD_WATCH_ITEM2 = "ADD_WATCH_ITEM2";
 export const RESET_WATCH = "RESET_WATCH";
+export const RESET_ALL_WATCH = "RESET_ALL_WATCH";
 export const REMOVE_WATCH = "REMOVE_WATCH";
 export const REMOVE_WATCH2 = "REMOVE_WATCH2";
 export const REMOVE_USER_WATCH = "REMOVE_USER_WATCH";

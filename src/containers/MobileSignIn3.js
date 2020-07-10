@@ -123,7 +123,7 @@ class MobileSignIn3 extends Component {
                   this.MobileSignIn3 = MobileSignIn3;
                 }}
                 id="modal4"
-                className="modal signUpUser desktopSignUp"
+                className="modal desktopSignUp"
               >
               <div className="modal-content">
                 <div className="headerContainer" style={{display: "flex", justifyContent: "center"}}>

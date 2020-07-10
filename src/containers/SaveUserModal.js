@@ -38,6 +38,7 @@ class SaveUserModal extends Component {
         // this.unWatchProducts();
         // resetWatch();
         store.dispatch(saveUser(this.state.userId));
+        window.location.reload(false);
     }
 
     componentDidMount() {

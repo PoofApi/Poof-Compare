@@ -114,6 +114,10 @@ export const resetWatchList = () => ({
   type: types.RESET_WATCH
 })
 
+export const resetEntireWatch = () => ({
+  type: types.RESET_ALL_WATCH
+})
+
 export const includeToWatch = (item) => ({
   
 })

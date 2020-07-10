@@ -49,6 +49,13 @@ export default function (state = INITIAL_STATE, action) {
             item
         )
       };
+    
+    case types.RESET_ALL_WATCH:
+      return {
+        ...state, isLoading: false, items: state.items.map(item =>
+            ({...item, watch: false}) 
+        )
+      };
 
     case types.WATCH_USER_PRODUCT:
       return {
