@@ -192,10 +192,10 @@ class WatchList extends Component {
                 <div className="watchContainer2">
                     {this.props.items.map(item =>
                         <div className="container">
-                              <div className="card mb-3" style={{maxWidth: "540px", height: "150px"}}>
+                              <div className="card mb-3 watchlistCardDesktop" style={{maxWidth: "540px", height: "150px"}}>
                                 <div className="row no-gutters">
                                   <div className="col-md-4" style={{position: "relative", left: "5%", top: "3%"}}>
-                                    <img src={item.image} alt={item.title} key={item.id} style={{maxWidth: "100%", maxHeight: "60%"}}/>
+                                    <img src={item.image} alt={item.title} key={item.id} style={{maxWidth: "80%", maxHeight: "60%"}}/>
                                   </div> 
                                   <div className="card-price" style={{position: "absolute", left: "14%", bottom: "10%", color: "#e64949"}}>
                                     <b>{`$${item.price}`}</b>
