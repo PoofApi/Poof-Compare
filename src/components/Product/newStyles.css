@@ -42,6 +42,18 @@
   top: 12px;
 }
 
+@media screen and (max-width: 998px){
+  .productBestBuyLogo{
+    max-width: 15vh !important;
+    max-height: 10vh !important;
+  }
+
+  .productSourceLogoPic{
+    max-width: 24vw !important;
+    max-height: 12vh !important;
+  }
+}
+
 .card-title {
   max-height: 47px;
 }

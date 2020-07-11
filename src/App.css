@@ -632,8 +632,20 @@ a:hover{
     top: 0;
     left: 0;
     width: 100%;
+    transition: top 1s;
     z-index: 2;
     height: 65px;
+    border-bottom: 1px solid;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0C1344;
+}
+
+.newNavBar2{
+    visibility: hidden;
+    top: -50px;
 }
 
 .modalTitle2{
@@ -971,7 +983,7 @@ a {
 
 .watchlistButtons{
     position: relative;
-    right: 40px;
+    right: 0px;
 }
 
 

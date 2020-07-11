@@ -58,12 +58,15 @@ class Header2 extends Component {
         super(props);
 
         this.state = {
+            prevScrollpos: window.pageYOffset,
+            visible: true,
             value:'',
             loading: false
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleScroll = this.handleScroll.bind(this);
     } 
 
     unWatchProducts(){
@@ -111,24 +114,42 @@ class Header2 extends Component {
         this.props.resetEntireWatch();
     }
 
+    handleScroll = () => {
+        const { prevScrollpos } = this.state;
+
+        const currentScrollPos = window.pageYOffset;
+        const visible = prevScrollpos > currentScrollPos;
+
+        this.setState({
+            prevScrollpos: currentScrollPos,
+            visible
+        });
+    }
+
+    
     componentDidMount(){
+        window.addEventListener("scroll", this.handleScroll);
 
         var urlName = window.location.pathname;
-
+        
         if (urlName !== "/watchlist" ){
             let sidenav = document.querySelector('#slide-out');
             M.Sidenav.init(sidenav, {});
         }
     }
+    
+    componentWillUnmount(){
+        window.removeEventListener("scroll", this.handleScroll);
+    }
+    
+    
 
     render(){
-
+        
         const user = this.props.storeUserId;
         
         return (
-                <div className="newNavBar" style={{borderBottom: "1px solid", display: "flex", position: "fixed", justifyContent: "space-between", alignItems: "center", backgroundColor: "#0C1344"}}>
-                    {/* <a href="#!" className="brand-logo poofLogo2">Poof!</a>
-                    <a href="/" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
+            <div className={this.state.visible ? "newNavBar" : "newNavBar2"}>
                     
                     <div onClick={() => this.returnHome()} className="poofLogo">
                         <Link className="newPoofLogo" to={'/'}>Poof!</Link>
@@ -138,21 +159,6 @@ class Header2 extends Component {
                     </div>
                     {!this.state.loading ? 
                         
-                        // Previous searchbar using materialize-css
-
-                        // <div className="searchBox col-sm-6 col-md-4">
-                        //     <div>
-                        //         <form style={{marginLeft: "auto"}} onSubmit={this.handleSubmit}>
-                        //             <div className="input-field searchBox" >
-                        //                 <input className="browser-default search-field" id="search" type="search" onChange={this.handleChange} value={this.state.value} required></input>
-                        //                 {/* style={{paddingLeft: "50px", width: "600px", height: "3.5vh"}} */}
-                        //             </div>
-                        //         </form> 
-                        //         <div className="search2Btn" onClick={this.handleSubmit} >
-                        //             <i style={{position: "absolute", color: "black", top: "0", marginLeft: "10px"}} className="material-icons">search</i>
-                        //         </div>
-                        //     </div>
-                        // </div>
                             <div className="searchboot col-sm-6 col-md-4">
                                 <form className="form-inline" onSubmit={this.handleSubmit}>
                                     <div style={{backgroundColor: "white", borderRadius: "5px"}} className="input-group inputBox">
@@ -173,63 +179,12 @@ class Header2 extends Component {
                         
                     }    
                         
-                    {/* <span className="search2Btn" onClick={this.handleSubmit} >
-                        <i style={{position: "absolute", color: "black", top: "0", marginLeft: "10px"}} className="searchSign material-icons">search</i>
-                    </span> */}
-
-                    
-                    {/* <div className="logOutBtn">
-                        <ul>
-                            <li onClick={() => this.returnHome()} className="homeLink" >Home</li>
-                            <li onClick={() => this.resetWatch()} className="resetLink" >Reset</li>
-                            {this.props.user == "" ? <MobileSignIn /> : <li onClick={() => this.resetUser()} className="resetUserLink" >Log Out</li>}                                
-                        </ul>
-                    </div> */}
-                    {/* <div className="loadDesktopWatchlist">
-                        <p data-tip={"Load previously saved list"}><i className="material-icons loadDesktopWatchlistIcon">import_contacts</i></p>
-                        <ReactTooltip />
-                    </div> */}
                     {user == "" ? <MobileSignIn3 /> : <div className="logOutUserWatchDesktop" onClick={() => this.handleLogOut()}><p data-tip={"Click to log out"} ><i className="material-icons logOutDesktop">cloud_off</i></p></div>}<ReactTooltip />
                     <div className="mobile-watchlist3">
                         <Link className="mobile-watchlist4" to={'/watchlist'}><p data-tip={"My Poof! Watchlist"} ><i className="material-icons mobile-watchlist-icon2">view_list</i></p></Link>
                         <ReactTooltip />
                     </div>
                 </div>
-                
-
-                /* <ul id="slide-out" className="sidenav">
-                    <li className="navLinks sidenavPoof" style={{textAlign: "center"}}><Link style={{fontSize: "xx-large", color: "white", paddingTop: "8px"}} to={'/'}>Poof!</Link></li>
-                    
-                    {!this.state.loading ? 
-                    
-                    <div className="searchBox2 col-sm-12">
-                        <div className="searchboot3">
-                            <form className="form-inline" onSubmit={this.handleSubmit}>
-                                <div style={{backgroundColor: "white", borderRadius: "5px"}} className="input-group inputBox2">
-                                    <input id="search" type="search" onChange={this.handleChange} value={this.state.value} required className="form-control searchboot4" placeholder="Search Item" aria-label="Search Item" aria-describedby="basic-addon1"></input>
-                                    <div className="input-group-prepend" onClick={this.handleSubmit}>
-                                        <span className="input-group-text" id="basic-addon1"><i className="material-icons">search</i></span>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    
-                    :
-
-                    <div className="progress progressBar2">
-                        <div className="indeterminate indeterminateBar"></div>
-                    </div>
-                    
-                    }
-                    
-                    
-                    <li onClick={() => this.returnHome()} className="navLinks sidenavHome" style={{textAlign: "center"}}><Link to={'/'}>Home</Link></li>
-                    <li className="navLinks" style={{textAlign: "center"}}><Link to={'/watchlist'}>My Poof! Watch List</Link></li>
-                    <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Reset List</Link></li>
-                    <li className="navLinks" style={{textAlign: "center"}}><Link to={'/'}>Log Out</Link></li>               
-                </ul> */
-            
         )
     }
 }

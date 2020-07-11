@@ -289,9 +289,9 @@ class WatchlistRoute extends Component {
                                     </div>
                                 </div>
                                 <div className="row">
-                                        <div className="col-5 priceTag2">{`$${item.price}`}</div>
+                                        <div className="col-6 priceTag2">{`$${item.price}`}</div>
                                         {/* <div className="col-3" style={{fontSize: "large", paddingTop: "8px"}}>{item.source}</div> */}
-                                        <div className="fillerRoute"></div>
+                                        {/* <div className="fillerRoute"></div> */}
                                         <div className="col-4 watchlistButtons">
                                             <span><i className="material-icons removeBtn" data-tip={"Remove from watchlist"} onClick={() => this.handleRemove(item)}>cancel</i></span>
                                             <ReactTooltip />
