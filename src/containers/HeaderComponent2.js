@@ -58,15 +58,13 @@ class Header2 extends Component {
         super(props);
 
         this.state = {
-            prevScrollpos: window.pageYOffset,
-            visible: true,
             value:'',
             loading: false
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.handleScroll = this.handleScroll.bind(this);
+        // this.handleScroll = this.handleScroll.bind(this);
     } 
 
     unWatchProducts(){
@@ -114,21 +112,21 @@ class Header2 extends Component {
         this.props.resetEntireWatch();
     }
 
-    handleScroll = () => {
-        const { prevScrollpos } = this.state;
+    // handleScroll = () => {
+    //     const { prevScrollpos } = this.state;
 
-        const currentScrollPos = window.pageYOffset;
-        const visible = prevScrollpos > currentScrollPos;
+    //     const currentScrollPos = window.pageYOffset;
+    //     const visible = prevScrollpos > currentScrollPos;
 
-        this.setState({
-            prevScrollpos: currentScrollPos,
-            visible
-        });
-    }
+    //     this.setState({
+    //         prevScrollpos: currentScrollPos,
+    //         visible
+    //     });
+    // }
 
     
     componentDidMount(){
-        window.addEventListener("scroll", this.handleScroll);
+        // window.addEventListener("scroll", this.handleScroll);
 
         var urlName = window.location.pathname;
         
@@ -138,9 +136,9 @@ class Header2 extends Component {
         }
     }
     
-    componentWillUnmount(){
-        window.removeEventListener("scroll", this.handleScroll);
-    }
+    // componentWillUnmount(){
+    //     window.removeEventListener("scroll", this.handleScroll);
+    // }
     
     
 
@@ -149,7 +147,7 @@ class Header2 extends Component {
         const user = this.props.storeUserId;
         
         return (
-            <div className={this.state.visible ? "newNavBar" : "newNavBar2"}>
+            <div className="newNavBar">
                     
                     <div onClick={() => this.returnHome()} className="poofLogo">
                         <Link className="newPoofLogo" to={'/'}>Poof!</Link>
