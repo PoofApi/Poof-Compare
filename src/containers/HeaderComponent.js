@@ -142,10 +142,10 @@ class Header extends Component {
                         <MobileSignIn2 />
                     </div> */}
                     <div className="col-12 d-none d-sm-block">
-                        <h2 style={{textAlign: "center", fontSize: "60px", fontFamily: "Roboto"}} className="mb-3 flow-text white-text"><b>Welcome to Poof! Auto-Compare!</b></h2>
+                        <h4 style={{textAlign: "center", fontSize: "35px", fontFamily: "Roboto"}} className="mb-3 flow-text white-text"><b>Welcome to Poof! Auto-Compare!</b></h4>
                     </div>
                     <div className="col-12 d-block d-sm-none">
-                        <h2 style={{textAlign: "center", fontSize: "60px", fontFamily: "Roboto"}} className="mb-3 flow-text white-text"><b>Poof! Auto-Compare!</b></h2>
+                        <h4 style={{textAlign: "center", fontSize: "35px", fontFamily: "Roboto"}} className="mb-3 flow-text white-text"><b>Poof! Auto-Compare!</b></h4>
                     </div>
                     
                     {
@@ -165,7 +165,7 @@ class Header extends Component {
                     <div className="col-12 col-md-12" style={{display: "flex", justifyContent: "center"}}>
                         <form onSubmit={this.handleSubmit}>
                             <div className="input-field searchBox" style={{display: "flex", justifyContent: "center"}}>
-                                <input className="browser-default search-field" style={{display: "flex", paddingLeft: "25px", width: "40vw", height: "6vh", marginTop: "20px"}} id="search" ref={(input) => {this.searchInput = input; }} type="search" onChange={this.handleChange} value={this.state.value} required></input>
+                                <input className="browser-default search-field" style={{display: "flex", paddingLeft: "25px", width: "75vw", height: "6vh", marginTop: "20px"}} id="search" ref={(input) => {this.searchInput = input; }} type="search" onChange={this.handleChange} value={this.state.value} required></input>
                                 <label onClick={this.handleSubmit} type="submit" value="Submit" style={{top:"45%", left:"95%"}} className="label-icon" for="search"><i style={{position:"absolute"}} className="material-icons">search</i></label>
                             </div>
                         </form>
@@ -202,10 +202,10 @@ class Header extends Component {
                         <MobileSignIn2 />
                     </div> */}
                     <div className="col-12 d-none d-sm-block">
-                        <h2 style={{textAlign: "center", fontSize: "60px", fontFamily: "Roboto"}} className="mb-3 flow-text white-text"><b>Welcome to Poof! Auto-Compare!</b></h2>
+                        <h4 style={{textAlign: "center", fontSize: "35px", fontFamily: "Roboto"}} className="mb-3 flow-text white-text"><b>Welcome to Poof! Auto-Compare!</b></h4>
                     </div>
                     <div className="col-12 d-block d-sm-none">
-                        <h2 style={{textAlign: "center", fontSize: "60px", fontFamily: "Roboto"}} className="mb-3 flow-text white-text"><b>Poof! Auto-Compare!</b></h2>
+                        <h4 style={{textAlign: "center", fontSize: "35px", fontFamily: "Roboto"}} className="mb-3 flow-text white-text"><b>Poof! Auto-Compare!</b></h4>
                     </div>
                     
                     {
@@ -225,7 +225,7 @@ class Header extends Component {
                     <div className="col-12 col-md-12" style={{display: "flex", justifyContent: "center"}}>
                         <form onSubmit={this.handleSubmit}>
                             <div className="input-field searchBox mobileSearchBar" style={{display: "flex", justifyContent: "center"}}>
-                                <input className="browser-default search-field" style={{display: "flex", paddingLeft: "25px", width: "40vw", height: "6vh", marginTop: "20px"}} id="search" ref={(input) => {this.searchInput = input; }} type="search" onChange={this.handleChange} value={this.state.value} required></input>
+                                <input className="browser-default search-field" style={{display: "flex", paddingLeft: "25px", width: "75vw", height: "6vh", marginTop: "20px"}} id="search" ref={(input) => {this.searchInput = input; }} type="search" onChange={this.handleChange} value={this.state.value} required></input>
                                 <label onClick={this.handleSubmit} type="submit" value="Submit" style={{top:"45%", left:"95%"}} className="label-icon" for="search"><i style={{position:"absolute"}} className="material-icons">search</i></label>
                             </div>
                         </form>

@@ -582,7 +582,8 @@ a:hover{
 }
 
 .inputBox {
-    width: 70% !important;
+    width: 62vw !important;
+    right: 10px;
 }
 
 .input-group-prepend:hover {
