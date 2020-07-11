@@ -25,31 +25,33 @@ const getItems2 = (payload) => ({
 //Previous code to fetch Eric's backend
 
 async function getProductsForHome(keywords){
-  console.log("Now fetching items.........")
-
-  try{
-    let response = await axios({
-      method: 'post',
-      url: "https://us-central1-poofapibackend.cloudfunctions.net/search-bestprice",
-      headers: {
-        "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
-        "Accept" : "application/json",
-        "Content-Type" : "application/json",
-      },
-      data: {"keywords" : keywords},
-    })
+    console.log("Now fetching items.........")
   
-    let items = await response.data;
-    console.log(items);
-    console.log(store.getState().item.watchedItems);
-    store.dispatch(getItems2(items.items));
+    try{
+      let response = await axios({
+        method: 'post',
+        url: "https://us-central1-poofapibackend.cloudfunctions.net/search-bestprice",
+        headers: {
+          "Authorization": "Bearer b99d951c8ffb64135751b3d423badeafac9cfe1f54799c784619974c29e277ec",
+          "Accept" : "application/json",
+          "Content-Type" : "application/json",
+        },
+        data: {"keywords" : keywords},
+      })
+    
+      let items = await response.data;
+      console.log(items);
+      let storeWatch = store.getState().item.watchedItems;
+      console.log(storeWatch);
+      store.dispatch(getItems2(items.items));
+  
+    }
+  
+    catch(err){
+      alert(err, "Please reload your browser");
+      console.log("An error occurred!!!!!: ", err);
+    }
   }
-
-  catch(err){
-    alert(err, "Please reload your browser");
-    console.log("An error occurred!!!!!: ", err);
-  }
-}
 
 // const getProducts3 = () =>
 
@@ -78,10 +80,25 @@ class Header extends Component {
     }
     
 
-    handleSubmit(event){
-        getProductsForHome(this.state.value);
-        this.setState({loading:true})
-        event.preventDefault();
+    // handleSubmit(event){
+    //     getProductsForHome(this.state.value);
+    //     this.setState({loading:true})
+    //     event.preventDefault();
+    // }
+
+    async handleSubmit(event){
+        
+        this.setState({loading: true});
+
+        try{
+            await getProductsForHome(this.state.value);
+            event.preventDefault();
+            this.setState({loading: false});
+            this.setState({value: ""});
+        }
+        catch(err){
+            console.log(err);
+        }
     }
 
     handleSubmit2(searchWord){
@@ -222,14 +239,24 @@ class Header extends Component {
                     
                     :
                 
-                    <div className="col-12 col-md-12" style={{display: "flex", justifyContent: "center"}}>
-                        <form onSubmit={this.handleSubmit}>
-                            <div className="input-field searchBox mobileSearchBar" style={{display: "flex", justifyContent: "center"}}>
-                                <input className="browser-default search-field" style={{display: "flex", paddingLeft: "25px", width: "75vw", height: "6vh", marginTop: "20px"}} id="search" ref={(input) => {this.searchInput = input; }} type="search" onChange={this.handleChange} value={this.state.value} required></input>
-                                <label onClick={this.handleSubmit} type="submit" value="Submit" style={{top:"45%", left:"95%"}} className="label-icon" for="search"><i style={{position:"absolute"}} className="material-icons">search</i></label>
-                            </div>
-                        </form>
-                    </div>
+                    // <div className="col-12 col-md-12" style={{display: "flex", justifyContent: "center"}}>
+                    //     <form onSubmit={this.handleSubmit}>
+                    //         <div className="input-field searchBox mobileSearchBar" style={{display: "flex", justifyContent: "center"}}>
+                    //             <input className="browser-default search-field" style={{display: "flex", paddingLeft: "25px", width: "75vw", height: "6vh", marginTop: "20px"}} id="search" ref={(input) => {this.searchInput = input; }} type="search" onChange={this.handleChange} value={this.state.value} required></input>
+                    //             <label onClick={this.handleSubmit} type="submit" value="Submit" style={{top:"45%", left:"95%"}} className="label-icon" for="search"><i style={{position:"absolute"}} className="material-icons">search</i></label>
+                    //         </div>
+                    //     </form>
+                    // </div>
+                        <div className="searchboot col-sm-6 col-md-4">
+                            <form className="form-inline" onSubmit={this.handleSubmit}>
+                                <div style={{backgroundColor: "white", borderRadius: "5px"}} className="input-group inputBox">
+                                    <input id="search" type="search" onChange={this.handleChange} value={this.state.value} required className="form-control searchboot2" placeholder="Search Item" aria-label="Search Item" aria-describedby="basic-addon1"></input>
+                                    <div className="input-group-prepend" onClick={this.handleSubmit}>
+                                        <span className="input-group-text" style={{paddingLeft: "20px"}} id="basic-addon1"><i style={{position:"absolute", right: "3px"}} className="material-icons">search</i></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                 
                     }
 
