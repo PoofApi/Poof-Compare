@@ -228,7 +228,7 @@ class Header extends Component {
                     {
                     this.state.loading ? 
                     
-                        <div className="col-8 col-sm-8 col-md-4 mobileProgressSearchBar">
+                        <div className="col-10 col-sm-8 col-md-4 mobileProgressSearchBar">
                             <div style={{fontSize: "20px", color: "white", textAlign: "center"}}>
                                 Just one moment while Poof! finds you the best deals!....
                             </div>
@@ -250,7 +250,7 @@ class Header extends Component {
                         <div className="searchboot col-sm-6 col-md-4">
                             <form className="form-inline" onSubmit={this.handleSubmit}>
                                 <div style={{backgroundColor: "white", borderRadius: "5px"}} className="input-group inputBox">
-                                    <input id="search" type="search" onChange={this.handleChange} value={this.state.value} required className="form-control searchboot2" placeholder="Search Item" aria-label="Search Item" aria-describedby="basic-addon1"></input>
+                                    <input id="search" type="search" onChange={this.handleChange} value={this.state.value} required className="form-control searchboot2" placeholder="Search Products" aria-label="Search Item" aria-describedby="basic-addon1"></input>
                                     <div className="input-group-prepend" onClick={this.handleSubmit}>
                                         <span className="input-group-text" style={{paddingLeft: "20px"}} id="basic-addon1"><i style={{position:"absolute", right: "3px"}} className="material-icons">search</i></span>
                                     </div>

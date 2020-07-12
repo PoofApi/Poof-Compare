@@ -554,6 +554,7 @@ a:hover{
     justify-content: center;
     position: relative;
     left: 9px;
+    margin: 30px 0px;
 }
 
 .searchboot2 {
@@ -589,8 +590,13 @@ a:hover{
 }
 
 .inputBox {
+    width: 70vw !important;
+    right: 4px;
+}
+
+.inputBox3{
     width: 62vw !important;
-    right: 10px;
+    right: 23px;
 }
 
 .input-group-prepend:hover {
@@ -863,9 +869,10 @@ a {
 
 .priceTag2 {
     font-weight: 600;
-    font-size: 30px;
+    font-size: 22px;
     color: #e64949;
-    padding-left: 50px !important;
+    left: 35px;
+    top: 5px;
 }
 
 .logInMobile {
@@ -1039,7 +1046,7 @@ a {
 }
 
 .mobileProgressSearchBar{
-    margin-left: 85px;
+    margin-left: 35px;
 }
 
 .poofMobileLogo{

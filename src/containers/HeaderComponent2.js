@@ -159,7 +159,7 @@ class Header2 extends Component {
                         
                             <div className="searchboot col-sm-6 col-md-4">
                                 <form className="form-inline" onSubmit={this.handleSubmit}>
-                                    <div style={{backgroundColor: "white", borderRadius: "5px"}} className="input-group inputBox">
+                                    <div style={{backgroundColor: "white", borderRadius: "5px"}} className="input-group inputBox3">
                                         <input id="search" type="search" onChange={this.handleChange} value={this.state.value} required className="form-control searchboot2" placeholder="Search Item" aria-label="Search Item" aria-describedby="basic-addon1"></input>
                                         <div className="input-group-prepend" onClick={this.handleSubmit}>
                                             <span className="input-group-text" style={{paddingLeft: "20px"}} id="basic-addon1"><i style={{position:"absolute", right: "3px"}} className="material-icons">search</i></span>
@@ -169,7 +169,7 @@ class Header2 extends Component {
                             </div>
 
                         :
-                            <div className="col-6 col-sm-2 col-md-3 mobileSearchProgress">
+                            <div className="col-7 col-sm-2 col-md-3 mobileSearchProgress">
                                 <div className="progress progressBar">
                                     <div className="indeterminate indeterminateBar"></div>
                                 </div>
