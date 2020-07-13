@@ -1072,7 +1072,7 @@ a {
   }
   
   .progress-value-mobile {
-    animation: load 3s normal forwards;
+    animation: load 1.5s normal forwards;
     box-shadow: 0 10px 40px -10px #fff;
     border-radius: 100px;
     background: #fff;
@@ -1101,7 +1101,7 @@ a {
   }
   
   .progress-value-mobileSearchPage {
-    animation: loadSearch 3s normal forwards;
+    animation: loadSearch 1.5s normal forwards;
     box-shadow: 0 10px 40px -10px #fff;
     border-radius: 100px;
     background: #fff;

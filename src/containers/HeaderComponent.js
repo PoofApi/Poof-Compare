@@ -227,7 +227,7 @@ class Header extends Component {
                     </div>
                     
                     {
-                    !this.state.loading ? 
+                    this.state.loading ? 
                     
                         <div className="col-10 col-sm-8 col-md-4 mobileProgressSearchBar">
                             <div style={{fontSize: "20px", color: "white", textAlign: "center"}}>
