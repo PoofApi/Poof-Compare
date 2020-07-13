@@ -6,6 +6,7 @@ import '../App.css';
 import Modal from './Modal.js';
 import Modal2 from './Modal2.js';
 import piggy3 from '../images/piggy3.jpg';
+import loadingBarBrown from '../images/loadingBarBrown.gif';
 import {store} from '../index.js';
 import * as types from '../constants/types';
 import Loading from './LoadingComponent.js';
@@ -226,14 +227,14 @@ class Header extends Component {
                     </div>
                     
                     {
-                    this.state.loading ? 
+                    !this.state.loading ? 
                     
                         <div className="col-10 col-sm-8 col-md-4 mobileProgressSearchBar">
                             <div style={{fontSize: "20px", color: "white", textAlign: "center"}}>
                                 Just one moment while Poof! finds you the best deals!....
                             </div>
-                            <div className="progress">
-                                <div className="indeterminate"></div>
+                            <div className="progressMobile">
+                                <div className="progress-value-mobile"></div>
                             </div>
                         </div>                   
                     

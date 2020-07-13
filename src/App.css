@@ -74,8 +74,12 @@ input::placeholder{
         margin-top: 12px !important;
     }
 
-    .jumbo{
+    /* .jumbo{
         height: 744px;
+    } */
+
+    .jumbo{
+        height: 100vh;
     }
 
     .comparePicHolder{
@@ -1037,7 +1041,7 @@ a {
     height: 92% !important;
     width: 146% !important;
     opacity: 0.38;
-    top: 8%;
+    top: 7%;
     left: -14%;
 }
 
@@ -1057,9 +1061,60 @@ a {
     cursor: pointer;
 }
 
+.progressMobile {
+    background: rgba(255,255,255,0.1);
+    justify-content: flex-start;
+    border-radius: 100px;
+    align-items: center;
+    position: relative;
+    display: flex;
+    margin: 25px 0px;
+  }
+  
+  .progress-value-mobile {
+    animation: load 3s normal forwards;
+    box-shadow: 0 10px 40px -10px #fff;
+    border-radius: 100px;
+    background: #fff;
+    height: 30px;
+    width: 0;
+    animation-iteration-count: infinite;
+  
+  }
+  
+  @keyframes load {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }
 
 
+/*Mobile Search Page*/
 
+
+.progressMobileSearchPage {
+    background: rgba(255,255,255,0.1);
+    justify-content: flex-start;
+    border-radius: 100px;
+    align-items: center;
+    position: relative;
+    display: flex;
+  }
+  
+  .progress-value-mobileSearchPage {
+    animation: loadSearch 3s normal forwards;
+    box-shadow: 0 10px 40px -10px #fff;
+    border-radius: 100px;
+    background: #fff;
+    height: 30px;
+    width: 0;
+    animation-iteration-count: infinite;
+  
+  }
+  
+  @keyframes loadSearch {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }
 
 
 
