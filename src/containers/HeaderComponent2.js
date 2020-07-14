@@ -157,7 +157,7 @@ class Header2 extends Component {
                     </div>
                     {!this.state.loading ? 
                         
-                            <div className="searchboot col-sm-6 col-md-4">
+                            <div className="searchboot col-6 col-sm-6 col-md-4">
                                 <form className="form-inline" onSubmit={this.handleSubmit}>
                                     <div style={{backgroundColor: "white", borderRadius: "5px"}} className="input-group inputBox3">
                                         <input id="search" type="search" onChange={this.handleChange} value={this.state.value} required className="form-control searchboot2" placeholder="Search Item" aria-label="Search Item" aria-describedby="basic-addon1"></input>
@@ -169,7 +169,7 @@ class Header2 extends Component {
                             </div>
 
                         :
-                            <div className="col-8 col-sm-2 col-md-3 mobileSearchProgress">
+                            <div className="col-8 col-sm-2 col-md-7 mobileSearchProgress">
                                 <div className="progressMobileSearchPage">
                                     <div className="progress-value-mobileSearchPage"></div>
                                 </div>
