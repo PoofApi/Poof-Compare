@@ -248,14 +248,22 @@ class Header extends Component {
                     //         </div>
                     //     </form>
                     // </div>
-                        <div className="searchboot col-sm-6 col-md-4">
-                            <form className="form-inline" onSubmit={this.handleSubmit}>
+                        <div className="offset-2 col-11 col-sm-6 col-md-4">
+                            {/* <form className="form-inline" onSubmit={this.handleSubmit}>
                                 <div style={{backgroundColor: "white", borderRadius: "5px"}} className="input-group inputBox">
                                     <input id="search" type="search" onChange={this.handleChange} value={this.state.value} required className="form-control searchboot2" placeholder="Search Products" aria-label="Search Item" aria-describedby="basic-addon1"></input>
                                     <div className="input-group-prepend" onClick={this.handleSubmit}>
                                         <span className="input-group-text" style={{paddingLeft: "20px"}} id="basic-addon1"><i style={{position:"absolute", right: "3px"}} className="material-icons">search</i></span>
                                     </div>
                                 </div>
+                            </form> */}
+                            <form onSubmit={this.handleSubmit} className="mobileSearchForm">
+                                <span>
+                                    <input type="text" onChange={this.handleChange} value={this.state.value} placeholder="Search for products..." name="search"/>
+                                </span>
+                                <span>
+                                    <button onClick={this.handleSubmit} type="submit"><i className="material-icons">search</i></button>
+                                </span>
                             </form>
                         </div>
                 
