@@ -96,7 +96,7 @@ class SaveUserModal extends Component {
                         <div className="row">
                             <div className="input-field col s12">
                                 <input id="userId" type="text" className="validate" type="text" ref={(input) => {this.loginInput = input; }} onChange={this.handleChange} value={this.state.userId} required></input>
-                                <label for="userId">Please provide an email or phone number to link you Poof! account to.</label>
+                                <label for="userId">Please provide an email or phone number to link your Poof! account to.</label>
 
                             </div>
                         </div>
